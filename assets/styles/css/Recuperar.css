@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(140, 140, 140);
+  /*background-image: url(../Imagenes/Imagen-Login.jpg);*/
+  /*background-size: cover;*/
+  /*background-repeat: no-repeat;*/
+}
+
+.Fondo-Blanco {
+  background-color: white;
+  width: 900px;
+  height: 500px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5%;
+}
+
+.Login-Texto {
+  background-color: transparent;
+  color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.Entrada-Datos-1,
+.Entrada-Datos-2,
+.Entrada-Datos-3,
+.Formulario {
+  background-color: transparent;
+}
+.Insertar-Primero,
+.Insertar-Segundo,
+.Insertar-Tercero {
+  position: relative;
+  left: 600px;
+  bottom: 200px;
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  border-radius: 6px;
+  line-height: 1.5;
+  padding: 5px 10px;
+  transition: box-shadow 100ms ease-in, border 100ms ease-in,
+    background-color 100ms ease-in;
+  border: 2px solid #dee1e2;
+  color: rgb(14, 14, 16);
+  background: #dee1e2;
+  display: block;
+  height: 60px;
+  width: 250px;
+  margin-top: 20px;
+
+  :hover {
+    border-color: #ccc;
+  }
+  :focus {
+    border-color: #9147ff;
+    background: #fff;
+  }
+}
+
+.Entrada-Datos-2,
+.Entrada-Datos-3 {
+  display: none;
+}
+
+.Boton-Siguiente,
+.Boton-Codigo,
+.Boton-Cambiar {
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border: none;
+  padding: 0 56px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 7px;
+  background-color: #0070f3;
+  color: white;
+  font-weight: 400;
+  font-size: 16px;
+  box-shadow: 0 4px 14px 0 rgb(0 118 255 / 39%);
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  :hover {
+    background: rgba(0, 118, 255, 0.9);
+    box-shadow: 0 6px 20px rgb(0 118 255 / 23%);
+  }
+  position: relative;
+  left: 620px;
+  bottom: 170px;
+}
+
+.Boton-Codigo,
+.Boton-Cambiar {
+  display: none;
+}
+
+.Iniciar-Sesion-Page {
+  margin-top: 20px;
+  background-color: transparent;
+  position: relative;
+  left: 120px;
+  top: 100px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.Registro_Imagen {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: transparent;
+  left: 100px;
+  top: 100px;
+}

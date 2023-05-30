@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registro</title>
+    <link rel="stylesheet" href="assets/styles/css/Registro.css">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <section>
+        <div class="Fondo-Blanco"> 
+            <h1 class="Login-Texto"> Ingresa tus datos</h1>
+                <form action="" class="Formulario" onsubmit="return false">
+                    <img src="/Images/register.png" class="Registro_Imagen">
+                    <div  class="Entrada-Datos-1">
+                        <input type="text" placeholder="Nombre" class="Insertar-Primero" id="Nombre" //pattern="[a-zA-Z]{1,}" required></input>
+                        <input type="text" placeholder="Apellido" class="Insertar-Primero" id="Apellido"></input>
+                        <input type="email" placeholder="Correo" class="Insertar-Primero" id="Correo"></input>
+                        <input type="number" inputMode="numeric" placeholder="Cedula" class="Insertar-Primero" id="Cedula"></input>
+                        <div class="Genero">
+                            <input type="radio" name="select" id="option-1" checked>
+                            <input type="radio" name="select" id="option-2">
+                              <label for="option-1" class="option option-1">
+                                <div class="dot"></div>
+                                 <span id="Hombre">Hombre</span>
+                                 </label>
+                              <label for="option-2" class="option option-2">
+                                <div class="dot"></div>
+                                 <span id="Mujer">Mujer</span>
+                              </label>
+                        </div>
+
+                    </div>
+                    <div class="Entrada-Datos-2">
+                        <input type="text" placeholder="Direccion" class="Insertar-Segundo" id="Direccion"></input>
+                        <input type="tel" inputMode="numeric" placeholder="+58 xxxx-xxxxxxx" class="Insertar-Segundo" id="Telefono"></input>
+                        <input type="password" placeholder="Contraseña" maxlength="16" class="Insertar-Segundo" id="Contra_1"></input>
+                        <input type="password" placeholder="Repetir Contraseña" maxlength="16" class="Insertar-Segundo" id="Contra_2"></input>
+                        <input type="date" class="Fecha-Insertar" max="2023-12-31"></input>
+                    </div>
+                    <button class="Boton-Siguiente" type="button" onclick="fun_siguiente()">Siguiente</button>
+                    <button class="Boton-Regresar" id="Regreso" onclick="fun_atras()">Regresar</button>
+                    <button class="Boton-Registrarse" onclick="registrar()">Registrarse</button>
+                    <label class="Iniciar-Sesion-Page">Iniciar Sesion</label>
+                </form>
+                
+        </div>
+
+    </section>
+
+
+    <footer>    
+    </footer>
+</body>
+<script src="Scripts/Registro.js" ></script>
+</html>
