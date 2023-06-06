@@ -1,3 +1,5 @@
+alert("soy gay");
+var formulario = document.querySelector(".Formulario");
 var validRegex =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -11,6 +13,12 @@ var Insertar_Telefono = document.querySelector("#Telefono");
 var Insertar_Contra_1 = document.querySelector("#Contra_1");
 var Insertar_Contra_2 = document.querySelector("#Contra_2");
 var Insertar_Fecha = document.querySelector(".Fecha-Insertar");
+
+Insertar_Telefono.addEventListener("keyup", function (e) {
+  if (Event.key != "Backspace" && Insertar_Telefono.value.length === 4) {
+    Insertar_Telefono.value += "-";
+  }
+});
 
 var Fecha_Actual = new Date();
 var Mes_Actual = new Date().getMonth();
@@ -46,11 +54,15 @@ function fun_siguiente() {
     boton_regresar.style.display = "block";
   }
 }
+function fun_atras() {
+  el_first.style.display = "block";
+  el_second.style.display = "none";
+  boton_siguiente.style.display = "block";
+  boton_registrarse.style.display = "none";
+  boton_regresar.style.display = "none";
+}
 
 function registrar() {
-  var Año_Nacimiento = parseInt(String(Insertar_Fecha.value).substring(0, 4));
-  var Mes_Nacimiento = parseInt(String(Insertar_Fecha.value).substring(5, 7));
-  var Dia_Nacimiento = parseInt(String(Insertar_Fecha.value).substring(8, 10));
   if (
     Insertar_Direccion.value == null ||
     Insertar_Direccion.value === "" ||
@@ -78,17 +90,30 @@ function registrar() {
     alert("Debe Incluir una Numero");
   } else if (Insertar_Contra_1.value !== Insertar_Contra_2.value) {
     alert("Las contraseñas no concuerdan");
-  } else if (Año_Nacimiento > 2005 || Año_Nacimiento < 1925) {
-    alert("No cumples la edad requerida");
   } else {
     alert("Ingresaste seccion");
-  }
-}
+    console.log("me diste click");
+    var datos = new FormData(formulario);
+    console.log(datos.get("Nombre"));
+    console.log(datos.get("Apellido"));
+    console.log(datos.get("Correo"));
+    console.log(datos.get("Cedula"));
+    console.log(datos.get("Direccion"));
+    console.log(datos.get("Telefono"));
+    console.log(datos.get("Contra"));
+    console.log(datos.get("Fecha"));
 
-function fun_atras() {
-  el_first.style.display = "block";
-  el_second.style.display = "none";
-  boton_siguiente.style.display = "block";
-  boton_registrarse.style.display = "none";
-  boton_regresar.style.display = "none";
+    fetch("php/registrar.php", {
+      method: "POST",
+      body: datos,
+    })
+      .then((res) => res.json)
+      .then((data) => {
+        if (data == "true") {
+          Insertar_Nombre.value = "";
+          alert("El usuario se inserto correctamente");
+        }
+        console.log(data);
+      });
+  }
 }
