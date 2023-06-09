@@ -15,15 +15,15 @@
         <div class="Fondo-Blanco"> 
             <h1 class="Login-Texto"> Ingresa tus datos</h1>
                 <form class="Formulario" onsubmit="return false">
-                    <img src="/Images/register.png" class="Registro_Imagen">
+                    <img src="Images/register.png" class="Registro_Imagen">
                     <div  class="Entrada-Datos-1">
                         <input type="text" placeholder="Nombre" class="Insertar-Primero" id="Nombre" name="Nombre" //pattern="[a-zA-Z]{1,}" required></input>
                         <input type="text" placeholder="Apellido" class="Insertar-Primero" id="Apellido" name="Apellido"></input>
                         <input type="email" placeholder="Correo" class="Insertar-Primero" id="Correo" name="Correo"></input>
                         <input type="number" maxlength="10" inputMode="numeric" placeholder="Cedula" class="Insertar-Primero" id="Cedula" name="Cedula"></input>
                         <div class="Genero">
-                            <input type="radio" name="select" id="option-1" checked>
-                            <input type="radio" name="select" id="option-2">
+                            <input type="radio" name="Genero" id="option-1" value="M" checked>
+                            <input type="radio" name="Genero" id="option-2" value="F">
                               <label for="option-1" class="option option-1">
                                 <div class="dot"></div>
                                  <span id="Hombre">Hombre</span>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <button class="Boton-Siguiente" type="button" onclick="fun_siguiente()">Siguiente</button>
-                    <form action="" class="Formulario" method="POST" onsubmit="return false">
+                    <form class="Formulario" method="POST" onsubmit="return false">
                         <div class="Entrada-Datos-2">
                             <input type="text" placeholder="Direccion" class="Insertar-Segundo" id="Direccion" name="Direccion" maxlength="15"></input>
                             <input type="tel" inputMode="numeric" placeholder="+58 xxxx-xxxxxxx" class="Insertar-Segundo" id="Telefono" name="Telefono"></input>
@@ -49,6 +49,7 @@
                     </form>
                 
         </div>
+        <div id="res"></div>
         <script src="Scripts/registro.js"></script>
 
     </section>
