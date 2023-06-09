@@ -39,14 +39,14 @@
   <br>
   <div class="Fondo-Blanco"> 
             <h1 class="Login-Texto"> Ingresa tus datos</h1>
-                <form action="" class="Formulario">
-                        <input type="number" inputMode="numeric" placeholder="Cedúla" id="Cedula" required placeholder="Ingrese Cedula" oninvalid="setCustomValidity('Ingrese Cedula')"
+                <form class="Formulario" method="POST" onsubmit="return false">
+                        <input type="number" inputMode="numeric" placeholder="Cedúla" id="Cedula" name="Cedula" required placeholder="Ingrese Cedula" oninvalid="setCustomValidity('Ingrese Cedula')"
                         oninput="this.setCustomValidity('')"></input>
-                        <input type="password" placeholder="Contraseña" id="Contraseña" required placeholder="Ingrese Contraseña" oninvalid="setCustomValidity('Ingrese Contraseña')"
+                        <input type="password" placeholder="Contraseña" id="Contraseña" name="Contra"required placeholder="Ingrese Contraseña" oninvalid="setCustomValidity('Ingrese Contraseña')"
                         oninput="this.setCustomValidity('')"></input>
                       
                         
-                    <button class="Boton-Iniciar"  onclick="Iniciar_Sesion()">Iniciar Sesión</button>
+                    <button class="Boton-Iniciar" type="submit" onclick="Iniciar_Sesion()">Iniciar Sesión</button>
                     <button class="Boton-Registrar"> Registrarse</button>
                     <a class="Recuperar" href="">¿Olvidaste tú contraseña? </a>
                
@@ -97,7 +97,7 @@
           </div>
   </footer>
 
-
+  <script src="Scripts/login.js"></script>
     
 </body>
 </html>

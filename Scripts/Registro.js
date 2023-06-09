@@ -1,4 +1,3 @@
-alert("soy gay");
 var formulario = document.querySelector(".Formulario");
 var validRegex =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -7,12 +6,17 @@ var Insertar_Nombre = document.querySelector("#Nombre");
 var Insertar_Apellido = document.querySelector("#Apellido");
 var Insertar_Correo = document.querySelector("#Correo");
 var Insertar_Cedula = document.querySelector("#Cedula");
+var Insertar_Genero = document.querySelector(".Genero");
+var Genero_M = document.querySelector("#option-1");
+var Genero_F = document.querySelector("#option-2");
 
 var Insertar_Direccion = document.querySelector("#Direccion");
 var Insertar_Telefono = document.querySelector("#Telefono");
 var Insertar_Contra_1 = document.querySelector("#Contra_1");
 var Insertar_Contra_2 = document.querySelector("#Contra_2");
 var Insertar_Fecha = document.querySelector(".Fecha-Insertar");
+
+let res = document.querySelector("#res");
 
 Insertar_Telefono.addEventListener("keyup", function (e) {
   if (Event.key != "Backspace" && Insertar_Telefono.value.length === 4) {
@@ -44,7 +48,9 @@ function fun_siguiente() {
   ) {
     alert("Falta campos por rellenar");
   } else if (!Insertar_Correo.value.match(validRegex)) {
-    alert("Invalid email address!");
+    alert("Correo Invalido!");
+  } else if (Insertar_Cedula.value.length > 11) {
+    alert("La cedula no puede ser mayor de 11 digitos");
   } else {
     alert("Siguiente fase");
     el_first.style.display = "none";
@@ -62,6 +68,16 @@ function fun_atras() {
   boton_regresar.style.display = "none";
 }
 
+Insertar_Genero.addEventListener("click", (e) => {
+  if (Genero_M.checked == true) {
+    Gen = Genero_M.value;
+    console.log(Gen);
+  } else if (Genero_F.checked == true) {
+    Gen = Genero_F.value;
+    console.log(Gen);
+  }
+});
+
 function registrar() {
   if (
     Insertar_Direccion.value == null ||
@@ -76,8 +92,11 @@ function registrar() {
     Insertar_Fecha.value === ""
   )
     alert("Faltan campos por rellenar");
-  else if (Insertar_Telefono.value.search == /[A-Z]/) {
-    alert("No se puede insertar letras");
+  else if (
+    Insertar_Telefono.value.search == /[A-Z]/ ||
+    Insertar_Telefono.value.length > 15
+  ) {
+    alert("Error en el numero telefonico");
   } else if (Insertar_Contra_1.value.length < 8) {
     alert("Contraseña menor a 8 caracteres");
   } else if (Insertar_Contra_1.value.length > 16) {
@@ -91,13 +110,12 @@ function registrar() {
   } else if (Insertar_Contra_1.value !== Insertar_Contra_2.value) {
     alert("Las contraseñas no concuerdan");
   } else {
-    alert("Ingresaste seccion");
-    console.log("me diste click");
     var datos = new FormData(formulario);
     console.log(datos.get("Nombre"));
     console.log(datos.get("Apellido"));
     console.log(datos.get("Correo"));
     console.log(datos.get("Cedula"));
+    console.log(datos.get("Genero"));
     console.log(datos.get("Direccion"));
     console.log(datos.get("Telefono"));
     console.log(datos.get("Contra"));
@@ -107,13 +125,17 @@ function registrar() {
       method: "POST",
       body: datos,
     })
-      .then((res) => res.json)
-      .then((data) => {
-        if (data == "true") {
-          Insertar_Nombre.value = "";
-          alert("El usuario se inserto correctamente");
-        }
+      .then(res => res.json())
+      .then(data => {
         console.log(data);
+        if (data === "1") {
+          alert("Ya existe el usuario");
+        } else if (data === "2") {
+          alert(
+            "Te has registrado correctamente en el sistema, procede a iniciar sesion"
+          );
+          window.location.href = "../index.html";
+        }
       });
   }
 }

@@ -1,12 +1,18 @@
 <?php
 
-$conexion=mysqli_connect("localhost","root","root","prueba");
-
-if (!$conexion){
-    die("No se pudo conectar".mysqli_error);
+try{
+    $conectar=new PDO('mysql:host=localhost;port=3306;dbname=prueba','root','');
+    $conectar->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $conectar->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
+    $conectar->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
 }
-echo "conexion exitosa";
-    mysqli_close($conexion);
 
+
+
+catch(PDOException $error){
+    echo $error->getMessage();
+    die;
+
+}
 
 ?>
