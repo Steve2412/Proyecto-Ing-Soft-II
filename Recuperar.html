@@ -3,6 +3,7 @@
 <head>
     <title>Recuperar</title>
     <link rel="stylesheet" href="assets/styles/css/Recuperar.css">
+    <script src="https://smtpjs.com/v3/smtp.js" ></script>
 </head>
 <body>
     <header>
@@ -12,22 +13,22 @@
     <section>
         <div class="Fondo-Blanco"> 
             <h1 class="Login-Texto"> Ingresa tus datos</h1>
-                <form action="" class="Formulario">
-                    <img src="/Images/synchronize.png" class="Registro_Imagen">
+                <form class="Formulario" method="post">
+                    <img src="Images/synchronize.png" class="Registro_Imagen">
                     <div  class="Entrada-Datos-1">
-                        <input type="email" placeholder="Correo" class="Insertar-Primero" id="Correo"></input>
+                        <input type="email" placeholder="Correo" class="Insertar-Primero" id="Correo" name="Correo"></input>
                     </div>
                     <div class="Entrada-Datos-2">
                         <input type="number" placeholder="Ingresa Codigo" class="Insertar-Segundo" id="Codigo"></input>
                     </div>
                     <div class="Entrada-Datos-3">
-                        <input type="password" placeholder="Ingresa nueva contraseña" class="Insertar-Tercero" id="Contraseña-Nueva">
-                        <input type="password" placeholder="Ingresa nueva contraseña" class="Insertar-Tercero" id="Contraseña-Nueva">
+                        <input type="password" placeholder="Ingresa nueva contraseña" class="Insertar-Tercero" id="Contraseña-Nueva_1" name="Contra">
+                        <input type="password" placeholder="Ingresa nueva contraseña" class="Insertar-Tercero" id="Contraseña-Nueva_2">
 
                     </div>
                     <button class="Boton-Siguiente" type="button" onclick="fun_siguiente()">Siguiente</button>
                     <button class="Boton-Codigo" type="button" onclick="fun_Codigo()">Verificar Codigo</button>
-                    <button class="Boton-Cambiar">Cambiar Contraseña</button>
+                    <button class="Boton-Cambiar" type="button" onclick="fun_Cambio()">Cambiar Contraseña</button>
                 </form>
                 
         </div>
@@ -38,5 +39,5 @@
     <footer>    
     </footer>
 </body>
-<script src="Scripts/Recuperar.js" ></script>
+<script src="Scripts/recuperar.js" ></script>
 </html>
