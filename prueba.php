@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+if(!isset($_SESSION['usuario'])){
+  echo '<script language="javascript">ç
+  alert("Iniciar sesion");
+  window.location = "index.html"
+  </script>';
+  die();
+  session_destroy(); 
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
