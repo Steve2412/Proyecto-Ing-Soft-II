@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 require "conexion.php";
 
 $cedula = isset($_POST['Cedula']) ? $_POST["Cedula"] : "";
@@ -15,6 +17,7 @@ if($result>0){
     $pdo->execute([$contra]);
     $result = $pdo->fetchColumn();
     if($result>0){
+        $_SESSION['usuario']=$cedula;
         echo json_encode("1");
     }
     else{
