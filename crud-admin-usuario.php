@@ -8,12 +8,16 @@
 </head>
 <body>
     <div class="container my-9">
+        <form action="php/exportar-alumnos.php" method="post" class="mb-2">
+            <input type="submit" name="submit" class="btn btn-outline-danger" value="Exportar PDF">
+
+        </form>
         <form method="GET   ">
             <input type="text" class="form-control me-2" id="getData" placeholder="Buscar estudiante" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search'];}?>">
             <button class="btn btn-dark btn-sm"> Buscar</button>
         </form>
         <h2>Lista Estudiantes</h2>  
-        <a class="btn btn-primary" role="button" href="Registro.html" name="sumbit">Nuevo Estudiante</a>
+        <a class="btn btn-primary" role="button" href="crud-admin-usuario-crear.php" name="sumbit">Nuevo Estudiante</a>
         <br>
         <table class="table">
             <thead>
@@ -55,7 +59,7 @@
                         <td>$row[fech_naci_user]</td>
                         <td>$row[sexo_user]</td>
                         <td>
-                            <a class='btn btn-primary btn-sm'>Editar</a>
+                            <a class='btn btn-primary btn-sm' href='crud-admin-usuario-editar.php?editarid=$row[cedu_user]'>Editar</a>
                             <a class='btn btn-danger btn-sm' href='php/eliminar.php?deleteid=$row[cedu_user]'>Eliminar</a>
                         </td>
                     </tr>
@@ -78,8 +82,9 @@
                         <td>$row[fech_naci_user]</td>
                         <td>$row[sexo_user]</td>
                         <td>
-                            <a class='btn btn-primary btn-sm'>Editar</a>
-                            <a class='btn btn-danger btn-sm' href='php/eliminar.php?deleteid=$row[cedu_user]'>Eliminar</a>
+                            <a class='btn btn-primary btn-sm' href='crud-admin-usuario-editar.php?editarid=$row[cedu_user]'
+                            >Editar</a>
+                            <a class='btn btn-danger btn-sm' href='php/eliminar.php?deleteid=$row[cedu_user]' onclick='return checkdelete();'>Eliminar</a>
                         </td>
                     </tr>
                 ";
@@ -93,15 +98,12 @@
         </table>
 
     </div>
-
-    <script>
-        
-        $(document).ready(function(){
-        $("#getData".on("keyup",function(){
-                
-            }))
-        });
-    </script>
     
 </body>
+
+    <script>
+    function checkdelete(){
+        return confirm('¿Estas seguro deseas borrar este usuario?');
+    }
+    </script>
 </html>

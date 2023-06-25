@@ -37,7 +37,7 @@
       <br>
       <br>
 
-    <section>
+
         <div class="Fondo-Blanco"> 
             <h1 class="Login-Texto"> Ingresa tus datos</h1>
                 <form class="Formulario" onsubmit="return false">
@@ -63,22 +63,23 @@
                     <button class="Boton-Siguiente" type="button" onclick="fun_siguiente()">Siguiente</button>
                     <form class="Formulario" method="POST" onsubmit="return false">
                         <div class="Entrada-Datos-2">
+                            
                             <input type="text" placeholder="Direccion" class="Insertar-Segundo" id="Direccion" name="Direccion" maxlength="15"></input>
                             <input type="tel" inputMode="numeric" placeholder="+58 xxxx-xxxxxxx" class="Insertar-Segundo" id="Telefono" name="Telefono"></input>
                             <input type="password" placeholder="Contraseña" maxlength="16" class="Insertar-Segundo" id="Contra_1" name="Contra"></input>
-                            <input type="password" placeholder="Repetir Contraseña" maxlength="16" class="Insertar-Segundo" id="Contra_2"></input>
-                            <input type="date" class="Fecha-Insertar" max="2023-12-31" name="Fecha"></input>
-                        </div>
+                            <input type="password" placeholder="Repetir Contraseña" maxlength="16" class="Insertar-Segundo" id="Contra_2"></input>    
+                            <input type="date" class="Insertar-Segundo"  name="Fecha"></input>
+                       
+                          </div>
                         <button class="Boton-Regresar" id="Regreso" onclick="fun_atras()">Regresar</button>
                         <button type="submit" class="Boton-Registrarse" onclick="registrar()">Registrarse</button>
-                        <label class="Iniciar-Sesion-Page">Iniciar Sesion</label>
+                    
                     </form>
                 
         </div>
         <div id="res"></div>
         <script src="Scripts/registro.js" ></script>
 
-    </section>
 
 
     <footer class="footer">
@@ -106,7 +107,7 @@
               <h4>Registrarse</h4>
               <ul class="ul-foo">
                 <li><a href="#" class="a-foo">Registrarse</a></li>
-                <li><a href="#" class="a-foo">Iniciar Secion</a></li>
+                <li><a href="#" class="a-foo">Iniciar Sesión</a></li>
                 <li><a href="#" class="a-foo">Plataforma online</a></li>
               </ul>
             </div>

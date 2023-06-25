@@ -8,11 +8,18 @@
   /*background-repeat: no-repeat;*/
 }
 
+html,
+body {
+  height: 100%;
+}
+
 .Fondo-Blanco {
-  background-color: #000;
+  
+  background-color: #24252a;
   width: 55em;
-  height: 32em;
-  margin-top: 30%;
+  height: 38em;
+  margin-top: 10%;
+  margin-bottom: 7%;
   position: relative;
   top: 35%;
   left: 50%;
@@ -22,7 +29,7 @@
 
 .Login-Texto {
   background-color: transparent;
-  color: black;
+  color: #fff;
   display: flex;
   justify-content: center;
 }
@@ -33,13 +40,15 @@
 .wrapper {
   background-color: transparent;
 }
+
+
 input[type="date"] {
   background-color: #0080ff;
   padding: 15px;
   width: 250px;
   position: relative;
-  left: 600px;
-  bottom: 200px;
+  left: 30.4em;
+  bottom: 16em;
   color: #ffffff;
   font-size: 18px;
   border: none;
@@ -52,19 +61,18 @@ input[type="date"] {
   cursor: pointer;
   border-radius: 3px;
 }
-.Insertar-Primero,
-.Insertar-Segundo {
+.Insertar-Primero,.Insertar-Segundo  {
   position: relative;
-  left: 30em;
-  bottom: 11em;
+  left: 39em;
+  bottom: 20em;
   display: flex;
   justify-content: center;
-  font-size: 18px;
+  font-size: 14px;
   border-radius: 6px;
   line-height: 1.5;
   padding: 5px 10px;
   transition: box-shadow 100ms ease-in, border 100ms ease-in,
-    background-color 100ms ease-in;
+  background-color 100ms ease-in;
   border: 2px solid #dee1e2;
   color: rgb(14, 14, 16);
   background: #dee1e2;
@@ -72,15 +80,15 @@ input[type="date"] {
   height: 60px;
   width: 250px;
   margin-top: 20px;
-
-  :hover {
+}
+:hover {
     border-color: #ccc;
   }
-  :focus {
+:focus {
     border-color: #9147ff;
     background: #fff;
-  }
 }
+
 
 .Entrada-Datos-2 {
   display: none;
@@ -96,6 +104,7 @@ input[type="date"] {
   margin-top: 10px;
   padding: 0px 56px;
   height: 45px;
+
   line-height: 45px;
   border-radius: 7px;
   background-color: #0070f3;
@@ -103,20 +112,17 @@ input[type="date"] {
   font-weight: 400;
   font-size: 18px;
   box-shadow: 0 4px 14px 0 rgb(0 118 255 / 39%);
-  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 
 }
-  :hover {
-    background: rgba(0, 118, 255, 0.9);
-    box-shadow: 0 6px 20px rgb(0 118 255 / 23%);
-  }
 
 
-.Boton-Registrarse,
+
+
 .Boton-Siguiente {
   position: relative;
-  left: 620px;
-  bottom: 210px;
+  left: 32.4em;
+  bottom: 14em;
 }
 
 .Boton-Registrarse,
@@ -124,10 +130,19 @@ input[type="date"] {
   display: none;
 }
 
+.Boton-Registrarse{
+ margin-top: 10px ;
+ position: relative;
+ left: 31.5em;
+ bottom: 19em;
+
+}
+
 .Boton-Regresar {
   position: relative;
-  left: 400px;
-  bottom: 165px;
+  left: 31.5em;
+  bottom: 12em;
+  width: 11.4em;
 }
 
 .Iniciar-Sesion-Page {
@@ -146,8 +161,8 @@ input::-webkit-inner-spin-button {
 
 .Registro_Imagen {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   background-color: transparent;
   left: 100px;
   top: 100px;
@@ -162,8 +177,8 @@ input::-webkit-inner-spin-button {
   width: 300px;
   align-items: center;
   position: relative;
-  left: 33em;
-  bottom: 215px;
+  left: 32.6em;
+  bottom: 17em;
   justify-content: space-evenly;
   border-radius: 5px;
   padding: 20px 25px;
@@ -203,6 +218,8 @@ input::-webkit-inner-spin-button {
   transition: all 0.3s ease;
 }
 
+
+
 input[type="radio"] {
   display: none;
 }
@@ -228,4 +245,199 @@ input[type="radio"] {
 #option-1:checked:checked ~ .option-1 span,
 #option-2:checked:checked ~ .option-2 span {
   color: #fff;
+}
+
+@media screen and (max-width: 912px) {
+  .Fondo-Blanco {
+    width: 90%;
+    margin-bottom: 30%;
+    bottom: 10em;
+  }
+
+  .Registro_Imagen{
+
+      left: 10%;
+
+  }
+
+  .Insertar-Primero,.Insertar-Segundo {
+
+    left: 32em;
+
+  }
+
+  .Genero{
+
+    left: 26.5em;
+
+  }
+
+  .Boton-Siguiente{
+
+      left: 26.5em;
+
+  }
+
+  .Boton-Regresar{
+
+    left: 26em;
+
+
+  }
+
+  .Boton-Registrarse{
+
+   left: 26em;
+
+  }
+
+  input[type="date"] {
+
+    left: 24.9em;
+
+  }
+
+
+  
+}
+
+@media screen and (max-width: 784px) {
+  .Fondo-Blanco {
+    width: 80%;
+    margin-top: 15%;
+  }
+
+  .Registro_Imagen{
+
+    width: 250px;
+
+    height: 300px;
+
+    left: 5%;
+
+}
+
+.Insertar-Primero,.Insertar-Segundo {
+
+  left: 50%;
+
+  width: 18em;
+
+}
+
+.Genero{
+
+  left: 50%;
+
+  width: 250px;
+
+}
+
+.Boton-Siguiente{
+
+  left: 55%;
+
+
+}
+
+.Boton-Regresar{
+
+  left: 53%;
+
+
+}
+
+.Boton-Registrarse{
+
+ left: 53%;
+
+}
+
+input[type="date"] {
+
+  left: 50%;
+
+}
+
+
+
+
+}
+
+
+@media screen and (max-width: 690px) {
+  .Fondo-Blanco {
+    width: 20em;
+    margin-top: 70%;
+    height: 55em;
+  }
+  .Registro_Imagen{
+
+    width: 150px;
+
+    height: 200px;
+
+    left: 29%;
+
+    bottom: 16em;
+
+}
+
+.Insertar-Primero,.Insertar-Segundo {
+
+  left: 10%;
+  top: 10em;
+  width: 18em;
+  height: 3.5em;
+
+}
+
+
+
+.Boton-Siguiente{
+
+  left: 20%;
+  top: 7em;
+
+
+}
+
+.Boton-Regresar{
+
+  left: 19%;
+  top: 11em;
+
+
+
+}
+
+.Boton-Registrarse{
+
+  left: 19%;
+  top: 5em;
+
+
+}
+
+.Genero{
+
+  left: 10.5%;
+
+  top: 7.5em;
+
+}
+
+input[type="date"] {
+
+  left: 10.5%;
+
+  top: 7.5em;
+
+}
+
+
+
+
+
+
 }

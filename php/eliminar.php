@@ -5,7 +5,8 @@ if(isset($_GET['deleteid'])){
 
     $pdo= $conectar->prepare("DELETE FROM usuario WHERE cedu_user =?");
     $pdo->execute([$id]);
-    echo "eliminado";
+    '<script language="javascript">alert("Usuario Eliminado Exitosamente");</script>';
+    echo "<script> location.href='../crud-admin-usuario.php' </script>";
 }
 
 
