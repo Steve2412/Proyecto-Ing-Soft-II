@@ -13,6 +13,7 @@ foreach ($result as $row){
     $Numero = $row['numer_user'];
     $Contra = $row['contra_user'];
     $Fecha = $row['fech_naci_user'];
+    $Rol = $row['rol'];
 }
 
 ?>
@@ -23,7 +24,7 @@ foreach ($result as $row){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <title>Document</title>
+    <title>Editar Usuario <?php echo $Nombre?></title>
 </head>
 <body>
     <div class="container my-9">
@@ -92,6 +93,16 @@ foreach ($result as $row){
                 <label class="col-sm-3 col-form-label">Fecha Nacimiento</label>
                 <div class="col-sm-6">
                         <input type="date" id="Fecha-Insertar" name="Fecha" class="input-group date" value=<?php echo $Fecha;?>>
+                </div>
+            </div>
+
+            <div class="row mb-3" id="Rol">
+                <label class="col-sm-3 col-form-label">Rol usuario</label>
+                <div class="col-sm-6">
+                    <input type="radio" class="form-check-input" name="Rol" id="option-a" value="Edu" <?php echo ($Rol=='Edu')?'checked':'' ?>>
+                    <label class="form-check-label" for="option-1">Estudiante</label> 
+                    <input type="radio" class="form-check-input" name="Rol" id="option-b" value="Admin" <?php echo ($Rol=='Admin')?'checked':'' ?>
+                    <label class="form-check-label" for="option-2">Administrador</label> 
                 </div>
             </div>
         </form>

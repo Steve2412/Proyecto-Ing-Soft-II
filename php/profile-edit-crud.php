@@ -9,9 +9,8 @@ $telefono = isset($_POST['Telefono']) ? $_POST["Telefono"] : "";
 $contra = isset($_POST['Contra']) ? $_POST["Contra"] : "";
 $fecha = isset($_POST['Fecha']) ? $_POST["Fecha"] : "";
 $gen = isset($_POST['Genero']) ? $_POST["Genero"] : "";
-$rol = isset($_POST['Rol']) ? $_POST["Rol"] : "";
 
 $pdo= $conectar->prepare ("UPDATE usuario SET cedu_user = '$cedula',nomb_user = '$nombre',apelli_user = '$apellido',correo_user = '$correo',
-contra_user = '$contra', dirre_user = '$direccion',numer_user = '$telefono',fech_naci_user = '$fecha',sexo_user = '$gen',rol='$rol' WHERE cedu_user = '$cedula'");
+contra_user = '$contra', dirre_user = '$direccion',numer_user = '$telefono',fech_naci_user = '$fecha',sexo_user = '$gen' WHERE cedu_user = '$cedula'");
 $pdo->execute();
 echo json_encode("2");
