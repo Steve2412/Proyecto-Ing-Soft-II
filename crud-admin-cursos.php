@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container my-9">
-        <form action="php/exportar-usuarios.php" method="post" class="mb-2">
+        <form action="php/reporte-cursos.php" method="post" class="mb-2">
             <input type="submit" name="submit" class="btn btn-outline-danger" value="Exportar PDF">
 
         </form>

@@ -1,15 +1,19 @@
 <?php
+date_default_timezone_set('America/Caracas');
+$currentDate = date('d-m-Y');
+$currentHour = date('H:i');
 require "conexion.php";
 require_once '../dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
 extract($_POST);
 
 if(isset($submit)){
-    $query = "SELECT usuario_has_cursos FROM usuario";
+    $query = "SELECT * FROM usuario";
     $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
     $html = '';
     $html .= '
         <h2 align="center">Datos Alumnos de Corserca</h2>
+        <div align="center">Reporte del dia '.$currentDate.' a las '.$currentHour.'</div>
         <table style="width:100%; border-collapse:collapse;">
             <tr>
                 <th style="border:1px solid #ddd; padding:8px; text-align:center;">Cedula</th>
@@ -44,7 +48,9 @@ if(isset($submit)){
     $dompdf->loadHtml($html);
     $dompdf->setPaper("A4","landscape");
     $dompdf->render();
-    $dompdf->stream("alumnos.pdf");
+    $canvas = $dompdf->get_canvas(); 
+    $canvas->page_text(400, 570, "Página: {PAGE_NUM} de {PAGE_COUNT}",null, 13, array(0,0,0)); 
+    $dompdf->stream("usuarios.pdf");
 
 }
 ?>

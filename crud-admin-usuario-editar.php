@@ -28,7 +28,7 @@ foreach ($result as $row){
 </head>
 <body>
     <div class="container my-9">
-        <h2>Nuevo Usuario</h2>
+        <h2>Editar <?php echo $Nombre?> </h2>
         <form id="Formulario">
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Nombre</label>

@@ -49,30 +49,30 @@ foreach ($result as $row){
 
 $split_1 = array_map(
    function($value) {
-       return implode('+', $value);
+       return implode('º', $value);
    },
-   array_chunk(explode('+', $tema1_desc_cur), 1)
+   array_chunk(explode('º', $tema1_desc_cur), 1)
 );
 
 $split_2 = array_map(
    function($value) {
-       return implode('+', $value);
+       return implode('º', $value);
    },
-   array_chunk(explode('+', $tema2_desc_cur), 1)
+   array_chunk(explode('º', $tema2_desc_cur), 1)
 );
 
 $split_3 = array_map(
    function($value) {
-       return implode('+', $value);
+       return implode('º', $value);
    },
-   array_chunk(explode('+', $tema3_desc_cur), 1)
+   array_chunk(explode('º', $tema3_desc_cur), 1)
 );
 
 $split_4 = array_map(
    function($value) {
-       return implode('+', $value);
+       return implode('º', $value);
    },
-   array_chunk(explode('+', $tema4_desc_cur), 1)
+   array_chunk(explode('º', $tema4_desc_cur), 1)
 );
 
 ?>

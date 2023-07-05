@@ -137,13 +137,6 @@ foreach ($result as $row){
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label"style="font-size:30px">Cedula</label>
-                <div class="col-sm-6">
-                        <input type="text" class="form-control"style="font-size:25px" maxlength="10" inputMode="numeric" placeholder="Cedula" id="Cedula" name="Cedula" value=<?php echo $usuario;?>> 
-                </div>
-            </div>
-
             <div class="row mb-3" id="Genero">
                 <label class="col-sm-3 col-form-label"style="font-size:30px">Genero</label>
                 <div class="col-sm-6">
@@ -165,13 +158,6 @@ foreach ($result as $row){
                 <label class="col-sm-3 col-form-label"style="font-size:30px">Telefono</label>
                 <div class="col-sm-6">
                         <input type="text" class="form-control"style="font-size:25px" inputMode="numeric" placeholder="+58 xxxx-xxxxxxx" id="Telefono" name="Telefono" value=<?php echo $Numero;?>>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label"style="font-size:30px">Contraseña</label>
-                <div class="col-sm-6">
-                        <input type="password" class="form-control"style="font-size:25px" placeholder="Contraseña" maxlength="16" id="Contra" name="Contra" value=<?php echo $Contra;?>>
                 </div>
             </div>
 

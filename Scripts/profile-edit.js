@@ -5,14 +5,12 @@ var validRegex =
 var Insertar_Nombre = document.querySelector("#Nombre");
 var Insertar_Apellido = document.querySelector("#Apellido");
 var Insertar_Correo = document.querySelector("#Correo");
-var Insertar_Cedula = document.querySelector("#Cedula");
 var Insertar_Genero = document.querySelector("#Genero");
 var Genero_M = document.querySelector("#option-1");
 var Genero_F = document.querySelector("#option-2");
 
 var Insertar_Direccion = document.querySelector("#Direccion");
 var Insertar_Telefono = document.querySelector("#Telefono");
-var Insertar_Contra = document.querySelector("#Contra");
 var Insertar_Fecha = document.querySelector("#Fecha-Insertar");
 
 let res = document.querySelector("#res");
@@ -56,37 +54,21 @@ function registrar() {
     Insertar_Apellido.value === "" ||
     Insertar_Correo.value == null ||
     Insertar_Correo.value === "" ||
-    Insertar_Cedula.value == null ||
-    Insertar_Cedula.value === "" ||
     Insertar_Direccion.value == null ||
     Insertar_Direccion.value === "" ||
     Insertar_Telefono.value == null ||
     Insertar_Telefono.value === "" ||
-    Insertar_Contra.value == null ||
-    Insertar_Contra.value === ""||
     Insertar_Fecha.value == null ||
     Insertar_Fecha.value === ""
   )
   alert("Faltan campos por rellenar");
   else if (!Insertar_Correo.value.match(validRegex)) {
     alert("Correo Invalido!");
-    }else if (Insertar_Cedula.value.length > 11) {
-        alert("La cedula no puede ser mayor de 11 digitos");
     }else if (
     Insertar_Telefono.value.search == /[A-Z]/ ||
     Insertar_Telefono.value.length > 15
   ) {
     alert("Error en el numero telefonico");
-  } else if (Insertar_Contra.value.length < 8) {
-    alert("Contraseña menor a 8 caracteres");
-  } else if (Insertar_Contra.value.length > 16) {
-    alert("Contraseña mayor a 16 caracteres");
-  } else if (Insertar_Contra.value.search(/[a-z]/) < 0) {
-    alert("Debe Incluir una letra minuscula");
-  } else if (Insertar_Contra.value.search(/[A-Z]/) < 0) {
-    alert("Debe Incluir una letra Mayuscula");
-  } else if (Insertar_Contra.value.search(/[0-9]/) < 0) {
-    alert("Debe Incluir una Numero");
   } else {
     var datos = new FormData(formulario);
     console.log(datos.get("Nombre"));

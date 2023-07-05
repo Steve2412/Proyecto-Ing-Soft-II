@@ -19,6 +19,7 @@ $tema4C = isset($_POST['Tema4C']) ? $_POST["Tema4C"] : "";
 
 $pdo= $conectar->prepare ("UPDATE cursos SET ID_cur = '$id',nomb_cur = '$nombre',horar_cur = '$horas',prec_cur = '$precio',
 prec_cur = '$cupo_min', cupos_cur_max = '$cupo_max',conte_video = '$video',descrip_cur = '$descripcion',tema1_titu_cur = '$tema1T',tema1_desc_cur   ='$tema1C'
-,tema2_titu_cur = '$tema2T',tema2_desc_cur='$tema2C',tema3_titu_cur='$tema3T' WHERE ID_cur = '$id'");
+,tema2_titu_cur = '$tema2T',tema2_desc_cur='$tema2C',tema3_titu_cur='$tema3T', tema3_desc_cur='$tema3C',tema4_titu_cur='$tema4T',
+tem4_desc_cur='$tema4C' WHERE ID_cur = '$id'");
 $pdo->execute();
 echo json_encode("2");

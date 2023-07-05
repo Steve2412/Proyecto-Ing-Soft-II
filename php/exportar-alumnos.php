@@ -1,4 +1,7 @@
 <?php
+date_default_timezone_set('America/Caracas');
+$currentDate = date('d-m-Y');
+$currentHour = date('H:i');
 session_start();
 require "conexion.php"; 
 $usuario = $_SESSION['usuario'];
@@ -36,6 +39,7 @@ if(isset($submit)){
     $html = '';
     $html .= '
         <h2 align="center">Alumnos de '.$nomb_cur.'</h2>
+        <div align="center">Reporte del dia '.$currentDate.' a las '.$currentHour.'</div>
         <table style="width:100%; border-collapse:collapse;">
             <tr>
                 <th style="border:1px solid #ddd; padding:8px; text-align:center;">Cedula</th>
@@ -65,6 +69,8 @@ if(isset($submit)){
     $dompdf->loadHtml($html);
     $dompdf->setPaper("A4","landscape");
     $dompdf->render();
+    $canvas = $dompdf->get_canvas(); 
+    $canvas->page_text(400, 570, "Página: {PAGE_NUM} de {PAGE_COUNT}",null, 13, array(0,0,0)); 
     $dompdf->stream("alumnos.pdf");
 
 }

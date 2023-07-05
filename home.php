@@ -83,7 +83,7 @@ foreach ($result as $row){
       <div class="profile">
          <img src="images/pic-1.jpg" class="image" alt="">
          <?php echo "<h3 class='name'>$Nombre</h3>" ?>
-         <?php echo "<p class='role'>$Rol</p>" ?>
+         <?php echo "<p class='role'>$Rol_usuario</p>" ?>
          <a href="profile.php" class="btn">Ver perfil</a>
          <div class="flex-btn">
             <a href="php/salir.php" class="option-btn">Cerrar sesión</a>
@@ -109,7 +109,7 @@ foreach ($result as $row){
 
    <nav class="navbar">
       <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
-      <a href="about.html"><i class="fa-solid fa-calendar-days"></i><span>Horario</span></a>
+      <a href="horario.php"><i class="fa-solid fa-calendar-days"></i><span>Horario</span></a>
       <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Notas</span></a>
       <?php 
       if($Rol_usuario=="Admin"){
