@@ -7,6 +7,10 @@ var Entrada_Contraseña = document.querySelector("#Contraseña");
 var Boton_Iniciar = document.querySelector(".Boton-Iniciar");
 var Contador_Sesion = 3;
 
+function Registrar(){
+  window.location.href = "registro.html";
+}
+
 function Iniciar_Sesion() {
   if (Entrada_Cedula.value == null || Entrada_Cedula.value === "") {
     alert("Ingrese Cedula");
@@ -30,7 +34,7 @@ function Iniciar_Sesion() {
           alert("No coinciden los datos");
         } else if (data == "1") {
           alert("Procede a iniciar sesion");
-          window.location.href = "prueba.html";
+          window.location.href = "home.php";
         }
         console.log(data);
       });

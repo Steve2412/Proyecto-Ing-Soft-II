@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container my-9">
-        <h2>Nuevo Usuario</h2>
+        <h2>Crear Usuario</h2>
         <form id="Formulario">
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Nombre</label>
@@ -74,6 +74,17 @@
                 <div class="col-sm-6">
                         <input type="date" id="Fecha-Insertar" name="Fecha" class="input-group date">
                 </div>
+
+            <div class="row mb-3" id="Rol">
+                <label class="col-sm-3 col-form-label">Rol usuario</label>
+                <div class="col-sm-6">
+                    <input type="radio" class="form-check-input" name="Rol" id="option-a" value="Edu" checked>
+                    <label class="form-check-label" for="option-1">Estudiante</label> 
+                    <input type="radio" class="form-check-input" name="Rol" id="option-b" value="Admin">
+                    <label class="form-check-label" for="option-2">Administrador</label> 
+                </div>
+            </div>
+                
             </div>
         </form>
         <button type="submit" class="btn btn-primary" onclick="registrar()">Registrarse</button>

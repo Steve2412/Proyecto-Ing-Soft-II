@@ -26,7 +26,7 @@
             <ul class="elements">
               <li class="element"><a href="index.html" class="a-menu">Home</a></li>
               <li class="element"><a href="#" class="a-menu">Cursos</a></li>
-              <li class="element"><a href="#" class="a-menu">Iniciar sesión</a></li>
+              <li class="element"><a href="login.html" class="a-menu">Iniciar sesión</a></li>
               <li class="element"><a href="payment.html" class="a-menu">Inscribir</a></li>
               <li class="element"><a href="acercaDe.html" class="a-menu">Acerca de nosotros</a></li>
               <li class="element"><a href="#" class="a-menu">FAQ</a></li>
@@ -46,7 +46,7 @@
                         <input type="text" placeholder="Nombre" class="Insertar-Primero" id="Nombre" name="Nombre" //pattern="[a-zA-Z]{1,}" required></input>
                         <input type="text" placeholder="Apellido" class="Insertar-Primero" id="Apellido" name="Apellido"></input>
                         <input type="email" placeholder="Correo" class="Insertar-Primero" id="Correo" name="Correo"></input>
-                        <input type="number" maxlength="10" inputMode="numeric" placeholder="Cedula" class="Insertar-Primero" id="Cedula" name="Cedula"></input>
+                        <input type="number" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="10" inputMode="numeric" placeholder="Cedula" class="Insertar-Primero" id="Cedula" name="Cedula"></input>
                         <div class="Genero">
                             <input type="radio" name="Genero" id="option-1" value="M" checked>
                             <input type="radio" name="Genero" id="option-2" value="F">
@@ -65,7 +65,7 @@
                         <div class="Entrada-Datos-2">
                             
                             <input type="text" placeholder="Direccion" class="Insertar-Segundo" id="Direccion" name="Direccion" maxlength="15"></input>
-                            <input type="tel" inputMode="numeric" placeholder="+58 xxxx-xxxxxxx" class="Insertar-Segundo" id="Telefono" name="Telefono"></input>
+                            <input type="tel" inputMode="numeric" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="+58 xxxx-xxxxxxx" class="Insertar-Segundo" id="Telefono" name="Telefono"></input>
                             <input type="password" placeholder="Contraseña" maxlength="16" class="Insertar-Segundo" id="Contra_1" name="Contra"></input>
                             <input type="password" placeholder="Repetir Contraseña" maxlength="16" class="Insertar-Segundo" id="Contra_2"></input>    
                             <input type="date" class="Insertar-Segundo"  name="Fecha"></input>
@@ -82,47 +82,42 @@
 
 
 
-    <footer class="footer">
-        <div class="container-foo">
-          <div class="row">
-            <div class="footer-col">
-              <h4>Company</h4>
-              <ul class="ul-foo">
-                <li><a href="#" class="a-foo">Sobre nosotros</a></li>
-                <li><a href="#" class="a-foo">Nuestros servicios</a></li>
-                <li><a href="#" class="a-foo">politica de privacidad</a></li>
-                <li><a href="#" class="a-foo">Cursos</a></li>
-              </ul>
-            </div>
-            <div class="footer-col">
-              <h4>Obtener ayuda</h4>
-              <ul class="ul-foo">
-                <li><a href="#" class="a-foo">FAQ</a></li>
-                <li><a href="#" class="a-foo">Precios</a></li>
-                <li><a href="#" class="a-foo">Reportar pago</a></li>
-                <li><a href="#" class="a-foo">Consultar notas</Canvas></a></li>
-              </ul>
-            </div>
-            <div class="footer-col">
-              <h4>Registrarse</h4>
-              <ul class="ul-foo">
-                <li><a href="#" class="a-foo">Registrarse</a></li>
-                <li><a href="#" class="a-foo">Iniciar Sesión</a></li>
-                <li><a href="#" class="a-foo">Plataforma online</a></li>
-              </ul>
-            </div>
-            <div class="footer-col">
-              <h4>Siguenos</h4>
-              <div class="social-links">
-                <a href="#" class="a-foo"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="a-foo"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="a-foo"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="a-foo"><i class="fab fa-whatsapp"></i></a>
+        <footer class="footer">
+          <div class="container-foo">
+            <div class="row">
+              <div class="footer-col">
+                <h4>Company</h4>
+                <ul class="ul-foo">
+                  <li><a href="acercaDe.html" class="a-foo">Sobre nosotros</a></li>
+                  <li><a href="#" class="a-foo">Cursos</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h4>Obtener ayuda</h4>
+                <ul class="ul-foo">
+                  <li><a href="#" class="a-foo">FAQ</a></li>
+                  <li><a href="#" class="a-foo">Reportar pago</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h4>Registrarse</h4>
+                <ul class="ul-foo">
+                  <li><a href="registro.html" class="a-foo">Registrarse</a></li>
+                  <li><a href="login.html" class="a-foo">Iniciar Sesión</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h4>Siguenos</h4>
+                <div class="social-links">
+                  <a href="#" class="a-foo"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="a-foo"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="a-foo"><i class="fab fa-instagram"></i></a>
+                  <a href="#" class="a-foo"><i class="fab fa-whatsapp"></i></a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-</footer>
+        </footer>
 
 </body>    
 

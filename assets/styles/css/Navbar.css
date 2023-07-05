@@ -107,7 +107,9 @@ nav .elements li {
   margin: 0 20px;
 }
 .elements li .a-menu:hover {
-  color: #0088a9;
+  background-color: #b5bfc5;
+  color: #000;
+  padding: 0.5em;
 }
 .elements li .a-menu {
   transition: all 0.3s ease 0s;
