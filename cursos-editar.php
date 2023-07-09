@@ -112,12 +112,18 @@ foreach ($result as $row){
 <?php 
 
 if($Rol=="Admin"){
-   echo  "<a class='btn btn-primary btn-sm' href='cursos-editar.php'>Editar</a>";
+   echo  "<a class='btn btn-primary btn-sm' onclick='registrar()';'>Guardar Cambios</a>";
+   echo  "<a class='btn btn-primary btn-sm' href='cursos.php';'>Regresar</a>";
 }
 
 ?>
 
-<?php echo $conte_text ?>
+<form id="Formulario">
+<div class="col-sm-6">
+   <textarea type="text" id="Contenido" style="width:1200px;height:600px;" name="Contenido" cols="40" class="form-control" ><?php echo $conte_text;?></textarea>
+</div>
+</form>
+
 
 <br><br>
 <h3 class="descargar" style="font-size:30px">Descargar pdf de <?php echo $nomb_cur ?></h3>
@@ -156,6 +162,49 @@ if($Rol=="Admin"){
 
 <!-- custom js file link  -->
 <script src="Scripts/home.js"></script>
+<script src="https://cdn.tiny.cloud/1/xurkgk7dheajm6100pg345w6ydt7ivrvh7n8c2ce7v3qkapn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+      selector: '#Contenido',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+      mergetags_list: [
+        { value: 'First.Name', title: 'First Name' },
+        { value: 'Email', title: 'Email' },
+      ]
+    });
+
+    var formulario = document.querySelector("#Formulario");
+
+function regresar(){
+  window.location.href = "../crud-admin-cursos.php";
+
+}
+
+function registrar(){
+    var editor = tinyMCE.triggerSave('#Contenido');
+    var datos = new FormData(formulario);
+    console.log(datos.get("Contenido"))
+    fetch("php/actualizar-contenido.php", {
+        method: "POST",
+        body: datos,
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          if (data === "1") {
+            alert("Ya existe el curso");
+          } else if (data === "2") {
+            alert(
+              "Contenido actualizado"
+            );
+            window.location.href = "../cursos.php";
+          }})
+}
+
+  </script>
 
    
 </body>

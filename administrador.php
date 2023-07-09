@@ -124,6 +124,8 @@ foreach ($result as $row){
 <br><br>
 <div>Cursos del sistema</div>
 <a class='btn btn-primary btn-sm' href='crud-admin-cursos.php'>Cursos</a>
+<div>Usuarios inscritos en los cursos</div>
+<a class='btn btn-primary btn-sm' href='crud-admin-usuario-tiene-cursos.php'>Usuarios inscritos en los cursos</a>
 
 
 

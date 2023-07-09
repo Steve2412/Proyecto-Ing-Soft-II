@@ -14,15 +14,7 @@ function registrar(){
     console.log(datos.get("Cupo_min"));
     console.log(datos.get("Cupo_max"));
     console.log(datos.get("Video"));
-    console.log(datos.get("Descripcion"));
-    console.log(datos.get("Tema1T"));
-    console.log(datos.get("Tema1C"));
-    console.log(datos.get("Tema2T"));
-    console.log(datos.get("Tema2C"));
-    console.log(datos.get("Tema3T"));
-    console.log(datos.get("Tema3C"));
-    console.log(datos.get("Tema4T"));
-    console.log(datos.get("Tema4C"));
+    console.log(datos.get("Contenido"))
     fetch("php/actualizar-curso.php", {
         method: "POST",
         body: datos,
@@ -31,7 +23,7 @@ function registrar(){
         .then(data => {
           console.log(data);
           if (data === "1") {
-            alert("Ya existe el usuario");
+            alert("Ya existe el curso");
           } else if (data === "2") {
             alert(
               "Curso Actualizado"

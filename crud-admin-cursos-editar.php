@@ -11,15 +11,8 @@ foreach ($result as $row){
     $cupos_cur_min = $row['cupos_cur_min'];
     $cupos_cur_max = $row['cupos_cur_max'];
     $conte_video = $row['conte_video'];
-    $descrip_cur = $row['descrip_cur'];
-    $tema1_titu_cur = $row['tema1_titu_cur'];
-    $tema1_desc_cur = $row['tema1_desc_cur'];
-    $tema2_titu_cur = $row['tema2_titu_cur'];
-    $tema2_desc_cur = $row['tema2_desc_cur'];
-    $tema3_titu_cur = $row['tema3_titu_cur'];
-    $tema3_desc_cur = $row['tema3_desc_cur'];
-    $tema4_titu_cur = $row['tema4_titu_cur'];
-    $tema4_desc_cur = $row['tem4_desc_cur'];
+    $conte_text = $row['conte_text'];
+
 }
 
 ?>
@@ -30,7 +23,7 @@ foreach ($result as $row){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <title>Document</title>
+    <title>Editar curso</title>
 </head>
 <body>
     <div class="container my-9">
@@ -39,21 +32,27 @@ foreach ($result as $row){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">ID</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="ID" id="ID" name="ID" value=<?php echo $ID_cur;?>>
+                        <textarea type="text" class="form-control" placeholder="ID" id="ID" name="ID"><?php echo $ID_cur;?></textarea>       
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Nombre</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Nombre" id="Nombre" name="Nombre" value=<?php echo $nomb_cur;?>>
+                        <textarea type="text" class="form-control" placeholder="Nombre" id="Nombre" name="Nombre"><?php echo $nomb_cur;?></textarea> 
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Horas</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Horas" id="Horas" name="Horas" value=<?php echo $horar_cur;?>>
+                    <select class="form-select" name="Horas" id="Horas">
+                        <option value=<?php echo $horar_cur ?> selected hidden><?php echo $horar_cur ?></option>
+                        <option value="Lunes a Viernes 08:00am a 10:00am">Lunes a Viernes 08:00am a 10:00am</option>
+                        <option value="Lunes a Viernes 10:00am a 12:00pm">Lunes a Viernes 10:00am a 12:00pm</option>
+                        <option value="Lunes a Viernes 12:00pm a 02:00pm">Lunes a Viernes 12:00pm a 02:00pm</option>
+                        <option value="Sabado de 08:00am a 12:00pm">Sabado de 08:00am a 12:00pm</option>
+                    </select>
                 </div>
             </div>
 
@@ -67,14 +66,16 @@ foreach ($result as $row){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Cupo Minimo</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Cupo_min" id="Cupo_min" name="Cupo_min" maxlength="15" value=<?php echo $cupos_cur_min;?>>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9-.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                        class="form-control" placeholder="Cupo_min" id="Cupo_min" name="Cupo_min" maxlength="15" value=<?php echo $cupos_cur_min;?>>
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Cupo maximo</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" inputMode="numeric" placeholder="Cupo_max" id="Cupo_max" name="Cupo_max" value=<?php echo $cupos_cur_max;?>>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                        class="form-control" inputMode="numeric" placeholder="Cupo_max" id="Cupo_max" name="Cupo_max" value=<?php echo $cupos_cur_max;?>>
                 </div>
             </div>
 
@@ -86,57 +87,9 @@ foreach ($result as $row){
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Descripcion curso</label>
+                <label class="col-sm-3 col-form-label">Contenido del curso</label>
                 <div class="col-sm-6">
-                        <input type="text" id="Descripcion" name="Descripcion" class="form-control" value=<?php echo $descrip_cur;?>>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tema 1 Titulo</label>
-                <div class="col-sm-6">
-                    <textarea type="text" type="text" id="Tema1T"  name="Tema1T" cols="40" class="form-control" ><?php echo $tema1_titu_cur;?></textarea>       
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tema 1 Contenido</label>
-                <div class="col-sm-6">
-                        <textarea type="text" type="text" id="Tema1C" style="width:550px;height:100px;"  name="Tema1C" cols="40" class="form-control" ><?php echo $tema1_desc_cur;?></textarea>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tema 2 Titulo</label>
-                <div class="col-sm-6">
-                    <textarea type="text" type="text" id="Tema2T"  name="Tema2T" cols="40" class="form-control" ><?php echo $tema2_titu_cur;?></textarea>       
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tema 2 Contenido</label>
-                <div class="col-sm-6">
-                        <textarea type="text" type="text" id="Tema2C" style="width:550px;height:100px;"  name="Tema2C" cols="40" class="form-control" ><?php echo $tema2_desc_cur;?></textarea>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tema 3 Titulo</label>
-                <div class="col-sm-6">
-                    <textarea type="text" type="text" id="Tema3T"  name="Tema3T" cols="40" class="form-control" ><?php echo $tema3_titu_cur;?></textarea>       
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tema 3 Contenido</label>
-                <div class="col-sm-6">
-                        <textarea type="text" type="text" id="Tema3C" style="width:550px;height:100px;"  name="Tema3C" cols="40" class="form-control" ><?php echo $tema3_desc_cur;?></textarea>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tema 4 Titulo</label>
-                <div class="col-sm-6">
-                    <textarea type="text" type="text" id="Tema4T"  name="Tema4T" cols="40" class="form-control" ><?php echo $tema4_titu_cur;?></textarea>       
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tema 4 Contenido</label>
-                <div class="col-sm-6">
-                        <textarea type="text" type="text" id="Tema4C" style="width:550px;height:100px;"  name="Tema4C" cols="40" class="form-control" ><?php echo $tema4_desc_cur;?></textarea>
+                        <textarea type="text" id="Contenido" style="width:550px;height:100px;" name="Contenido" cols="40" class="form-control" ><?php echo $conte_text;?></textarea>
                 </div>
             </div>
         </form>
@@ -144,5 +97,54 @@ foreach ($result as $row){
         <button type="submit" class="btn btn-secondary" onclick="regresar()">Regresar</button>
     </div>
 </body>
-<script src="Scripts/actualizar-curso.js" ></script>
+<script src="https://cdn.tiny.cloud/1/xurkgk7dheajm6100pg345w6ydt7ivrvh7n8c2ce7v3qkapn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+      selector: '#Contenido',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+      mergetags_list: [
+        { value: 'First.Name', title: 'First Name' },
+        { value: 'Email', title: 'Email' },
+      ]
+    });
+
+    var formulario = document.querySelector("#Formulario");
+
+function regresar(){
+  window.location.href = "../crud-admin-cursos.php";
+
+}
+
+function registrar(){
+    var editor = tinyMCE.triggerSave('#Contenido');
+    var datos = new FormData(formulario);
+    console.log(datos.get("ID"));
+    console.log(datos.get("Nombre"));
+    console.log(datos.get("Horas"));
+    console.log(datos.get("Precio"));
+    console.log(datos.get("Cupo_min"));
+    console.log(datos.get("Cupo_max"));
+    console.log(datos.get("Video"));
+    console.log(datos.get("Contenido"))
+    fetch("php/actualizar-curso.php", {
+        method: "POST",
+        body: datos,
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          if (data === "1") {
+            alert("Ya existe el curso");
+          } else if (data === "2") {
+            alert(
+              "Curso Actualizado"
+            );
+            window.location.href = "../crud-admin-cursos.php";
+          }})
+}
+
+  </script>
 </html>

@@ -30,6 +30,14 @@ foreach ($result as $row){
     $Rol_usuario = $row['Usuario_rol'];
 }
 
+if(!$result){
+   echo '<script language="javascript">
+   window.location = "index.html"
+   </script>';
+   die();
+   session_destroy(); 
+}
+
 
 $query = "SELECT * FROM cursos WHERE ID_cur = '$Cursos_ID_cur'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
@@ -75,7 +83,6 @@ foreach ($result as $row){
 
       <div class="icons">
          <div id="menu-btn" class="fas fa-bars"></div>
-         <div id="search-btn" class="fas fa-search"></div>
          <div id="user-btn" class="fas fa-user"></div>
          <div id="toggle-btn" class="fas fa-sun"></div>
       </div>

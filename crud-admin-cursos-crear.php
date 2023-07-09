@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <title>Document</title>
+    <script src="https://cdn.tiny.cloud/1/xurkgk7dheajm6100pg345w6ydt7ivrvh7n8c2ce7v3qkapn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>  
+
+    <title>Crear Curso</title>
 </head>
 <body>
     <div class="container my-9">
@@ -27,7 +30,12 @@
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Horas</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Horas" id="Horas" name="Horas">
+                    <select class="form-select" name="Horas" id="Horas">
+                        <option value="Lunes a Viernes 08:00am a 10:00am">Lunes a Viernes 08:00am a 10:00am</option>
+                        <option value="Lunes a Viernes 10:00am a 12:00pm">Lunes a Viernes 10:00am a 12:00pm</option>
+                        <option value="Lunes a Viernes 12:00pm a 02:00pm">Lunes a Viernes 12:00pm a 02:00pm</option>
+                        <option value="Sabado de 08:00am a 12:00pm">Sabado de 08:00am a 12:00pm</option>
+                    </select>
                 </div>
             </div>
 
@@ -39,14 +47,14 @@
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Cupo Minimo</label>
+                <label class="col-sm-3 col-form-label">Cupo mínimo</label>
                 <div class="col-sm-6">
                         <input type="text" class="form-control" placeholder="Cupo_min" id="Cupo_min" name="Cupo_min" maxlength="15">
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Cupo maximo</label>
+                <label class="col-sm-3 col-form-label">Cupo máximo</label>
                 <div class="col-sm-6">
                         <input type="text" class="form-control" inputMode="numeric" placeholder="Cupo_max" id="Cupo_max" name="Cupo_max">
                 </div>
@@ -58,65 +66,67 @@
                         <input type="text" class="form-control" placeholder="Video" id="Video" name="Video">
                 </div>
             </div>
-
+            <form>
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Descripcion curso</label>
+                <label class="col-sm-3 col-form-label">Contenido del curso</label>
                 <div class="col-sm-6">
-                        <input type="text" id="Descripcion" name="Descripcion" class="form-control">
+                        <textarea type="text" id="Contenido" style="width:550px;height:100px;" name="Contenido" cols="40" class="form-control"></textarea>
                 </div>
             </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tema 1 Titulo</label>
-                <div class="col-sm-6">
-                    <textarea type="text" type="text" id="Tema1T"  name="Tema1T" cols="40" class="form-control"></textarea>       
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tema 1 Contenido</label>
-                <div class="col-sm-6">
-                        <textarea type="text" type="text" id="Tema1C" style="width:550px;height:100px;"  name="Tema1C" cols="40" class="form-control" ></textarea>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tema 2 Titulo</label>
-                <div class="col-sm-6">
-                    <textarea type="text" type="text" id="Tema2T"  name="Tema2T" cols="40" class="form-control" ></textarea>       
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tema 2 Contenido</label>
-                <div class="col-sm-6">
-                        <textarea type="text" type="text" id="Tema2C" style="width:550px;height:100px;"  name="Tema2C" cols="40" class="form-control" ></textarea>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tema 3 Titulo</label>
-                <div class="col-sm-6">
-                    <textarea type="text" type="text" id="Tema3T"  name="Tema3T" cols="40" class="form-control" ></textarea>       
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tema 3 Contenido</label>
-                <div class="col-sm-6">
-                        <textarea type="text" type="text" id="Tema3C" style="width:550px;height:100px;"  name="Tema3C" cols="40" class="form-control" ></textarea>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tema 4 Titulo</label>
-                <div class="col-sm-6">
-                    <textarea type="text" type="text" id="Tema4T"  name="Tema4T" cols="40" class="form-control" ></textarea>       
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tema 4 Contenido</label>
-                <div class="col-sm-6">
-                        <textarea type="text" type="text" id="Tema4C" style="width:550px;height:100px;"  name="Tema4C" cols="40" class="form-control" ></textarea>
-                </div>
-            </div>
+            </form>
         </form>
         <button type="submit" class="btn btn-primary" onclick="registrar()">Crear curso</button>
         <button type="submit" class="btn btn-secondary" onclick="regresar()">Regresar</button>
     </div>
 </body>
-<script src="Scripts/crear-curso.js" ></script>
+<script>
+    tinymce.init({
+      selector: '#Contenido',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+      mergetags_list: [
+        { value: 'First.Name', title: 'First Name' },
+        { value: 'Email', title: 'Email' },
+      ]
+    });
+    var formulario = document.querySelector("#Formulario");
+
+function regresar(){
+  window.location.href = "../crud-admin-cursos.php";
+
+}
+
+function registrar(){
+    var editor = tinyMCE.triggerSave('#Contenido');
+    var datos = new FormData(formulario);
+    console.log(datos.get("ID"));
+    console.log(datos.get("Nombre"));
+    console.log(datos.get("Horas"));
+    console.log(datos.get("Precio"));
+    console.log(datos.get("Cupo_min"));
+    console.log(datos.get("Cupo_max"));
+    console.log(datos.get("Video"));
+    console.log(datos.get("Contenido"));
+    fetch("php/registrar-curso.php", {
+        method: "POST",
+        body: datos,
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          if (data === "1") {
+            alert("Ya existe el curso");
+          } else if (data === "2") {
+            alert(
+              "Has registrado un nuevo curso"
+            );
+            window.location.href = "../crud-admin-cursos.php";
+          }})
+
+}
+
+    </script>
+
 </html>
