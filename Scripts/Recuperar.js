@@ -32,9 +32,9 @@ function fun_siguiente() {
         alert("No existe ningun usuario en la base de datos con este correo");
       } else if (data == "1") {
         Email.send({
-          SecureToken : "4c3095ea-2148-4fb7-b505-43905012346e",
+          SecureToken : "3a2ba876-a76a-4dc4-9334-a660086d6fea",
           To : Insertar_Correo.value,
-          From : "fanmedichistes24@gmail.com",
+          From : "cursoscorblaserca@gmail.com",
           Subject : "Codigo de recuperacion de cuenta",
           Body : msg
       }).then(
