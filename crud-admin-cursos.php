@@ -27,8 +27,8 @@
                     <th>Nombre</th>
                     <th>Horas</th>
                     <th>Precio</th>
-                    <th>Cupo minimo</th>
-                    <th>Cupo maximo</th>
+                    <th>Cupo míimo</th>
+                    <th>Cupo máximo</th>
                 </tr>
             </thead>
 

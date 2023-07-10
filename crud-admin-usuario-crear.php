@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <title>Document</title>
+    <title>Crear usuario</title>
 </head>
 <body>
     <div class="container my-9">
@@ -32,14 +32,14 @@
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Cedula</label>
+                <label class="col-sm-3 col-form-label">Cédula</label>
                 <div class="col-sm-6">
                         <input type="text" class="form-control" maxlength="10" inputMode="numeric" placeholder="Cedula" id="Cedula" name="Cedula">
                 </div>
             </div>
 
             <div class="row mb-3" id="Genero">
-                <label class="col-sm-3 col-form-label">Genero</label>
+                <label class="col-sm-3 col-form-label">Género</label>
                 <div class="col-sm-6">
                     <input type="radio" class="form-check-input" name="Genero" id="option-1" value="M" checked>
                     <label class="form-check-label" for="option-1">Hombre</label> 
@@ -49,14 +49,14 @@
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Direccion</label>
+                <label class="col-sm-3 col-form-label">Dirección</label>
                 <div class="col-sm-6">
                         <input type="text" class="form-control" placeholder="Direccion" id="Direccion" name="Direccion" maxlength="15">
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Telefono</label>
+                <label class="col-sm-3 col-form-label">Teléfono</label>
                 <div class="col-sm-6">
                         <input type="text" class="form-control" inputMode="numeric" placeholder="+58 xxxx-xxxxxxx" id="Telefono" name="Telefono">
                 </div>
@@ -72,7 +72,7 @@
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Fecha Nacimiento</label>
                 <div class="col-sm-6">
-                        <input type="date" id="Fecha-Insertar" name="Fecha" class="input-group date">
+                        <input type="date" id="Fecha-Insertar" name="Fecha" max="2023-12-31" class="input-group date">
                 </div>
 
             <div class="row mb-3" id="Rol">

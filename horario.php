@@ -28,13 +28,15 @@ $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Cursos_ID_cur = $row['Cursos_ID_cur'];
     $Rol_usuario = $row['Usuario_rol'];
+
 }
 
 
 $query = "SELECT * FROM cursos WHERE ID_cur = '$Cursos_ID_cur'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
-    $nomb_cur = $row['nomb_cur'];
+    $nomb_cur = $row['nomb_cur'];    
+    $horar_cur = $row['horar_cur'];
 }
 
 $query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Admin'"; 
@@ -56,8 +58,7 @@ foreach ($result as $row){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Corblaserca - Inicio</title>
-
+   <title>Horario</title>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
 
@@ -65,9 +66,7 @@ foreach ($result as $row){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 
    <!-- custom css file link  -->
-      <link rel="stylesheet" href="assets/styles/css/style.css">
-      <link rel="stylesheet" href="assets/styles/css/horario.css">
-
+   <link rel="stylesheet" href="assets/styles/css/style copy.css">
 </head>
 <body>
 
@@ -79,10 +78,9 @@ foreach ($result as $row){
 
       <div class="icons">
          <div id="menu-btn" class="fas fa-bars"></div>
-         <div id="search-btn" class="fas fa-search"></div>
          <div id="user-btn" class="fas fa-user"></div>
-         <div id="toggle-btn" class="fas fa-sun"></div>
-      </div>
+         <!--<div id="toggle-btn" class="fas fa-sun"></div>-->
+         </div>
 
       <div class="profile">
          <img src="images/pic-1.jpg" class="image" alt="">
@@ -111,9 +109,9 @@ foreach ($result as $row){
       <a href="profile.php" class="btn">Ver perfil</a>
    </div>
 
-   <nav class="navbar">
+   <nav class="navbar-sex">
       <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
-      <a href="about.html"><i class="fa-solid fa-calendar-days"></i><span>Horario</span></a>
+      <a href="horario.php"><i class="fa-solid fa-calendar-days"></i><span>Horario</span></a>
       <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Notas</span></a>
       <?php 
       if($Rol_usuario=="Admin"){
@@ -135,172 +133,561 @@ foreach ($result as $row){
                     <table class="table table-bordered text-center">
                         <thead>
                             <tr class="bg-light-gray">
-                                <th class="text-uppercase">Time
+                                <th class="text-uppercase">Hora
                                 </th>
-                                <th class="text-uppercase">Monday</th>
-                                <th class="text-uppercase">Tuesday</th>
-                                <th class="text-uppercase">Wednesday</th>
-                                <th class="text-uppercase">Thursday</th>
-                                <th class="text-uppercase">Friday</th>
-                                <th class="text-uppercase">Saturday</th>
+                                <th class="text-uppercase">Lunes</th>
+                                <th class="text-uppercase">Martes</th>
+                                <th class="text-uppercase">Miercoles</th>
+                                <th class="text-uppercase">Jueves</th>
+                                <th class="text-uppercase">Viernes</th>
+                                <th class="text-uppercase">Sabado</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td class="align-middle">09:00am</td>
-                                <td>
-                                    <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13">Dance</span>
-                                    <div class="margin-10px-top font-size14">9:00-10:00</div>
-                                    <div class="font-size13 text-light-gray">Ivana Wong</div>
-                                </td>
-                                <td>
-                                    <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                                    <div class="margin-10px-top font-size14">9:00-10:00</div>
-                                    <div class="font-size13 text-light-gray">Marta Healy</div>
-                                </td>
+                        <?php
+                            if($horar_cur=="Lunes a Viernes 08:00am a 10:00am"){
+                              echo "
+                              <tbody style='font-size:20px'>
+                              <tr>
+                              <td class='align-middle'>08:00am-9:00am</td>
+                              <td>
+                                  <span class=>$nomb_cur</span>
+                              </td>
+                              <td>
+                                  <span class=>$nomb_cur</span>
+                              </td>
+                              <td>
+                                  <span class=>$nomb_cur</span>
+                               </td>
+                              <td>
+                                  <span class=>$nomb_cur</span>
+                              </td>
+                              <td>
+                                  <span class=>$nomb_cur</span>
+                              </td>
+                              <td>
+                                  <span class=></span>
+                              </td>
+                          </tr>
 
-                                <td>
-                                    <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                                    <div class="margin-10px-top font-size14">9:00-10:00</div>
-                                    <div class="font-size13 text-light-gray">Ivana Wong</div>
-                                </td>
-                                <td>
-                                    <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Dance</span>
-                                    <div class="margin-10px-top font-size14">9:00-10:00</div>
-                                    <div class="font-size13 text-light-gray">Ivana Wong</div>
-                                </td>
-                                <td>
-                                    <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
-                                    <div class="margin-10px-top font-size14">9:00-10:00</div>
-                                    <div class="font-size13 text-light-gray">Kate Alley</div>
-                                </td>
-                                <td>
-                                    <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                                    <div class="margin-10px-top font-size14">9:00-10:00</div>
-                                    <div class="font-size13 text-light-gray">James Smith</div>
-                                </td>
-                            </tr>
+                           <tr>
+                           <td class='align-middle'>09:00am-10:00am</td>
+                           <td>
+                                 <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                                 <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                                 <span class=>$nomb_cur</span>
+                              </td>
+                           <td>
+                                 <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                                 <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                        </tr>
 
-                            <tr>
-                                <td class="align-middle">10:00am</td>
-                                <td>
-                                    <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                                    <div class="margin-10px-top font-size14">10:00-11:00</div>
-                                    <div class="font-size13 text-light-gray">Ivana Wong</div>
-                                </td>
-                                <td class="bg-light-gray">
 
-                                </td>
-                                <td>
-                                    <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
-                                    <div class="margin-10px-top font-size14">10:00-11:00</div>
-                                    <div class="font-size13 text-light-gray">Kate Alley</div>
-                                </td>
-                                <td>
-                                    <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                                    <div class="margin-10px-top font-size14">10:00-11:00</div>
-                                    <div class="font-size13 text-light-gray">Marta Healy</div>
-                                </td>
-                                <td>
-                                    <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                                    <div class="margin-10px-top font-size14">10:00-11:00</div>
-                                    <div class="font-size13 text-light-gray">James Smith</div>
-                                </td>
-                                <td class="bg-light-gray">
+                           <tr>
+                           <td class='align-middle'>10:00am-11:00am</td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                        </tr>
 
-                                </td>
-                            </tr>
+                              <tr>
+                              <td class='align-middle'>11:00am-12:00pm</td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                        </tr>
 
-                            <tr>
-                                <td class="align-middle">11:00am</td>
-                                <td>
-                                    <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                                    <div class="margin-10px-top font-size14">11:00-12:00</div>
-                                </td>
-                                <td>
-                                    <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                                    <div class="margin-10px-top font-size14">11:00-12:00</div>
-                                </td>
-                                <td>
-                                    <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                                    <div class="margin-10px-top font-size14">11:00-12:00</div>
-                                </td>
-                                <td>
-                                    <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                                    <div class="margin-10px-top font-size14">11:00-12:00</div>
-                                </td>
-                                <td>
-                                    <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                                    <div class="margin-10px-top font-size14">11:00-12:00</div>
-                                </td>
-                                <td>
-                                    <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                                    <div class="margin-10px-top font-size14">11:00-12:00</div>
-                                </td>
-                            </tr>
+                           <tr>
+                           <td class='align-middle'>12:00pm-01:00am</td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                              </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                        </tr>
 
-                            <tr>
-                                <td class="align-middle">12:00pm</td>
-                                <td class="bg-light-gray">
+                           <tr>
+                           <td class='align-middle'>01:00pm-02:00pm</td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                        </tr>
 
-                                </td>
-                                <td>
-                                    <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
-                                    <div class="margin-10px-top font-size14">12:00-1:00</div>
-                                    <div class="font-size13 text-light-gray">Kate Alley</div>
-                                </td>
-                                <td>
-                                    <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Dance</span>
-                                    <div class="margin-10px-top font-size14">12:00-1:00</div>
-                                    <div class="font-size13 text-light-gray">Ivana Wong</div>
-                                </td>
-                                <td>
-                                    <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                                    <div class="margin-10px-top font-size14">12:00-1:00</div>
-                                    <div class="font-size13 text-light-gray">Ivana Wong</div>
-                                </td>
-                                <td class="bg-light-gray">
+                              </tbody>
+                              <form action='php/exportar-horario8-10.php' method='post' class='mb-2'>
+                              <input type='submit' name='submit' class='btn btn-outline-danger' value='Exportar PDF'>
+                  
+                          </form>";
+                            }else if ($horar_cur=="Lunes a Viernes 10:00am a 12:00pm"){
+                              echo "
+                              <tbody style='font-size:20px'>
+                              <tr>
+                              <td class='align-middle'>08:00am-9:00am</td>
+                              <td>
+                                  <span class=></span>
+                              </td>
+                              <td>
+                                  <span class=></span>
+                              </td>
+                              <td>
+                                  <span class=></span>
+                               </td>
+                              <td>
+                                  <span class=></span>
+                              </td>
+                              <td>
+                                  <span class=></span>
+                              </td>
+                              <td>
+                                  <span class=></span>
+                              </td>
+                          </tr>
 
-                                </td>
-                                <td>
-                                    <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                                    <div class="margin-10px-top font-size14">12:00-1:00</div>
-                                    <div class="font-size13 text-light-gray">Marta Healy</div>
-                                </td>
-                            </tr>
+                           <tr>
+                           <td class='align-middle'>09:00am-10:00am</td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                              </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                        </tr>
 
-                            <tr>
-                                <td class="align-middle">01:00pm</td>
-                                <td>
-                                    <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                                    <div class="margin-10px-top font-size14">1:00-2:00</div>
-                                    <div class="font-size13 text-light-gray">James Smith</div>
-                                </td>
-                                <td>
-                                    <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                                    <div class="margin-10px-top font-size14">1:00-2:00</div>
-                                    <div class="font-size13 text-light-gray">Ivana Wong</div>
-                                </td>
-                                <td class="bg-light-gray">
 
-                                </td>
-                                <td>
-                                    <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                                    <div class="margin-10px-top font-size14">1:00-2:00</div>
-                                    <div class="font-size13 text-light-gray">James Smith</div>
-                                </td>
-                                <td>
-                                    <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                                    <div class="margin-10px-top font-size14">1:00-2:00</div>
-                                    <div class="font-size13 text-light-gray">Marta Healy</div>
-                                </td>
-                                <td>
-                                    <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                                    <div class="margin-10px-top font-size14">1:00-2:00</div>
-                                    <div class="font-size13 text-light-gray">Ivana Wong</div>
-                                </td>
-                            </tr>
+                           <tr>
+                           <td class='align-middle'>10:00am-11:00am</td>
+                           <td>
+                              <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                              <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                              <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                              <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                              <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                        </tr>
+
+                              <tr>
+                              <td class='align-middle'>11:00am-12:00pm</td>
+                              <td>
+                                 <span class=>$nomb_cur</span>
+                              </td>
+                              <td>
+                                 <span class=>$nomb_cur</span>
+                              </td>
+                              <td>
+                                 <span class=>$nomb_cur</span>
+                              </td>
+                              <td>
+                                 <span class=>$nomb_cur</span>
+                              </td>
+                              <td>
+                                 <span class=>$nomb_cur</span>
+                              </td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                        </tr>
+
+                           <tr>
+                           <td class='align-middle'>12:00pm-01:00am</td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                              </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                        </tr>
+
+                           <tr>
+                           <td class='align-middle'>01:00pm-02:00pm</td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                        </tr>
                         </tbody>
+                        <form action='php/exportar-horario10-12.php' method='post' class='mb-2'>
+                        <input type='submit' name='submit' class='btn btn-outline-danger' value='Exportar PDF'>
+            
+                    </form>";
+                        
+                            }else if ($horar_cur=="Lunes a Viernes 12:00pm a 02:00pm"){
+                              echo "
+                              <tbody style='font-size:20px'>
+                              <tr>
+                              <td class='align-middle'>08:00am-9:00am</td>
+                              <td>
+                                  <span class=></span>
+                              </td>
+                              <td>
+                                  <span class=></span>
+                              </td>
+                              <td>
+                                  <span class=></span>
+                               </td>
+                              <td>
+                                  <span class=></span>
+                              </td>
+                              <td>
+                                  <span class=></span>
+                              </td>
+                              <td>
+                                  <span class=></span>
+                              </td>
+                          </tr>
+
+                           <tr>
+                           <td class='align-middle'>09:00am-10:00am</td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                              </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                        </tr>
+
+
+                           <tr>
+                           <td class='align-middle'>10:00am-11:00am</td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                        </tr>
+
+                              <tr>
+                              <td class='align-middle'>11:00am-12:00pm</td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                        </tr>
+
+                           <tr>
+                           <td class='align-middle'>12:00pm-01:00am</td>
+                           <td>
+                                 <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                                 <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                                 <span class=>$nomb_cur</span>
+                              </td>
+                           <td>
+                                 <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                                 <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                        </tr>
+
+                           <tr>
+                           <td class='align-middle'>01:00pm-02:00pm</td>
+                           <td>
+                              <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                              <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                              <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                              <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                              <span class=>$nomb_cur</span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                        </tr>
+                        </tbody>
+                        <form action='php/exportar-horario12-2.php' method='post' class='mb-2'>
+                        <input type='submit' name='submit' class='btn btn-outline-danger' value='Exportar PDF'>
+            
+                    </form>";
+                            } else if($horar_cur=="Sabado de 08:00am a 12:00pm"){
+                              echo "
+                              <tbody style='font-size:20px'>
+                              <tr>
+                              <td class='align-middle'>08:00am-9:00am</td>
+                              <td>
+                                  <span class=></span>
+                              </td>
+                              <td>
+                                  <span class=></span>
+                              </td>
+                              <td>
+                                  <span class=></span>
+                               </td>
+                              <td>
+                                  <span class=></span>
+                              </td>
+                              <td>
+                                  <span class=></span>
+                              </td>
+                              <td>
+                                  <span class=>$nomb_cur</span>
+                              </td>
+                          </tr>
+
+                           <tr>
+                           <td class='align-middle'>09:00am-10:00am</td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                              </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=>$nomb_cur</span>
+                           </td>
+                        </tr>
+
+
+                           <tr>
+                           <td class='align-middle'>10:00am-11:00am</td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=></span>
+                           </td>
+                           <td>
+                              <span class=>Descanso</span>
+                           </td>
+                        </tr>
+
+                              <tr>
+                              <td class='align-middle'>11:00am-12:00pm</td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                              <td>
+                                 <span class=></span>
+                              </td>
+                              <td>
+                                 <span class=>$nomb_cur</span>
+                              </td>
+                        </tr>
+
+                           <tr>
+                           <td class='align-middle'>12:00pm-01:00am</td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                              </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=></span>
+                           </td>
+                           <td>
+                                 <span class=>$nomb_cur</span>
+                           </td>
+                        </tr>
+                        </tbody>                        
+                        <form action='php/exportar-horario8-12.php' method='post' class='mb-2'>
+                        <input type='submit' name='submit' class='btn btn-outline-danger' value='Exportar PDF'>
+            
+                    </form>";
+                            }
+                            
+                            ?>
+
                     </table>
                 </div>
             </div>

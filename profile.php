@@ -71,8 +71,8 @@ foreach ($result as $row){
          <div id="menu-btn" class="fas fa-bars"></div>
          <div id="search-btn" class="fas fa-search"></div>
          <div id="user-btn" class="fas fa-user"></div>
-         <div id="toggle-btn" class="fas fa-sun"></div>
-      </div>
+         <!--<div id="toggle-btn" class="fas fa-sun"></div>-->
+         </div>
 
       <div class="profile">
          <img src="images/pic-1.jpg" class="image" alt="">
@@ -103,7 +103,7 @@ foreach ($result as $row){
 
    <nav class="navbar-sex">
       <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
-      <a href="about.html"><i class="fa-solid fa-calendar-days"></i><span>Horario</span></a>
+      <a href="horario.php"><i class="fa-solid fa-calendar-days"></i><span>Horario</span></a>
       <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Notas</span></a>
       <?php 
       if($Rol_usuario=="Admin"){
@@ -209,20 +209,6 @@ foreach ($result as $row){
 
 
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <footer class="footer">
 

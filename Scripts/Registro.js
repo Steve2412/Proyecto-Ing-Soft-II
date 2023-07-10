@@ -24,10 +24,6 @@ Insertar_Telefono.addEventListener("keyup", function (e) {
   }
 });
 
-var Fecha_Actual = new Date();
-var Mes_Actual = new Date().getMonth();
-var Dia_Actual = Fecha_Actual.getDate;
-console.log(Fecha_Actual, Mes_Actual.value, Dia_Actual.value);
 
 var el_first = document.querySelector(".Entrada-Datos-1");
 var el_second = document.querySelector(".Entrada-Datos-2");
@@ -79,6 +75,11 @@ Insertar_Genero.addEventListener("click", (e) => {
 });
 
 function registrar() {
+  var Fecha_Actual = new Date();
+  var Fecha_Comparar = new Date(Insertar_Fecha.value);
+  var Difference_In_Time = Fecha_Actual.getTime() - Fecha_Comparar.getTime();
+  Difference_In_Time = Math.round(Difference_In_Time / (1000 * 60 * 60 * 24));
+  console.log(Difference_In_Time);
   if (
     Insertar_Direccion.value == null ||
     Insertar_Direccion.value === "" ||
@@ -109,6 +110,8 @@ function registrar() {
     alert("Debe Incluir una Numero");
   } else if (Insertar_Contra_1.value !== Insertar_Contra_2.value) {
     alert("Las contraseñas no concuerdan");
+  } else if(Difference_In_Time<"6574"){
+    alert("Eres menor de edad, no puedes registrarte via online")
   } else {
     var datos = new FormData(formulario);
     console.log(datos.get("Nombre"));
@@ -129,10 +132,10 @@ function registrar() {
       .then(data => {
         console.log(data);
         if (data === "1") {
-          alert("Ya existe el curso");
+          alert("Ya existe el usuario");
         } else if (data === "2") {
           alert(
-            "Se ha creado un nuevo curso"
+            "Se ha creado un nuevo usuario"
           );
           window.location.href = "../index.html";
         }

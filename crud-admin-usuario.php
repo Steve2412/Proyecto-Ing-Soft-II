@@ -13,20 +13,21 @@
 
         </form>
         <form method="GET   ">
-            <input type="text" class="form-control me-2" id="getData" placeholder="Buscar estudiante" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search'];}?>">
+            <input type="text" class="form-control me-2" id="getData" placeholder="Buscar usuario" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search'];}?>">
             <button class="btn btn-dark btn-sm"> Buscar</button>
         </form>
-        <h2>Lista Estudiantes</h2>  
-        <a class="btn btn-primary" role="button" href="crud-admin-usuario-crear.php" name="sumbit">Nuevo Estudiante</a>
+        <h2>Lista usuarios</h2>  
+        <a class="btn btn-primary" role="button" href="crud-admin-usuario-crear.php" name="sumbit">Nuevo usuario</a>
+        <a class="btn btn-info" role="button" href="administrador.php" name="sumbit">Regresar</a>   
         <br>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Cedula</th>
+                    <th>Cédula</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Correo</th>
-                    <th>Direccion</th>
+                    <th>Dirección</th>
                     <th>Telefono</th>
                     <th>Contraseña</th>
                     <th>Fecha Nacimiento</th>

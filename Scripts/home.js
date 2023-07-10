@@ -1,8 +1,6 @@
-let toggleBtn = document.getElementById('toggle-btn');
 let body = document.body;
-let darkMode = localStorage.getItem('dark-mode');
 
-const enableDarkMode = () =>{
+/*const enableDarkMode = () =>{
    toggleBtn.classList.replace('fa-sun', 'fa-moon');
    body.classList.add('dark');
    localStorage.setItem('dark-mode', 'enabled');
@@ -25,20 +23,12 @@ toggleBtn.onclick = (e) =>{
    }else{
       disableDarkMode();
    }
-}
+}*/
 
 let profile = document.querySelector('.header .flex .profile');
 
 document.querySelector('#user-btn').onclick = () =>{
    profile.classList.toggle('active');
-   search.classList.remove('active');
-}
-
-let search = document.querySelector('.header .flex .search-form');
-
-document.querySelector('#search-btn').onclick = () =>{
-   search.classList.toggle('active');
-   profile.classList.remove('active');
 }
 
 let sideBar = document.querySelector('.side-bar');
