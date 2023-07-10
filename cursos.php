@@ -69,8 +69,8 @@ foreach ($result as $row){
          <div id="menu-btn" class="fas fa-bars"></div>
          <div id="search-btn" class="fas fa-search"></div>
          <div id="user-btn" class="fas fa-user"></div>
-         <div id="toggle-btn" class="fas fa-sun"></div>
-      </div>
+         <!--<div id="toggle-btn" class="fas fa-sun"></div>-->
+         </div>
 
       <div class="profile">
          <img src="images/pic-1.jpg" class="image" alt="">
@@ -118,12 +118,6 @@ if($Rol=="Admin"){
 ?>
 
 <?php echo $conte_text ?>
-
-<br><br>
-<h3 class="descargar" style="font-size:30px">Descargar pdf de <?php echo $nomb_cur ?></h3>
-<br>
-    <a class="descargar-btn"  href=<?php ?>download="manual ingles basico.pdf">Descargar archivo</a>
-</section>
 
  <!--<section id="wrap" class="playlist-videos">
    <iframe width="560" height="315" src=<?php echo $conte_video ?> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

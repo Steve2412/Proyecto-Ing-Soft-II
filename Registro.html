@@ -43,7 +43,7 @@
                 <form class="Formulario" onsubmit="return false">
                     <img src="Images/register.png" class="Registro_Imagen">
                     <div  class="Entrada-Datos-1">
-                        <input type="text" placeholder="Nombre" class="Insertar-Primero" id="Nombre" name="Nombre" //pattern="[a-zA-Z]{1,}" required></input>
+                        <input type="text" placeholder="Nombre" class="Insertar-Primero" id="Nombre" name="Nombre" required></input>
                         <input type="text" placeholder="Apellido" class="Insertar-Primero" id="Apellido" name="Apellido"></input>
                         <input type="email" placeholder="Correo" class="Insertar-Primero" id="Correo" name="Correo"></input>
                         <input type="number" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="10" inputMode="numeric" placeholder="Cédula" class="Insertar-Primero" id="Cedula" name="Cedula"></input>
@@ -68,7 +68,7 @@
                             <input type="tel" inputMode="numeric" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="xxxx-xxxxxxx" class="Insertar-Segundo" id="Telefono" name="Telefono"></input>
                             <input type="password" placeholder="Contraseña" maxlength="16" class="Insertar-Segundo" id="Contra_1" name="Contra"></input>
                             <input type="password" placeholder="Repetir Contraseña" maxlength="16" class="Insertar-Segundo" id="Contra_2"></input>    
-                            <input type="date" class="Insertar-Segundo"  name="Fecha"></input>
+                            <input type="date" class="Fecha-Insertar" max="2023-12-31" name="Fecha"></input>
                        
                           </div>
                         <button class="Boton-Regresar" id="Regreso" onclick="fun_atras()">Regresar</button>

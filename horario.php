@@ -58,8 +58,7 @@ foreach ($result as $row){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Corblaserca - Inicio</title>
-
+   <title>Horario</title>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
 
@@ -67,9 +66,7 @@ foreach ($result as $row){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 
    <!-- custom css file link  -->
-      <link rel="stylesheet" href="assets/styles/css/style.css">
-      <link rel="stylesheet" href="assets/styles/css/horario.css">
-
+   <link rel="stylesheet" href="assets/styles/css/style copy.css">
 </head>
 <body>
 
@@ -81,10 +78,9 @@ foreach ($result as $row){
 
       <div class="icons">
          <div id="menu-btn" class="fas fa-bars"></div>
-         <div id="search-btn" class="fas fa-search"></div>
          <div id="user-btn" class="fas fa-user"></div>
-         <div id="toggle-btn" class="fas fa-sun"></div>
-      </div>
+         <!--<div id="toggle-btn" class="fas fa-sun"></div>-->
+         </div>
 
       <div class="profile">
          <img src="images/pic-1.jpg" class="image" alt="">
@@ -113,9 +109,9 @@ foreach ($result as $row){
       <a href="profile.php" class="btn">Ver perfil</a>
    </div>
 
-   <nav class="navbar">
+   <nav class="navbar-sex">
       <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
-      <a href="about.html"><i class="fa-solid fa-calendar-days"></i><span>Horario</span></a>
+      <a href="horario.php"><i class="fa-solid fa-calendar-days"></i><span>Horario</span></a>
       <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Notas</span></a>
       <?php 
       if($Rol_usuario=="Admin"){

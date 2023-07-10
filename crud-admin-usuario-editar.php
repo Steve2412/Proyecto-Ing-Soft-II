@@ -92,7 +92,7 @@ foreach ($result as $row){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Fecha Nacimiento</label>
                 <div class="col-sm-6">
-                        <input type="date" id="Fecha-Insertar" name="Fecha" class="input-group date" value=<?php echo $Fecha;?>>
+                        <input type="date" id="Fecha-Insertar" name="Fecha" max="2023-12-31" class="input-group date" value=<?php echo $Fecha;?>>
                 </div>
             </div>
 
