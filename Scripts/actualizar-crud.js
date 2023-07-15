@@ -14,9 +14,6 @@ var Insertar_Direccion = document.querySelector("#Direccion");
 var Insertar_Telefono = document.querySelector("#Telefono");
 var Insertar_Contra = document.querySelector("#Contra");
 var Insertar_Fecha = document.querySelector("#Fecha-Insertar");
-var Insertar_Rol = document.querySelector("#Rol");
-var Rol_E = document.querySelector("#option-a");
-var Rol_A = document.querySelector("#option-b");
 
 let res = document.querySelector("#res");
 
@@ -44,16 +41,6 @@ Insertar_Genero.addEventListener("click", (e) => {
   } else if (Genero_F.checked == true) {
     Gen = Genero_F.value;
     console.log(Gen);
-  }
-});
-
-Insertar_Rol.addEventListener("click", (e) => {
-  if (Rol_E.checked == true) {
-    Rol = Rol_E.value;
-    console.log(Rol);
-  } else if (Rol_A.checked == true) {
-    Rol = Rol_A.value;
-    console.log(Rol);
   }
 });
 
@@ -111,7 +98,7 @@ function registrar() {
     console.log(datos.get("Telefono"));
     console.log(datos.get("Contra"));
     console.log(datos.get("Fecha"));
-    console.log(datos.get("Rol"));
+    console.log(datos.get("Estado"));
 
     fetch("php/actualizar-crud.php", {
       method: "POST",

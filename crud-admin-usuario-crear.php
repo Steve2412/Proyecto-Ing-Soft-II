@@ -13,14 +13,14 @@
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Nombre</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Nombre" id="Nombre" name="Nombre">
+                        <input type="text" class="form-control" onkeydown="return /[a-z]/i.test(event.key)" placeholder="Nombre" id="Nombre" name="Nombre">
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Apellido</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Apellido" id="Apellido" name="Apellido">
+                        <input type="text" class="form-control" onkeydown="return /[a-z]/i.test(event.key)" placeholder="Apellido" id="Apellido" name="Apellido">
                 </div>
             </div>
 
@@ -58,7 +58,7 @@
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Teléfono</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" inputMode="numeric" placeholder="+58 xxxx-xxxxxxx" id="Telefono" name="Telefono">
+                        <input type="text" class="form-control" inputMode="numeric" placeholder="xxxx-xxxxxxx" id="Telefono" name="Telefono">
                 </div>
             </div>
 
@@ -74,18 +74,20 @@
                 <div class="col-sm-6">
                         <input type="date" id="Fecha-Insertar" name="Fecha" max="2023-12-31" class="input-group date">
                 </div>
-
-            <div class="row mb-3" id="Rol">
-                <label class="col-sm-3 col-form-label">Rol usuario</label>
-                <div class="col-sm-6">
-                    <input type="radio" class="form-check-input" name="Rol" id="option-a" value="Edu" checked>
-                    <label class="form-check-label" for="option-1">Estudiante</label> 
-                    <input type="radio" class="form-check-input" name="Rol" id="option-b" value="Admin">
-                    <label class="form-check-label" for="option-2">Administrador</label> 
-                </div>
-            </div>
                 
             </div>
+
+            
+            <div class="row mb-3" id="Estado">
+                <label class="col-sm-3 col-form-label">Estado</label>
+                <div class="col-sm-6">
+                    <input type="radio" class="form-check-input" name="Estado" id="option-1" value="Activo"  checked>
+                    <label class="form-check-label" for="option-1">Activo</label> 
+                    <input type="radio" class="form-check-input" name="Estado" id="option-2" value="Inactivo">
+                    <label class="form-check-label" for="option-2">Inactivo</label> 
+                </div>  
+            </div>
+            
         </form>
         <button type="submit" class="btn btn-primary" onclick="registrar()">Registrarse</button>
         <button type="submit" class="btn btn-secondary" onclick="regresar()">Regresar</button>

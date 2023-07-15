@@ -50,7 +50,7 @@
                         foreach($result as $opciones){?>
                         
                             
-                            <option value=1><?php echo $opciones['ID_peri']?></option>
+                            <option><?php echo $opciones['ID_peri']?></option>
                             <?php } ?>
                         
                     </select>
@@ -60,10 +60,12 @@
             <div class="row mb-3" id="Rol">
                 <label class="col-sm-3 col-form-label">Rol</label>
                 <div class="col-sm-6">
-                    <input type="radio" class="form-check-input" name="Rol" id="option-1" value="Edu" checked>
+                    <input type="radio" class="form-check-input" name="Rol" id="option-1" value="Estudiante" checked>
                     <label class="form-check-label" for="option-1">Estudiante</label> 
-                    <input type="radio" class="form-check-input" name="Rol" id="option-2" value="Admin">
-                    <label class="form-check-label" for="option-2">Administrador</label> 
+                    <input type="radio" class="form-check-input" name="Rol" id="option-2" value="Profesor">
+                    <label class="form-check-label" for="option-2">Profesor</label>
+                    <input type="radio" class="form-check-input" name="Rol" id="option-3" value="Administrador">
+                    <label class="form-check-label" for="option-3">Administrador</label> 
                 </div>
             </div>
                 

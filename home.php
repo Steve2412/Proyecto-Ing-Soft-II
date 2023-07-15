@@ -21,6 +21,14 @@ foreach ($result as $row){
     $Numero = $row['numer_user'];
     $Contra = $row['contra_user'];
     $Fecha = $row['fech_naci_user'];
+    $Estado = $row['estado_user'];
+   }
+
+   if ($Estado=="Inactivo"){
+      echo '<script language="javascript">alert("No estas solvente en el sistema, reporta el pago o comunicate con el administrador");</script>';
+      echo '<script language="javascript">
+      window.location = "notifipago.php"
+      </script>';
    }
 
 $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = $usuario"; 
@@ -45,16 +53,21 @@ foreach ($result as $row){
     $nomb_cur = $row['nomb_cur'];
 }
 
-$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Admin'"; 
+$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Administrador'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
-    $Rol_profe = $row['Usuario_rol'];
+    $cedu_profe = $row['Usuario_ID_user'];
 }
 
-$query = "SELECT * FROM usuario WHERE rol = '$Rol_profe'"; 
+$query = "SELECT * FROM usuario WHERE cedu_user = '$cedu_profe'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Profesor = $row['nomb_user'];
+}
+
+if($Rol_usuario=="Administrador"){
+   echo "<script> location.href='administrador.php' </script>";
+
 }
 
 ?>
@@ -115,11 +128,19 @@ foreach ($result as $row){
    </div>
 
    <nav class="navbar">
-      <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
-      <a href="horario.php"><i class="fa-solid fa-calendar-days"></i><span>Horario</span></a>
-      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Notas</span></a>
+   <?php 
+         if($Rol_usuario=="Estudiante"||$Rol_usuario=="Profesor"){
+         
+         echo "<a href='home.php'><i class='fas fa-home'></i><span>Inicio</span></a>"; 
+         echo "<a href='horario.php'><i class='fa-solid fa-calendar-days'></i><span>Horario</span></a>"; 
+      }
+      ?>      
       <?php 
-      if($Rol_usuario=="Admin"){
+      if($Rol_usuario=="Estudiante"){
+      echo "<a href='courses.html'><i class='fas fa-graduation-cap'></i><span>Notas</span></a>";
+      } ?> 
+      <?php 
+      if($Rol_usuario=="Administrador"){
       echo "<a href='administrador.php'><i class='fas fa-graduation-cap'></i><span>Administracion</span></a>";
       } ?>
 
@@ -144,8 +165,7 @@ foreach ($result as $row){
             </div>
          </div>
          <div class="thumb">
-            <img src="images/ingles-1.png" alt="">
-            <span>10 videos</span>
+            <img src="images/curso.jpg" alt="">
          </div>
          <?php echo "<h3 class='title'>$nomb_cur</h3>" ?>
          <a href="cursos.php" class="inline-btn">Ver curso</a>

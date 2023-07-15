@@ -45,12 +45,6 @@ foreach ($result as $row){
     $Rol_profe = $row['Usuario_rol'];
 }
 
-$query = "SELECT * FROM usuario WHERE rol = '$Rol_profe'"; 
-$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
-foreach ($result as $row){
-    $Profesor = $row['nomb_user'];
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -112,8 +106,10 @@ foreach ($result as $row){
    <nav class="navbar-sex">
       <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
       <a href="horario.php"><i class="fa-solid fa-calendar-days"></i><span>Horario</span></a>
-      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Notas</span></a>
       <?php 
+      if($Rol_usuario=="Estudiante"){
+      echo "<a href='courses.html'><i class='fas fa-graduation-cap'></i><span>Notas</span></a>";
+      } ?>      <?php 
       if($Rol_usuario=="Admin"){
       echo "<a href='administrador.php'><i class='fas fa-graduation-cap'></i><span>Administracion</span></a>";
       } ?>

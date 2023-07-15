@@ -16,7 +16,6 @@ foreach ($result as $row){
     $Numero = $row['numer_user'];
     $Contra = $row['contra_user'];
     $Fecha = $row['fech_naci_user'];
-    $Rol = $row['rol'];
 
 }
 $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = $usuario"; 
@@ -34,7 +33,7 @@ use Dompdf\Dompdf;
 extract($_POST);
 
 if(isset($submit)){
-    $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_rol='Edu'AND Cursos_ID_cur='$Cursos_ID_cur'";
+    $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_rol='Estudiante'AND Cursos_ID_cur='$Cursos_ID_cur'";
     $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
     $html = '';
     $html .= '
@@ -50,7 +49,7 @@ if(isset($submit)){
     ';
     foreach ($result as $row){
         $Usuario_ID_user = $row['Usuario_ID_user'];
-        $query_2 = "SELECT * FROM usuario WHERE cedu_user='$Usuario_ID_user' AND rol='Edu'";
+        $query_2 = "SELECT * FROM usuario WHERE cedu_user='$Usuario_ID_user'";
         $result_2 = $conectar->query($query_2)->fetchAll(PDO::FETCH_BOTH);
         foreach ($result_2 as $row_2){
             $html .= '
