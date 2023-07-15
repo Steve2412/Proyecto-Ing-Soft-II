@@ -21,13 +21,15 @@ foreach ($result as $row){
     $Numero = $row['numer_user'];
     $Contra = $row['contra_user'];
     $Fecha = $row['fech_naci_user'];
-    $Rol = $row['rol'];
 }
 
 $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = $usuario"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Cursos_ID_cur = $row['Cursos_ID_cur'];
+    $Rol_usuario = $row['Usuario_rol'];
+
+    
 }
 
 $query = "SELECT * FROM cursos WHERE ID_cur = '$Cursos_ID_cur'"; 
@@ -75,7 +77,7 @@ foreach ($result as $row){
       <div class="profile">
          <img src="images/pic-1.jpg" class="image" alt="">
          <?php echo "<h3 class='name'>$Nombre</h3>" ?>
-         <?php echo "<p class='role'>$Rol</p>" ?>
+         <?php echo "<p class='role'>$Rol_usuario</p>" ?>
          <a href="profile.php" class="btn">Ver perfil</a>
          <div class="flex-btn">
             <a href="php/salir.php" class="option-btn">Cerrar sesión</a>
@@ -95,7 +97,7 @@ foreach ($result as $row){
    <div class="profile">
       <img src="images/pic-1.jpg" class="image" alt="">
       <?php echo "<h3 class='name'>$Nombre</h3>" ?>
-      <?php echo "<p class='role'>$Rol</p>" ?>
+      <?php echo "<p class='role'>$Rol_usuario</p>" ?>
       <a href="profile.php" class="btn">Ver perfil</a>
    </div>
 
@@ -117,54 +119,54 @@ foreach ($result as $row){
 <div class="table">
 <form id="Formulario">
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label" style="font-size:30px" >Nombre</label>
+                <label class="col-sm-3 col-form-label" style="font-size:20px" >Nombre</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control"style="font-size:25px" placeholder="Nombre" id="Nombre" name="Nombre" value=<?php echo $Nombre;?>>
+                        <input type="text" class="form-control"style="font-size:20px" placeholder="Nombre" id="Nombre" name="Nombre" value=<?php echo $Nombre;?>>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label"style="font-size:30px">Apellido</label>
+                <label class="col-sm-3 col-form-label"style="font-size:20px">Apellido</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control"style="font-size:25px" placeholder="Apellido" id="Apellido" name="Apellido" value=<?php echo $Apellido;?>>
+                        <input type="text" class="form-control"style="font-size:20px" placeholder="Apellido" id="Apellido" name="Apellido" value=<?php echo $Apellido;?>>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label"style="font-size:30px">Correo</label>
+                <label class="col-sm-3 col-form-label"style="font-size:20px">Correo</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control"style="font-size:25px" placeholder="Correo" id="Correo" name="Correo" value=<?php echo $Correo;?>>
+                        <input type="text" class="form-control"style="font-size:20px" placeholder="Correo" id="Correo" name="Correo" value=<?php echo $Correo;?>>
                 </div>
             </div>
 
             <div class="row mb-3" id="Genero">
-                <label class="col-sm-3 col-form-label"style="font-size:30px">Genero</label>
+                <label class="col-sm-3 col-form-label"style="font-size:20px">Genero</label>
                 <div class="col-sm-6">
-                    <input type="radio" class="form-check-input"style="font-size:25px" name="Genero" id="option-1" value="M"  <?php echo ($Genero=='M')?'checked':'' ?>>
-                    <label class="form-check-label"style="font-size:25px" for="option-1">Hombre</label> 
-                    <input type="radio" class="form-check-input"style="font-size:25px" name="Genero" id="option-2" value="F" <?php echo ($Genero=='F')?'checked':'' ?>>
-                    <label class="form-check-label"style="font-size:25px" for="option-2">Mujer</label> 
+                    <input type="radio" class="form-check-input"style="font-size:20px" name="Genero" id="option-1" value="M"  <?php echo ($Genero=='M')?'checked':'' ?>>
+                    <label class="form-check-label"style="font-size:20px" for="option-1">Hombre</label> 
+                    <input type="radio" class="form-check-input"style="font-size:20px" name="Genero" id="option-2" value="F" <?php echo ($Genero=='F')?'checked':'' ?>>
+                    <label class="form-check-label"style="font-size:20px" for="option-2">Mujer</label> 
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label"style="font-size:25px">Direccion</label>
+                <label class="col-sm-3 col-form-label"style="font-size:20px">Direccion</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control"style="font-size:25px" placeholder="Direccion" id="Direccion" name="Direccion" maxlength="15" value=<?php echo $Direccion;?>>
+                        <input type="text" class="form-control"style="font-size:20px" placeholder="Direccion" id="Direccion" name="Direccion" maxlength="15" value=<?php echo $Direccion;?>>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label"style="font-size:30px">Telefono</label>
+                <label class="col-sm-3 col-form-label"style="font-size:20px">Telefono</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control"style="font-size:25px" inputMode="numeric" placeholder="+58 xxxx-xxxxxxx" id="Telefono" name="Telefono" value=<?php echo $Numero;?>>
+                        <input type="text" class="form-control"style="font-size:20px" inputMode="numeric" placeholder="+58 xxxx-xxxxxxx" id="Telefono" name="Telefono" value=<?php echo $Numero;?>>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label"style="font-size:30px">Fecha Nacimiento</label>
+                <label class="col-sm-3 col-form-label"style="font-size:20px">Fecha Nacimiento</label>
                 <div class="col-sm-6">
-                        <input type="date" id="Fecha-Insertar"style="font-size:25px" name="Fecha" class="input-group date" value=<?php echo $Fecha;?>>
+                        <input type="date" id="Fecha-Insertar"style="font-size:20px" name="Fecha" class="input-group date" value=<?php echo $Fecha;?>>
                 </div>
             </div>
             </div>
@@ -189,7 +191,7 @@ foreach ($result as $row){
 
 
 
-<!--<footer class="footer">
+<footer class="footer">
 
    &copy; Todos los derechos reservado por <span>Corblaserca</span> | 2023 all rights reserved!
 

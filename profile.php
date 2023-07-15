@@ -21,7 +21,6 @@ foreach ($result as $row){
     $Numero = $row['numer_user'];
     $Contra = $row['contra_user'];
     $Fecha = $row['fech_naci_user'];
-    $Rol = $row['rol'];
 }
 
 $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = $usuario"; 
@@ -77,7 +76,7 @@ foreach ($result as $row){
       <div class="profile">
          <img src="images/pic-1.jpg" class="image" alt="">
          <?php echo "<h3 class='name'>$Nombre</h3>" ?>
-         <?php echo "<p class='role'>$Rol</p>" ?>
+         <?php echo "<p class='role'>$Rol_usuario</p>" ?>
          <a href="profile.php" class="btn">Ver perfil</a>
          <div class="flex-btn">
             <a href="php/salir.php" class="option-btn">Cerrar sesión</a>
@@ -97,16 +96,23 @@ foreach ($result as $row){
    <div class="profile">
       <img src="images/pic-1.jpg" class="image" alt="">
       <?php echo "<h3 class='name'>$Nombre</h3>" ?>
-      <?php echo "<p class='role'>$Rol</p>" ?>
+      <?php echo "<p class='role'>$Rol_usuario</p>" ?>
       <a href="profile.php" class="btn">Ver perfil</a>
    </div>
 
    <nav class="navbar-sex">
-      <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
-      <a href="horario.php"><i class="fa-solid fa-calendar-days"></i><span>Horario</span></a>
-      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Notas</span></a>
+   <?php 
+         if($Rol_usuario=="Estudiante"||$Rol_usuario=="Profesor"){
+         
+         echo "<a href='home.php'><i class='fas fa-home'></i><span>Inicio</span></a>"; 
+         echo "<a href='horario.php'><i class='fa-solid fa-calendar-days'></i><span>Horario</span></a>"; 
+      }
+      ?>
       <?php 
-      if($Rol_usuario=="Admin"){
+      if($Rol_usuario=="Estudiante"){
+      echo "<a href='courses.html'><i class='fas fa-graduation-cap'></i><span>Notas</span></a>";
+      } ?>          <?php 
+      if($Rol_usuario=="Administrador"){
       echo "<a href='administrador.php'><i class='fas fa-graduation-cap'></i><span>Administracion</span></a>";
       } ?>
       <!--<a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>-->

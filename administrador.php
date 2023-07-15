@@ -21,8 +21,7 @@ foreach ($result as $row){
     $Numero = $row['numer_user'];
     $Contra = $row['contra_user'];
     $Fecha = $row['fech_naci_user'];
-    $Rol = $row['rol'];
-}
+   }
 
 $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = $usuario"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
@@ -32,10 +31,18 @@ foreach ($result as $row){
 
 }
 
+
 $query = "SELECT * FROM cursos WHERE ID_cur = '$Cursos_ID_cur'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
-    $nomb_cur = $row['nomb_cur'];
+    $nomb_cur = $row['nomb_cur'];    
+    $horar_cur = $row['horar_cur'];
+}
+
+$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Admin'"; 
+$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
+foreach ($result as $row){
+    $Rol_profe = $row['Usuario_rol'];
 }
 
 ?>
@@ -45,8 +52,7 @@ foreach ($result as $row){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Corblaserca - Administrador</title>
-
+   <title>Horario</title>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
 
@@ -55,9 +61,6 @@ foreach ($result as $row){
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="assets/styles/css/style copy.css">
-
-      
-
 </head>
 <body>
 
@@ -69,15 +72,14 @@ foreach ($result as $row){
 
       <div class="icons">
          <div id="menu-btn" class="fas fa-bars"></div>
-         <div id="search-btn" class="fas fa-search"></div>
          <div id="user-btn" class="fas fa-user"></div>
-         <div id="toggle-btn" class="fas fa-sun"></div>
-      </div>
+         <!--<div id="toggle-btn" class="fas fa-sun"></div>-->
+         </div>
 
       <div class="profile">
          <img src="images/pic-1.jpg" class="image" alt="">
          <?php echo "<h3 class='name'>$Nombre</h3>" ?>
-         <?php echo "<p class='role'>$Rol</p>" ?>
+         <?php echo "<p class='role'>$Rol_usuario</p>" ?>
          <a href="profile.php" class="btn">Ver perfil</a>
          <div class="flex-btn">
             <a href="php/salir.php" class="option-btn">Cerrar sesión</a>
@@ -97,16 +99,24 @@ foreach ($result as $row){
    <div class="profile">
       <img src="images/pic-1.jpg" class="image" alt="">
       <?php echo "<h3 class='name'>$Nombre</h3>" ?>
-      <?php echo "<p class='role'>$Rol</p>" ?>
+      <?php echo "<p class='role'>$Rol_usuario</p>" ?>
       <a href="profile.php" class="btn">Ver perfil</a>
    </div>
 
    <nav class="navbar-sex">
-      <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
-      <a href="about.html"><i class="fa-solid fa-calendar-days"></i><span>Horario</span></a>
-      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Notas</span></a>
       <?php 
-      if($Rol_usuario=="Admin"){
+         if($Rol_usuario=="Estudiante"||$Rol_usuario=="Profesor"){
+         
+         echo "<a href='home.php'><i class='fas fa-home'></i><span>Inicio</span></a>"; 
+         echo "<a href='horario.php'><i class='fa-solid fa-calendar-days'></i><span>Horario</span></a>"; 
+      }
+      ?>      
+      <?php 
+      if($Rol_usuario=="Estudiante"){
+      echo "<a href='courses.html'><i class='fas fa-graduation-cap'></i><span>Notas</span></a>";
+      } ?>      
+      <?php 
+      if($Rol_usuario=="Administrador"){
       echo "<a href='administrador.php'><i class='fas fa-graduation-cap'></i><span>Administracion</span></a>";
       } ?>
       <!--<a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>-->
@@ -117,15 +127,20 @@ foreach ($result as $row){
 
 <section class="courses">
 
-<h1>Menu del Administrador</h1>
+<h1 style="font-size:20px">Menu del Administrador</h1>
 <br><br>
-<div>Usuarios del sistema</div>
+<div style="font-size:20px">Usuarios del sistema</div>
 <a class='btn btn-primary btn-sm' href='crud-admin-usuario.php'>Usuarios del sistema</a>
-<br><br>
-<div>Cursos del sistema</div>
+<br>
+<div style="font-size:20px">Cursos del sistema</div>
 <a class='btn btn-primary btn-sm' href='crud-admin-cursos.php'>Cursos</a>
-<div>Usuarios inscritos en los cursos</div>
+<br>
+<div style="font-size:20px">Usuarios inscritos en los cursos</div>
 <a class='btn btn-primary btn-sm' href='crud-admin-usuario-tiene-cursos.php'>Usuarios inscritos en los cursos</a>
+<br>
+<div style="font-size:20px">Copia de seguridad</div>
+<a class='btn btn-primary btn-sm' href='copia/backup.php'>Copia de seguridad</a>
+<br>
 
 
 

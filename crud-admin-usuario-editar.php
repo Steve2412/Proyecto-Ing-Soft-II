@@ -1,7 +1,7 @@
 <?php
 require "php/conexion.php";
 $id=$_GET['editarid']; 
-$query = "SELECT * FROM usuario WHERE cedu_user = $id"; 
+$query = "SELECT * FROM usuario WHERE cedu_user = '$id'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Nombre = $row['nomb_user'];
@@ -13,7 +13,6 @@ foreach ($result as $row){
     $Numero = $row['numer_user'];
     $Contra = $row['contra_user'];
     $Fecha = $row['fech_naci_user'];
-    $Rol = $row['rol'];
 }
 
 ?>
@@ -33,14 +32,14 @@ foreach ($result as $row){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Nombre</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Nombre" id="Nombre" name="Nombre" value=<?php echo $Nombre;?>>
+                        <input type="text" class="form-control" onkeydown="return /[a-z]/i.test(event.key)" placeholder="Nombre" id="Nombre" name="Nombre" value=<?php echo $Nombre;?>>
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Apellido</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Apellido" id="Apellido" name="Apellido" value=<?php echo $Apellido;?>>
+                        <input type="text" class="form-control" onkeydown="return /[a-z]/i.test(event.key)" placeholder="Apellido" id="Apellido" name="Apellido" value=<?php echo $Apellido;?>>
                 </div>
             </div>
 
@@ -78,7 +77,7 @@ foreach ($result as $row){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Telefono</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" inputMode="numeric" placeholder="+58 xxxx-xxxxxxx" id="Telefono" name="Telefono" value=<?php echo $Numero;?>>
+                        <input type="text" class="form-control" inputMode="numeric" placeholder="xxxx-xxxxxxx" id="Telefono" name="Telefono" value=<?php echo $Numero;?>>
                 </div>
             </div>
 
@@ -96,13 +95,13 @@ foreach ($result as $row){
                 </div>
             </div>
 
-            <div class="row mb-3" id="Rol">
-                <label class="col-sm-3 col-form-label">Rol usuario</label>
+            <div class="row mb-3" id="Estado">
+                <label class="col-sm-3 col-form-label">Estado</label>
                 <div class="col-sm-6">
-                    <input type="radio" class="form-check-input" name="Rol" id="option-a" value="Edu" <?php echo ($Rol=='Edu')?'checked':'' ?>>
-                    <label class="form-check-label" for="option-1">Estudiante</label> 
-                    <input type="radio" class="form-check-input" name="Rol" id="option-b" value="Admin" <?php echo ($Rol=='Admin')?'checked':'' ?>
-                    <label class="form-check-label" for="option-2">Administrador</label> 
+                    <input type="radio" class="form-check-input" name="Estado" id="option-1" value="Activo"  <?php echo ($Genero=='Activo')?'checked':'' ?>>
+                    <label class="form-check-label" for="option-1">Activo</label> 
+                    <input type="radio" class="form-check-input" name="Estado" id="option-2" value="Inactivo" <?php echo ($Genero=='Inactivo')?'checked':'' ?>>
+                    <label class="form-check-label" for="option-2">Inactivo</label> 
                 </div>
             </div>
         </form>

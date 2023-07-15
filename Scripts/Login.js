@@ -1,5 +1,7 @@
 console.log("Soymegagay");
 
+var intentos = 3;
+
 var formulario = document.querySelector(".Formulario");
 
 var Entrada_Cedula = document.querySelector("#Cedula");
@@ -30,8 +32,15 @@ function Iniciar_Sesion() {
     })
     .then(res => res.json())
     .then(data => {
-        if (data == "2" ||data == "3")   {
-          alert("No coinciden los datos");
+        if (data == "2")   {
+          intentos -= 1;
+          alert("No coinciden los datos, tienes " + intentos + " intentos mas");
+          if (intentos == 0){
+            alert("Espere 10 segundos para iniciar sesion");
+            window.location.href = "logeo.php";
+
+
+          }
         } else if (data == "1") {
           alert("Procede a iniciar sesion");
           window.location.href = "home.php";

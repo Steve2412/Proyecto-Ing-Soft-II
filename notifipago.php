@@ -1,13 +1,77 @@
+<?php
+require "php/conexion.php";
+session_start();
+if(!isset($_SESSION['usuario'])){
+  echo '<script language="javascript">
+  window.location = "index.html"
+  </script>';
+  die();
+  session_destroy(); 
+}
+
+
+
+$usuario = $_SESSION['usuario'];
+$query = "SELECT * FROM usuario WHERE cedu_user = $usuario"; 
+$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
+foreach ($result as $row){
+    $Nombre = $row['nomb_user'];
+    $Apellido = $row['apelli_user'];
+    $Correo = $row['correo_user'];
+    $Genero = $row['sexo_user'];
+    $Direccion = $row['dirre_user'];
+    $Numero = $row['numer_user'];
+    $Contra = $row['contra_user'];
+    $Fecha = $row['fech_naci_user'];
+   }
+
+$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = $usuario"; 
+$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
+foreach ($result as $row){
+    $Cursos_ID_cur = $row['Cursos_ID_cur'];
+    $Rol_usuario = $row['Usuario_rol'];
+}
+
+if(!$result){
+   echo '<script language="javascript">
+   window.location = "index.html"
+   </script>';
+   die();
+   session_destroy(); 
+}
+
+
+$query = "SELECT * FROM cursos WHERE ID_cur = '$Cursos_ID_cur'"; 
+$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
+foreach ($result as $row){
+    $nomb_cur = $row['nomb_cur'];
+}
+
+$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Administrador'"; 
+$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
+foreach ($result as $row){
+    $cedu_profe = $row['Usuario_ID_user'];
+}
+
+$query = "SELECT * FROM usuario WHERE cedu_user = '$cedu_profe'"; 
+$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
+foreach ($result as $row){
+    $Profesor = $row['nomb_user'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>video playlist</title>
+   <title>Notificacion Pago</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="assets/styles/css/style.css">
@@ -20,28 +84,20 @@
    
    <section class="flex">
 
-      <a href="home.html" class="logo">Educa.</a>
-
-      <form action="search.html" method="post" class="search-form">
-         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
-         <button type="submit" class="fas fa-search"></button>
-      </form>
+      <a href="home.html" class="logo">Corblaserca.</a>
 
       <div class="icons">
          <div id="menu-btn" class="fas fa-bars"></div>
-         <div id="search-btn" class="fas fa-search"></div>
          <div id="user-btn" class="fas fa-user"></div>
-         <div id="toggle-btn" class="fas fa-sun"></div>
       </div>
 
       <div class="profile">
          <img src="images/pic-1.jpg" class="image" alt="">
-         <h3 class="name">shaikh anas</h3>
-         <p class="role">studen</p>
-         <a href="profile.html" class="btn">view profile</a>
+         <?php echo "<h3 class='name'>$Nombre</h3>" ?>
+         <?php echo "<p class='role'>$Rol_usuario</p>" ?>
+         <a href="profile.php" class="btn">Ver perfil</a>
          <div class="flex-btn">
-            <a href="login.html" class="option-btn">login</a>
-            <a href="register.html" class="option-btn">register</a>
+            <a href="php/salir.php" class="option-btn">Cerrar sesión</a>
          </div>
       </div>
 
@@ -57,66 +113,92 @@
 
    <div class="profile">
       <img src="images/pic-1.jpg" class="image" alt="">
-      <h3 class="name">shaikh anas</h3>
-      <p class="role">studen</p>
-      <a href="profile.html" class="btn">view profile</a>
+      <?php echo "<h3 class='name'>$Nombre</h3>" ?>
+      <?php echo "<p class='role'>$Rol_usuario</p>" ?>
+      <a href="profile.php" class="btn">Ver perfil</a>
    </div>
 
    <nav class="navbar">
-      <a href="home.html"><i class="fas fa-home"></i><span>home</span></a>
-      <a href="about.html"><i class="fas fa-question"></i><span>about</span></a>
-      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
-      <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
-      <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>
-   </nav>
+      <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
+      <a href="horario.php"><i class="fa fa-dollar"></i><span>Reporte de pagos</span></a>
+      <a href="courses.html"><i class="fa fa-file-text-o"></i><span>Historial reporte</span></a>
+      <?php 
+      if($Rol_usuario=="Admin"){
+      echo "<a href='administrador.php'><i class='fas fa-graduation-cap'></i><span>Administracion</span></a>";
+      } ?>
+
+      <!--<a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>-->
+   </nav>   
 
 </div>
 
 <div class="menu-cont">
   </div>
   <div class="body">
-    <form action="#">
+    <form class="Formulario" onsubmit="return false">
         <h2 class="encabezado2">Notificación de pago</h2>
     <span class="line"></span>
     <p>Ingresa cada uno de los campos</p>
-    <div class="input-group">
+
+      <div class="input-group">
+      <label for="monto" >Monto en bs</label>
+        <input type="text" onkeyup="agregarDecimal()" placeholder="2500.00" id="Monto" name="Monto">
+
+        <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Seleccione Banco</label><br><br>
+                <div class="col-sm-6">
+                    <select class="form-select" name="Banco" id="Banco">
+                        <option value="Banco de Venezuela">Banco de Venezuela</option>
+                        <option value="Banesco">Banesco</option>
+                        <option value="Banco Provincial">Banco Provincial</option>
+                        <option value="Banco Nacional de crédito">Banco Nacional de crédito</option>
+                        <option value="Bancrecer">Bancrecer</option>
+                    </select>
+                </div>
+            </div><br><br>
 
 
-        <label for="monto">Monto en bs</label>
-        <input type="text" placeholder="2500" id="monto">
 
-        <label class="radio-label-title" for="banco">Banco</label>
+      <!--<div class="Banco">
+         <label class="radio-label-title" for="banco">Seleccione el banco</label>
+         <div>
+            <input class="radio-input" type="radio" id="option-1" name="Banco" value="Banco de Venezuela" checked>
+            <label class="radio-label">Banco de Venezuela</label><br>
+        </div>
+        <div>
+            <input class="radio-input" type="radio" id="option-2" name="Banco" value="Banesco">
+            <label class="radio-label">Banesco</label><br>
+        </div>
+        <div>
+            <input class="radio-input" type="radio" id="option-3" name="Banco" value="Banco Provincial">
+            <label class="radio-label">Banco Provincial</label>
+        </div>
+        <div>  
+            <input class="radio-input" type="radio" id="option-4" name="Banco" value="Banco Nacional de Crédito">
+            <label class="radio-label">Banco Nacional de crédito</label>
+        </div>
+        <div>
+            <input class="radio-input" type="radio" id="option-5" name="Banco" value="Bancrecer">
+            <label class="radio-label">Bancrecer</label> 
+        </div>
+        </div>-->
 
-        <input class="radio-input" type="radio" id="venezuela" name="banco" value="venezuela">
-        <label class="radio-label" for="venezuela">Banco de Venezuela</label><br>
-        <input class="radio-input" type="radio" id="banesco" name="banco" value="banesco">
-        <label class="radio-label" for="banesco">Banesco</label><br>
-        <input class="radio-input" type="radio" id="provincial" name="banco" value="provincial">
-        <label class="radio-label" for="provincial">Banco Provincial</label>
-        <input class="radio-input" type="radio" id="bnc" name="banco" value="bnc">
-        <label class="radio-label" for="bnc">Banco Nacional de crédito</label>
-        <input class="radio-input" type="radio" id="bancrecer" name="banco" value="bancrecer">
-        <label class="radio-label" for="bancrecer">Bancrecer</label> 
+        <label for="cedula">Cédula del titular de la cuenta</label>
+        <input type="number" name="Cedu_Titu" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="Cédula" id="Cedu_Titu">
 
-        <label for="cedula">Cédula</label>
-        <input type="number" name="cedula" placeholder="cédula" id="cedula">
+        <label for="fecha">Fecha de la transferencia</label>
+        <input type="date" name="Fecha_Trans" placeholder="2023/02/04" max="2023-12-31" id="Fecha_Trans">
 
-        <label for="fecha">Fecha</label>
-        <input type="date" name="fecha" placeholder="2023/02/04" id="fecha">
+        <label for="cedula">Número de referencia</label>
+        <input type="number" name="Num_Trans" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="58435348" id="Num_Trans">
+
         <label for="motivo">Motivo de pago</label>
-        <input type="text">
+        <input type="text" id="Motivo" name="Motivo">
+        <button type="submit" class="btn btn-primary" onclick="pago()">Notificar pago</button>
 
-        <input type="submit" value="enviar" class="btn">
     </div>
     </form>
   </div>
-  <script src="noti-radio.js"></script>
-
-
-
-
-
-
 
 
 <footer class="footer">
@@ -126,7 +208,8 @@
 </footer>
 
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<script src="Scripts/notifipago.js"></script>
+<script src="Scripts/home.js"></script>
 
    
 </body>

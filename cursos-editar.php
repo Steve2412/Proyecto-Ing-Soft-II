@@ -21,21 +21,42 @@ foreach ($result as $row){
     $Numero = $row['numer_user'];
     $Contra = $row['contra_user'];
     $Fecha = $row['fech_naci_user'];
-    $Rol = $row['rol'];
-
-}
+    $Estado = $row['estado_user'];
+   }
 
 $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = $usuario"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Cursos_ID_cur = $row['Cursos_ID_cur'];
+    $Rol_usuario = $row['Usuario_rol'];
 }
+
+if(!$result){
+   echo '<script language="javascript">
+   window.location = "index.html"
+   </script>';
+   die();
+   session_destroy(); 
+}
+
 
 $query = "SELECT * FROM cursos WHERE ID_cur = '$Cursos_ID_cur'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $nomb_cur = $row['nomb_cur'];
     $conte_text= $row['conte_text'];
+}
+
+$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Administrador'"; 
+$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
+foreach ($result as $row){
+    $cedu_profe = $row['Usuario_ID_user'];
+}
+
+$query = "SELECT * FROM usuario WHERE cedu_user = '$cedu_profe'"; 
+$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
+foreach ($result as $row){
+    $Profesor = $row['nomb_user'];
 }
 
 ?>
@@ -75,7 +96,7 @@ foreach ($result as $row){
       <div class="profile">
          <img src="images/pic-1.jpg" class="image" alt="">
          <?php echo "<h3 class='name'>$Nombre</h3>" ?>
-         <?php echo "<p class='role'>$Rol</p>" ?>
+         <?php echo "<p class='role'>$Rol_usuario</p>" ?>
          <a href="profile.php" class="btn">Ver perfil</a>
          <div class="flex-btn">
             <a href="php/salir.php" class="option-btn">Cerrar sesión</a>
@@ -95,14 +116,14 @@ foreach ($result as $row){
    <div class="profile">
       <img src="images/pic-1.jpg" class="image" alt="">
       <?php echo "<h3 class='name'>$Nombre</h3>" ?>
-      <?php echo "<p class='role'>$Rol</p>" ?>
+      <?php echo "<p class='role'>$Rol_usuario</p>" ?>
       <a href="profile.php" class="btn">Ver perfil</a>
    </div>
 
    <nav class="navbar">
       <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
+      <a href="cursos.php"><i class="fas fa-chalkboard-teacher"></i><span>Curso</span></a>
       <a href="estudiantes.php"><i class="fas fa-graduation-cap"></i><span>Estudiantes</span></a>
-      <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>
    </nav>
 
 </div>
@@ -111,7 +132,7 @@ foreach ($result as $row){
 
 <?php 
 
-if($Rol=="Admin"){
+if($Rol_usuario=="Profesor"){
    echo  "<a class='btn btn-primary btn-sm' onclick='registrar()';'>Guardar Cambios</a>";
    echo  "<a class='btn btn-primary btn-sm' href='cursos.php';'>Regresar</a>";
 }

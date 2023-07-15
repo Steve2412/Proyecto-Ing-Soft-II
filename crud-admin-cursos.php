@@ -8,10 +8,6 @@
 </head>
 <body>
     <div class="container my-9">
-        <form action="php/reporte-cursos.php" method="post" class="mb-2">
-            <input type="submit" name="submit" class="btn btn-outline-danger" value="Exportar PDF">
-
-        </form>
         <form method="GET   ">
             <input type="text" class="form-control me-2" id="getData" placeholder="Buscar curso" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search'];}?>">
             <button class="btn btn-dark btn-sm"> Buscar</button>
@@ -54,9 +50,11 @@
                         <td>$row[cupos_cur_min]</td>
                         <td>$row[cupos_cur_max]</td>
                         <td>
-                            <a class='btn btn-primary btn-sm' href='crud-admin-cursos-editar.php?editarid=$row[ID_cur]'
-                            >Editar</a>
-                            <a class='btn btn-danger btn-sm' href='php/eliminar-curso.php?deleteid=$row[ID_cur]' onclick='return checkdelete();'>Eliminar</a>
+                            <a class='btn btn-primary btn-sm' href='crud-admin-cursos-editar.php?editarid=$row[ID_cur]'>Editar</a>
+                            <form action='php/exportar-usuarios.php' method='post' class='mb-2'>
+                            <input type='submit' name='submit' class='btn btn-outline-danger' value='Lista estudiates'>
+                        </form>
+                        <a class='btn btn-danger btn-sm' href='php/eliminar-curso.php?deleteid=$row[ID_cur]' onclick='return checkdelete();'>Eliminar</a>
                         </td>
                     </tr>
                     ";}
@@ -75,9 +73,11 @@
                         <td>$row[cupos_cur_min]</td>
                         <td>$row[cupos_cur_max]</td>
                         <td>
-                            <a class='btn btn-primary btn-sm' href='crud-admin-cursos-editar.php?editarid=$row[ID_cur]'
-                            >Editar</a>
+                            <a class='btn btn-primary btn-sm' href='crud-admin-cursos-editar.php?editarid=$row[ID_cur]'>Editar</a><br>
                             <a class='btn btn-danger btn-sm' href='php/eliminar-curso.php?deleteid=$row[ID_cur]' onclick='return checkdelete();'>Eliminar</a>
+                            <form action='php/exportar-crud-alumnos.php?exportarid=$row[ID_cur]' method='post' class='mb-2'>
+                            <input type='submit' name='submit' class='btn btn-outline-danger' value='Lista estudiates'>
+                        </form>
                         </td>
                     </tr>
                 ";

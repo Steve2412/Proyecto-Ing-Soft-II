@@ -7,19 +7,19 @@
     <script type="text/javascript" src="Scripts/code.jquery.com_jquery-3.7.0.min.js"></script>
 </head>
 <body>
-    <div class="container my-9">
-        <form action="php/exportar-usuarios.php" method="post" class="mb-2">
-            <input type="submit" name="submit" class="btn btn-outline-danger" value="Exportar PDF">
+    <div class="container my-9" id="Exportar">
 
-        </form>
         <form method="GET   ">
             <input type="text" class="form-control me-2" id="getData" placeholder="Buscar usuario" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search'];}?>">
             <button class="btn btn-dark btn-sm"> Buscar</button>
         </form>
         <h2>Lista usuarios</h2>  
         <a class="btn btn-primary" role="button" href="crud-admin-usuario-crear.php" name="sumbit">Nuevo usuario</a>
-        <a class="btn btn-info" role="button" href="administrador.php" name="sumbit">Regresar</a>   
-        <br>
+        <a class="btn btn-info" role="button" href="administrador.php" name="sumbit">Regresar</a> 
+        <br>    <br>     
+        <form action="php/exportar-usuarios.php" method="post" class="mb-2">
+            <input type="submit" name="submit" class="btn btn-outline-danger" value="Exportar PDF lista completa">
+        </form>
         <table class="table">
             <thead>
                 <tr>
@@ -29,10 +29,8 @@
                     <th>Correo</th>
                     <th>Dirección</th>
                     <th>Telefono</th>
-                    <th>Contraseña</th>
                     <th>Fecha Nacimiento</th>
                     <th>Genero</th>
-                    <th>Rol</th>
                 </tr>
             </thead>
 
@@ -40,10 +38,7 @@
             <?php
             require "php/conexion.php";
 
-            if (isset($_GET['search'])){
-
-                
-
+            if (isset($_GET['search'])){    
                 $filtervalues=$_GET['search'];
                 $query = "SELECT * FROM usuario WHERE CONCAT(cedu_user,nomb_user,apelli_user) LIKE '%$filtervalues%'";
                 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
@@ -57,10 +52,8 @@
                         <td>$row[correo_user]</td>
                         <td>$row[dirre_user]</td>
                         <td>$row[numer_user]</td>
-                        <td>$row[contra_user]</td>
                         <td>$row[fech_naci_user]</td>
                         <td>$row[sexo_user]</td>
-                        <td>$row[rol]</td>
                         <td>
                             <a class='btn btn-primary btn-sm' href='crud-admin-usuario-editar.php?editarid=$row[cedu_user]'>Editar</a>
                             <a class='btn btn-danger btn-sm' href='php/eliminar.php?deleteid=$row[cedu_user]' onclick='return checkdelete();'>Eliminar</a>
@@ -69,6 +62,7 @@
                     ";}
             }
             else{
+
             $query = "SELECT * FROM usuario";
             $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 
@@ -81,10 +75,8 @@
                         <td>$row[correo_user]</td>
                         <td>$row[dirre_user]</td>
                         <td>$row[numer_user]</td>
-                        <td>$row[contra_user]</td>
                         <td>$row[fech_naci_user]</td>
                         <td>$row[sexo_user]</td>
-                        <td>$row[rol]</td>
                         <td>
                             <a class='btn btn-primary btn-sm' href='crud-admin-usuario-editar.php?editarid=$row[cedu_user]'
                             >Editar</a>

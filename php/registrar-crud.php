@@ -10,7 +10,7 @@ $telefono = isset($_POST['Telefono']) ? $_POST["Telefono"] : "";
 $contra = isset($_POST['Contra']) ? $_POST["Contra"] : "";
 $fecha = isset($_POST['Fecha']) ? $_POST["Fecha"] : "";
 $gen = isset($_POST['Genero']) ? $_POST["Genero"] : "";
-$rol = isset($_POST['Rol']) ? $_POST["Rol"] : "";
+$estado = isset($_POST['Estado']) ? $_POST["Estado"] : "";
 
     $pdo = $conectar->prepare("SELECT cedu_user FROM usuario WHERE cedu_user = ?");
     $pdo->execute([$cedula]);
@@ -20,7 +20,7 @@ $rol = isset($_POST['Rol']) ? $_POST["Rol"] : "";
         echo json_encode("1");
 
     }else{
-        $pdo= $conectar->prepare ("INSERT INTO usuario (cedu_user,nomb_user,apelli_user,correo_user,contra_user,dirre_user,numer_user,fech_naci_user,sexo_user,rol) 
+        $pdo= $conectar->prepare ("INSERT INTO usuario (cedu_user,nomb_user,apelli_user,correo_user,contra_user,dirre_user,numer_user,fech_naci_user,sexo_user,estado_user) 
         VALUES (?,?,?,?,?,?,?,?,?,?)");
         $pdo->bindParam(1,$cedula);
         $pdo->bindParam(2,$nombre);
@@ -31,8 +31,7 @@ $rol = isset($_POST['Rol']) ? $_POST["Rol"] : "";
         $pdo->bindParam(7,$telefono);
         $pdo->bindParam(8,$fecha);
         $pdo->bindParam(9,$gen);
-        $pdo->bindParam(10,$rol);
-
+        $pdo->bindParam(10,$estado);
         $pdo->execute();
         echo json_encode("2");
         
