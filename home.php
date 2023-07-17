@@ -10,7 +10,7 @@ if(!isset($_SESSION['usuario'])){
 }
 
 $usuario = $_SESSION['usuario'];
-$query = "SELECT * FROM usuario WHERE cedu_user = $usuario"; 
+$query = "SELECT * FROM usuario WHERE cedu_user = '$usuario'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Nombre = $row['nomb_user'];
@@ -24,18 +24,26 @@ foreach ($result as $row){
     $Estado = $row['estado_user'];
    }
 
-   if ($Estado=="Inactivo"){
-      echo '<script language="javascript">alert("No estas solvente en el sistema, reporta el pago o comunicate con el administrador");</script>';
-      echo '<script language="javascript">
-      window.location = "notifipago.php"
-      </script>';
-   }
-
-$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = $usuario"; 
+$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$usuario'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Cursos_ID_cur = $row['Cursos_ID_cur'];
     $Rol_usuario = $row['Usuario_rol'];
+}
+
+if(!$result){
+   echo '<script language="javascript">
+   window.location = "index.html"
+   </script>';
+   die();
+   session_destroy(); 
+}
+
+if ($Estado=="Inactivo"){
+   echo '<script language="javascript">alert("No estas solvente en el sistema, reporta el pago o comunicate con el administrador");</script>';
+   echo '<script language="javascript">
+   window.location = "notifipago.php"
+   </script>';
 }
 
 if(!$result){

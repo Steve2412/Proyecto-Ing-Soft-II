@@ -109,6 +109,8 @@ function registrar() {
         console.log(data);
         if (data === "1") {
           alert("Ya existe el usuario");
+        }else if(data=="3"){
+          alert("Ya existe este correo para un usuario")
         } else if (data === "2") {
           alert(
             "Te has registrado correctamente en el sistema, procede a iniciar sesion"

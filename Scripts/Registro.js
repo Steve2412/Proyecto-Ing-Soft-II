@@ -48,7 +48,6 @@ function fun_siguiente() {
   } else if (Insertar_Cedula.value.length > 11) {
     alert("La cedula no puede ser mayor de 11 digitos");
   } else {
-    alert("Siguiente fase");
     el_first.style.display = "none";
     el_second.style.display = "block";
     boton_siguiente.style.display = "none";
@@ -133,11 +132,13 @@ function registrar() {
         console.log(data);
         if (data === "1") {
           alert("Ya existe el usuario");
+        }else if(data=="3"){
+          alert("Ya existe este correo para un usuario")
         } else if (data === "2") {
           alert(
             "Se ha creado un nuevo usuario"
           );
-          window.location.href = "../index.html";
+          window.location.href = "../logeo.php";
         }
       });
   }

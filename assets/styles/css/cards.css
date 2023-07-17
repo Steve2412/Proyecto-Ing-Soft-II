@@ -13,6 +13,7 @@ body {
     width: 100%;
     display: flex;
     margin: auto;
+    margin-top: 10vh;
     justify-content: center;
     align-items: center;
     max-width: 1200px;
@@ -23,7 +24,7 @@ body {
     flex: row;
     flex-wrap: wrap;
     max-width: 1100px;
-    height: 460px;
+    height: 490px;
     margin-left: 20px;
     margin-bottom: 20px;
     border-radius: 6px;

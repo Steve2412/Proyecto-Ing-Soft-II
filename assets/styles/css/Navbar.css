@@ -9,6 +9,7 @@
   background-color: #24252a;
   padding: 10px;
 }
+
 /*
 .navbar {
   display: flex;
@@ -208,12 +209,22 @@ nav .elements li {
   }
 }
 
+@media (max-width: 670px){
+  .menu-cont {
+    width: 100%;
+  }
+}
+
 @media (max-width: 400px) {
   .brand {
     margin-left: 12%;
+  }
+  .menu-cont {
+    width: 100%;
   }
   .elements {
     width: 100vw;
     height: 100vh;
   }
+  
 }

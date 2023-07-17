@@ -9,6 +9,7 @@ if($_SESSION["intento_logeo"]==3){
 require "conexion.php";
 
 $cedula = isset($_POST['Cedula']) ? $_POST["Cedula"] : "";
+$cedula = "V-".$cedula;
 $contra = isset($_POST['Contra']) ? $_POST["Contra"] : "";
 
 
