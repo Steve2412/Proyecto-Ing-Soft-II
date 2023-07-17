@@ -32,7 +32,7 @@ function fun_siguiente() {
         alert("No existe ningun usuario en la base de datos con este correo");
       } else if (data == "1") {
         Email.send({
-          SecureToken : "3a2ba876-a76a-4dc4-9334-a660086d6fea",
+          SecureToken : "2d6774c6-b981-4374-8cdd-ce156bc82218",
           To : Insertar_Correo.value,
           From : "cursoscorblaserca@gmail.com",
           Subject : "Codigo de recuperacion de cuenta",

@@ -10,7 +10,7 @@ if(!isset($_SESSION['usuario'])){
 }
 
 $usuario = $_SESSION['usuario'];
-$query = "SELECT * FROM usuario WHERE cedu_user = $usuario"; 
+$query = "SELECT * FROM usuario WHERE cedu_user = '$usuario'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Nombre = $row['nomb_user'];

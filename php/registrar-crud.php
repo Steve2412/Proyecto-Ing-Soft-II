@@ -16,8 +16,15 @@ $estado = isset($_POST['Estado']) ? $_POST["Estado"] : "";
     $pdo->execute([$cedula]);
     $result = $pdo->fetchColumn();
 
+    $pdo = $conectar->prepare("SELECT correo_user FROM usuario WHERE correo_user = ?");
+    $pdo->execute([$correo]);
+    $result_2 = $pdo->fetchColumn();
+
     if($result>0){
         echo json_encode("1");
+
+    }elseif($result_2>0){
+        echo json_encode("3");
 
     }else{
         $pdo= $conectar->prepare ("INSERT INTO usuario (cedu_user,nomb_user,apelli_user,correo_user,contra_user,dirre_user,numer_user,fech_naci_user,sexo_user,estado_user) 
