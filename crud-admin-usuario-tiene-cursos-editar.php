@@ -1,7 +1,7 @@
 <?php
 require "php/conexion.php";
 $id=$_GET['editarid']; 
-$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = $id"; 
+$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$id'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Cedula = $row['Usuario_ID_user'];
@@ -40,12 +40,14 @@ foreach ($result as $row){
                         $query = "SELECT * FROM cursos";
                         $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 
+
                         foreach($result as $opciones){?>
                         
                             
                         <option value="<?php echo $Cursos_ID_cur ?>" selected hidden><?php echo $Cursos_ID_cur ?></option>
                             <option><?php echo $opciones['ID_cur']?></option>
                             <?php } ?>
+                            <option value="">Ninguno</option>
                         
                     </select>
                 </div>
@@ -62,8 +64,9 @@ foreach ($result as $row){
                         foreach($result as $opciones){?>
                         
                             <option value="<?php echo $Periodo_ID_peri ?>" selected hidden><?php echo $Periodo_ID_peri ?></option>
-                            <option value=<?php echo $Periodo_ID_peri ?>><?php echo $opciones['ID_peri']?></option>
+                            <option><?php echo $opciones['ID_peri']?></option>
                             <?php } ?>
+                            <option value="">Ninguno</option>
                         
                     </select>
                 </div>

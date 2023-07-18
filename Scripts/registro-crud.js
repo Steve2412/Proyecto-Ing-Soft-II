@@ -113,7 +113,7 @@ function registrar() {
           alert("Ya existe este correo para un usuario")
         } else if (data === "2") {
           alert(
-            "Te has registrado correctamente en el sistema, procede a iniciar sesion"
+            "Se ha registrado correctamente el usuario en el sistema"
           );
           window.location.href = "../crud-admin-usuario.php";
         }

@@ -53,7 +53,7 @@ foreach ($result as $row){
     $nomb_cur = $row['nomb_cur'];
 }
 
-$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Administrador'"; 
+$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Profesor'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $cedu_profe = $row['Usuario_ID_user'];
@@ -132,24 +132,11 @@ if($Rol_usuario=="Administrador"){
    </div>
 
    <nav class="navbar">
-   <?php 
-         if($Rol_usuario=="Estudiante"||$Rol_usuario=="Profesor"){
-         
-         echo "<a href='home.php'><i class='fas fa-home'></i><span>Inicio</span></a>"; 
-         echo "<a href='horario.php'><i class='fa-solid fa-calendar-days'></i><span>Horario</span></a>"; 
-      }
-      ?>      
-      <?php 
-      if($Rol_usuario=="Estudiante"){
-      echo "<a href='courses.html'><i class='fas fa-graduation-cap'></i><span>Notas</span></a>";
-      } ?> 
-      <?php 
-      if($Rol_usuario=="Administrador"){
-      echo "<a href='administrador.php'><i class='fas fa-graduation-cap'></i><span>Administracion</span></a>";
-      } ?>
-
-      <!--<a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>-->
-   </nav>
+      <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
+      <a href="cursos.php"><i class="fas fa-chalkboard-teacher"></i><span>Curso</span></a>
+      <a href="foro.php"><i class="fa fa-comments"></i><span>Foro</span></a>
+      <a href="estudiantes.php"><i class="fas fa-graduation-cap"></i><span>Estudiantes</span></a>
+   </nav>  
 
 </div>
 

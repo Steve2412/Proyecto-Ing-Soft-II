@@ -104,7 +104,6 @@ foreach ($result as $row){
    <nav class="navbar-sex">
       <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
       <a href="about.html"><i class="fa-solid fa-calendar-days"></i><span>Horario</span></a>
-      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Notas</span></a>
       <!--<a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>-->
    </nav>
 

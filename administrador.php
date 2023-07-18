@@ -23,7 +23,7 @@ foreach ($result as $row){
     $Fecha = $row['fech_naci_user'];
    }
 
-$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = $usuario"; 
+$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$usuario'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Cursos_ID_cur = $row['Cursos_ID_cur'];
@@ -39,7 +39,7 @@ foreach ($result as $row){
     $horar_cur = $row['horar_cur'];
 }
 
-$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Admin'"; 
+$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Profesor'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Rol_profe = $row['Usuario_rol'];
@@ -68,7 +68,7 @@ foreach ($result as $row){
    
    <section class="flex">
 
-      <a href="home.php" class="logo">Corblaserca</a>
+      <a class="logo">Corblaserca</a>
 
       <div class="icons">
          <div id="menu-btn" class="fas fa-bars"></div>
@@ -117,7 +117,7 @@ foreach ($result as $row){
       } ?>      
       <?php 
       if($Rol_usuario=="Administrador"){
-      echo "<a href='administrador.php'><i class='fas fa-graduation-cap'></i><span>Administracion</span></a>";
+      echo "<a href='administrador.php'><i class='fas fa-graduation-cap'></i><span>Administración</span></a>";
       } ?>
       <!--<a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>-->
    </nav>
@@ -127,7 +127,7 @@ foreach ($result as $row){
 
 <section class="courses">
 
-<h1 style="font-size:20px">Menu del Administrador</h1>
+<h1 style="font-size:20px">Menú del Administrador</h1>
 <br><br>
 <div style="font-size:20px">Usuarios del sistema</div>
 <a class='btn btn-primary btn-sm' href='crud-admin-usuario.php'>Usuarios del sistema</a>
@@ -135,11 +135,17 @@ foreach ($result as $row){
 <div style="font-size:20px">Cursos del sistema</div>
 <a class='btn btn-primary btn-sm' href='crud-admin-cursos.php'>Cursos</a>
 <br>
+<div style="font-size:20px">Periodos del sistema</div>
+<a class='btn btn-primary btn-sm' href='crud-admin-periodo.php'>Periodos del sistema</a>
+<br>
 <div style="font-size:20px">Usuarios inscritos en los cursos</div>
 <a class='btn btn-primary btn-sm' href='crud-admin-usuario-tiene-cursos.php'>Usuarios inscritos en los cursos</a>
 <br>
 <div style="font-size:20px">Copia de seguridad</div>
 <a class='btn btn-primary btn-sm' href='copia/backup.php'>Copia de seguridad</a>
+<br>
+<div style="font-size:20px">Restaurar copia de seguridad</div>
+<a class='btn btn-primary btn-sm' href='copia/backup.php'>Restaurar copia de seguridad</a>
 <br>
 
 

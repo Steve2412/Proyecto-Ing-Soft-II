@@ -1,6 +1,7 @@
 <?php
 require "conexion.php";
 $cedula = isset($_POST['Cedula']) ? $_POST["Cedula"] : "";
+$cedula = "V-".$cedula;
 $cursos = isset($_POST['Cursos']) ? $_POST["Cursos"] : "";
 $periodo = isset($_POST['Periodo']) ? $_POST["Periodo"] : "";
 $rol = isset($_POST['Rol']) ? $_POST["Rol"] : "";

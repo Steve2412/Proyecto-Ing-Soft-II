@@ -109,9 +109,6 @@ foreach ($result as $row){
       }
       ?>
       <?php 
-      if($Rol_usuario=="Estudiante"){
-      echo "<a href='courses.html'><i class='fas fa-graduation-cap'></i><span>Notas</span></a>";
-      } ?>          <?php 
       if($Rol_usuario=="Administrador"){
       echo "<a href='administrador.php'><i class='fas fa-graduation-cap'></i><span>Administracion</span></a>";
       } ?>

@@ -53,7 +53,7 @@ foreach ($result as $row){
     $nomb_cur = $row['nomb_cur'];
 }
 
-$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Administrador'"; 
+$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Profesor'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $cedu_profe = $row['Usuario_ID_user'];
@@ -80,12 +80,13 @@ if($Rol_usuario=="Administrador"){
    <title>Corblaserca - Inicio</title>
 
    <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 
    <!-- custom css file link  -->
-      <link rel="stylesheet" href="assets/styles/css/style.css">
+      <link rel="stylesheet" href="assets/styles/css/style copy.css">
       <link rel="stylesheet" href="assets/styles/css/foro.css">
 
 
@@ -131,24 +132,11 @@ if($Rol_usuario=="Administrador"){
       <a href="profile.php" class="btn">Ver perfil</a>
    </div>
 
-   <nav class="navbar">
-   <?php 
-         if($Rol_usuario=="Estudiante"||$Rol_usuario=="Profesor"){
-         
-         echo "<a href='home.php'><i class='fas fa-home'></i><span>Inicio</span></a>"; 
-         echo "<a href='horario.php'><i class='fa-solid fa-calendar-days'></i><span>Horario</span></a>"; 
-      }
-      ?>      
-      <?php 
-      if($Rol_usuario=="Estudiante"){
-      echo "<a href='courses.html'><i class='fas fa-graduation-cap'></i><span>Notas</span></a>";
-      } ?> 
-      <?php 
-      if($Rol_usuario=="Administrador"){
-      echo "<a href='administrador.php'><i class='fas fa-graduation-cap'></i><span>Administracion</span></a>";
-      } ?>
-
-      <!--<a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>-->
+   <nav class="navbar-sex">
+      <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
+      <a href="cursos.php"><i class="fas fa-chalkboard-teacher"></i><span>Curso</span></a>
+      <a href="foro.php"><i class="fa fa-comments"></i><span>Foro</span></a>
+      <a href="estudiantes.php"><i class="fas fa-graduation-cap"></i><span>Estudiantes</span></a>
    </nav>
 
 </div>
@@ -200,10 +188,16 @@ if($Rol_usuario=="Administrador"){
                                   </div>
                                   <small class='pull-right text-muted'>$fecha_mensaje_foro</small>
                                   <div>
-                                      <small class='list-group-item-heading text-muted text-primary'>$Nombre_Estudiante $Apellido_Estudiante</small>
+                                      <small class='font-weight-bold'>$Nombre_Estudiante $Apellido_Estudiante</small>
                                       <p class='list-group-item-text'>
                                           $mensaje_foro
-                                      </p>
+                                      </p>";
+                                      if($cedula_estudiante==$usuario) {
+                                       echo "<a href='php/eliminar-mensaje.php?deleteid=$mensaje_foro' onclick='return checkdelete();' class='link-danger'>Eliminar</a>
+                                       ";
+                                      }
+                                      echo"
+
                                   </div>
                               </li>
                               </ul>";
@@ -245,6 +239,12 @@ if($Rol_usuario=="Administrador"){
 
 <!-- custom js file link  -->
 <script src="Scripts/home.js"></script>
+
+<script>
+    function checkdelete(){
+        return confirm('¿Estas seguro deseas borrar este mensaje?');
+    }
+    </script>
 
    
 </body>

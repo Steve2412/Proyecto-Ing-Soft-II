@@ -13,6 +13,7 @@ foreach ($result as $row){
     $Numero = $row['numer_user'];
     $Contra = $row['contra_user'];
     $Fecha = $row['fech_naci_user'];
+    $Estado = $row['estado_user'];
 }
 
 ?>
@@ -53,7 +54,7 @@ foreach ($result as $row){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Cedula</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" maxlength="10" inputMode="numeric" placeholder="Cedula" id="Cedula" name="Cedula" value=<?php echo $Cedula;?>> 
+                        <input type="text" readonly="readonly" class="form-control" maxlength="10" inputMode="numeric" placeholder="Cedula" id="Cedula" name="Cedula" value=<?php echo $Cedula;?>> 
                 </div>
             </div>
 
@@ -70,7 +71,7 @@ foreach ($result as $row){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Direccion</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Direccion" id="Direccion" name="Direccion" maxlength="15" value=<?php echo $Direccion;?>>
+                        <textarea type="text" class="form-control" placeholder="Direccion" id="Direccion" name="Direccion" maxlength="15"><?php echo $Direccion;?></textarea>
                 </div>
             </div>
 
@@ -98,9 +99,9 @@ foreach ($result as $row){
             <div class="row mb-3" id="Estado">
                 <label class="col-sm-3 col-form-label">Estado</label>
                 <div class="col-sm-6">
-                    <input type="radio" class="form-check-input" name="Estado" id="option-1" value="Activo"  <?php echo ($Genero=='Activo')?'checked':'' ?>>
+                    <input type="radio" class="form-check-input" name="Estado" id="option-A" value="Activo"  <?php echo ($Estado=='Activo')?'checked':'' ?>>
                     <label class="form-check-label" for="option-1">Activo</label> 
-                    <input type="radio" class="form-check-input" name="Estado" id="option-2" value="Inactivo" <?php echo ($Genero=='Inactivo')?'checked':'' ?>>
+                    <input type="radio" class="form-check-input" name="Estado" id="option-B" value="Inactivo" <?php echo ($Estado=='Inactivo')?'checked':'' ?>>
                     <label class="form-check-label" for="option-2">Inactivo</label> 
                 </div>
             </div>

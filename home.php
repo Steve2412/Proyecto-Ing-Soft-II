@@ -29,6 +29,7 @@ $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Cursos_ID_cur = $row['Cursos_ID_cur'];
     $Rol_usuario = $row['Usuario_rol'];
+    $ID_Periodo = $row['Periodo_ID_peri'];
 }
 
 if(!$result){
@@ -46,6 +47,11 @@ if ($Estado=="Inactivo"){
    </script>';
 }
 
+if($Rol_usuario=="Administrador"){
+   echo "<script> location.href='administrador.php' </script>";
+
+}  
+
 if(!$result){
    echo '<script language="javascript">
    window.location = "index.html"
@@ -61,7 +67,7 @@ foreach ($result as $row){
     $nomb_cur = $row['nomb_cur'];
 }
 
-$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Administrador'"; 
+$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Profesor'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $cedu_profe = $row['Usuario_ID_user'];
@@ -73,10 +79,14 @@ foreach ($result as $row){
     $Profesor = $row['nomb_user'];
 }
 
-if($Rol_usuario=="Administrador"){
-   echo "<script> location.href='administrador.php' </script>";
-
+$query = "SELECT * FROM periodo WHERE ID_peri = '$ID_Periodo'"; 
+$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
+foreach ($result as $row){
+    $fech_ini_peri = $row['fech_ini_peri'];
+    $fech_fin_peri = $row['fech_fin_peri'];
 }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -144,10 +154,6 @@ if($Rol_usuario=="Administrador"){
       }
       ?>      
       <?php 
-      if($Rol_usuario=="Estudiante"){
-      echo "<a href='courses.html'><i class='fas fa-graduation-cap'></i><span>Notas</span></a>";
-      } ?> 
-      <?php 
       if($Rol_usuario=="Administrador"){
       echo "<a href='administrador.php'><i class='fas fa-graduation-cap'></i><span>Administracion</span></a>";
       } ?>
@@ -169,7 +175,7 @@ if($Rol_usuario=="Administrador"){
             <img src="images/pic-3.jpg" alt="">
             <div class="info">
             <?php echo "<h3>$Profesor</h3>" ?>
-               <span>21-10-2022</span>
+               <span><?php echo $fech_ini_peri?> - <?php echo $fech_fin_peri?></span>
             </div>
          </div>
          <div class="thumb">

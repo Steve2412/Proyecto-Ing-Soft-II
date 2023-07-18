@@ -42,28 +42,21 @@
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Precio</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" maxlength="10" inputMode="numeric" placeholder="Precio" id="Precio" name="Precio"> 
+                        <input type="text" class="form-control" onkeyup="agregarDecimal()" inputMode="numeric" placeholder="Precio" id="Precio" name="Precio"> 
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Cupo mínimo</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Cupo_min" id="Cupo_min" name="Cupo_min" maxlength="15">
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" placeholder="Cupo_min" id="Cupo_min" name="Cupo_min" maxlength="15">
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Cupo máximo</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" inputMode="numeric" placeholder="Cupo_max" id="Cupo_max" name="Cupo_max">
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Link Video</label>
-                <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Video" id="Video" name="Video">
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" inputMode="numeric" placeholder="Cupo_max" id="Cupo_max" name="Cupo_max">
                 </div>
             </div>
             <form>
@@ -80,6 +73,13 @@
     </div>
 </body>
 <script>
+var id = document.querySelector("#ID");
+var nombre = document.querySelector("#Nombre");
+var Precio = document.querySelector("#Precio");
+var cupo_min = document.querySelector("#Cupo_min");
+var cupo_max = document.querySelector("#Cupo_max");
+
+
     tinymce.init({
       selector: '#Contenido',
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
@@ -93,12 +93,32 @@
     });
     var formulario = document.querySelector("#Formulario");
 
-function regresar(){
+function agregarDecimal() {
+var num = Precio.value.replace(/\./g,'');
+if(!isNaN(num)){
+    num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{2})?/,'$1.');
+    num = num.split('').reverse().join('').replace(/^[\.]/,'');
+    Precio.value = num;
+  } else {
+    alert('Solo se permiten números');
+    Precio.value = Precio.value.replace(/[^\d\.]*/g,'');
+  }
+}
+
+    function regresar(){
   window.location.href = "../crud-admin-cursos.php";
 
 }
 
 function registrar(){
+
+    if(id.value==""||id.value==null||
+    nombre.value==""||nombre.value==null||
+    Precio.value==""||Precio.value==null||
+    cupo_min.value==""||cupo_min.value==null||
+    cupo_max.value==""||cupo_max.value==null){
+        alert("Faltan campos por rellenar");
+    }else{
     var editor = tinyMCE.triggerSave('#Contenido');
     var datos = new FormData(formulario);
     console.log(datos.get("ID"));
@@ -107,7 +127,6 @@ function registrar(){
     console.log(datos.get("Precio"));
     console.log(datos.get("Cupo_min"));
     console.log(datos.get("Cupo_max"));
-    console.log(datos.get("Video"));
     console.log(datos.get("Contenido"));
     fetch("php/registrar-curso.php", {
         method: "POST",
@@ -124,6 +143,7 @@ function registrar(){
             );
             window.location.href = "../crud-admin-cursos.php";
           }})
+    }
 
 }
 

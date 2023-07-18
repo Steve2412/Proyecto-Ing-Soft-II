@@ -29,9 +29,10 @@
 
                         foreach($result as $opciones){?>
                         
-                            
                             <option><?php echo $opciones['ID_cur']?></option>
                             <?php } ?>
+                            <option value=""selected>Ninguno</option>    
+ q  
                         
                     </select>
                 </div>
@@ -50,8 +51,10 @@
                         foreach($result as $opciones){?>
                         
                             
-                            <option><?php echo $opciones['ID_peri']?></option>
+                        <option><?php echo $opciones['ID_peri']?></option>
                             <?php } ?>
+                        <option value=""selected>Ninguno</option>    
+
                         
                     </select>
                 </div>
