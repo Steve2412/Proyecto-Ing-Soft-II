@@ -38,7 +38,7 @@ foreach ($result as $row){
     $nomb_cur = $row['nomb_cur'];
 }
 
-$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Administrador'"; 
+$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Profesor'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $cedu_profe = $row['Usuario_ID_user'];
@@ -114,8 +114,9 @@ foreach ($result as $row){
    <nav class="navbar-sex">
       <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
       <a href="cursos.php"><i class="fas fa-chalkboard-teacher"></i><span>Curso</span></a>
+      <a href="foro.php"><i class="fa fa-comments"></i><span>Foro</span></a>
       <a href="estudiantes.php"><i class="fas fa-graduation-cap"></i><span>Estudiantes</span></a>
-   </nav>
+   </nav>   
 
 </div>
 

@@ -8,10 +8,6 @@
 </head>
 <body>
     <div class="container my-9">
-        <form action="php/exportar-usuarios.php" method="post" class="mb-2">
-            <input type="submit" name="submit" class="btn btn-outline-danger" value="Exportar PDF">
-
-        </form>
         <form method="GET   ">
             <input type="text" class="form-control me-2" id="getData" placeholder="Buscar estudiante" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search'];}?>">
             <button class="btn btn-dark btn-sm"> Buscar</button>
@@ -41,7 +37,7 @@
                 
 
                 $filtervalues=$_GET['search'];
-                $query = "SELECT * FROM usuario_has_cursos WHERE CONCAT(Usuario_ID_user ,Cursos_ID_cur) LIKE '%$filtervalues%'";
+                $query = "SELECT * FROM usuario_has_cursos WHERE CONCAT(Usuario_ID_user ,Cursos_ID_cur) LIKE '%$filtervalues%' AND Usuario_rol!='Administrador'";
                 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
             
                     foreach ($result as $row){
@@ -60,7 +56,7 @@
                     ";}
             }
             else{
-            $query = "SELECT * FROM usuario_has_cursos";
+            $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_rol!='Administrador'";
             $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 
             foreach ($result as $row){

@@ -4,7 +4,7 @@ session_start();
 
 $usuario = $_SESSION['usuario'];
 
-$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = $usuario"; 
+$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$usuario'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
 $Cursos_ID_cur = $row['Cursos_ID_cur'];

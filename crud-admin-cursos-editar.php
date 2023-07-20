@@ -10,11 +10,9 @@ foreach ($result as $row){
     $prec_cur = $row['prec_cur'];
     $cupos_cur_min = $row['cupos_cur_min'];
     $cupos_cur_max = $row['cupos_cur_max'];
-    $conte_video = $row['conte_video'];
     $conte_text = $row['conte_text'];
 
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +27,8 @@ foreach ($result as $row){
     <div class="container my-9">
         <h2>Editar Curso <?php echo $nomb_cur?></h2>
         <form id="Formulario">
+          <textarea id="id_o" name="id_o" type="hidden" value=<?php echo $ID_cur;?>><?php echo $ID_cur;?></textarea> 
+
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">ID</label>
                 <div class="col-sm-6">
@@ -47,7 +47,7 @@ foreach ($result as $row){
                 <label class="col-sm-3 col-form-label">Horas</label>
                 <div class="col-sm-6">
                     <select class="form-select" name="Horas" id="Horas">
-                        <option value=<?php echo $horar_cur ?> selected hidden><?php echo $horar_cur ?></option>
+                        <option value='<?php print $horar_cur ?>' selected hidden><?php echo $horar_cur ?></option>
                         <option value="Lunes a Viernes 08:00am a 10:00am">Lunes a Viernes 08:00am a 10:00am</option>
                         <option value="Lunes a Viernes 10:00am a 12:00pm">Lunes a Viernes 10:00am a 12:00pm</option>
                         <option value="Lunes a Viernes 12:00pm a 02:00pm">Lunes a Viernes 12:00pm a 02:00pm</option>
@@ -59,7 +59,7 @@ foreach ($result as $row){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Precio</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" maxlength="10" inputMode="numeric" placeholder="Precio" id="Precio" name="Precio" value=<?php echo $prec_cur;?>> 
+                        <input type="text" class="form-control" maxlength="10" inputMode="numeric" onkeyup="agregarDecimal()" placeholder="Precio" id="Precio" name="Precio" value=<?php echo $prec_cur;?>> 
                 </div>
             </div>
 
@@ -80,13 +80,6 @@ foreach ($result as $row){
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Link Video</label>
-                <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Video" maxlength="16" id="Video" name="Video" value=<?php echo $conte_video;?>>
-                </div>
-            </div>
-
-            <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Contenido del curso</label>
                 <div class="col-sm-6">
                         <textarea type="text" id="Contenido" style="width:550px;height:100px;" name="Contenido" cols="40" class="form-control" ><?php echo $conte_text;?></textarea>
@@ -99,6 +92,13 @@ foreach ($result as $row){
 </body>
 <script src="https://cdn.tiny.cloud/1/xurkgk7dheajm6100pg345w6ydt7ivrvh7n8c2ce7v3qkapn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
+var id = document.querySelector("#ID");
+var id_o = document.querySelector("#id_o");
+id_o.style.visibility = "hidden";
+var nombre = document.querySelector("#Nombre");
+var Precio = document.querySelector("#Precio");
+var cupo_min = document.querySelector("#Cupo_min");
+var cupo_max = document.querySelector("#Cupo_max");
     tinymce.init({
       selector: '#Contenido',
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
@@ -118,16 +118,28 @@ function regresar(){
 
 }
 
+function agregarDecimal() {
+var num = Precio.value.replace(/\./g,'');
+if(!isNaN(num)){
+    num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{2})?/,'$1.');
+    num = num.split('').reverse().join('').replace(/^[\.]/,'');
+    Precio.value = num;
+  } else {
+    alert('Solo se permiten números');
+    Precio.value = Precio.value.replace(/[^\d\.]*/g,'');
+  }
+}
+
 function registrar(){
     var editor = tinyMCE.triggerSave('#Contenido');
     var datos = new FormData(formulario);
+    console.log(datos.get("id_o"));
     console.log(datos.get("ID"));
     console.log(datos.get("Nombre"));
     console.log(datos.get("Horas"));
     console.log(datos.get("Precio"));
     console.log(datos.get("Cupo_min"));
     console.log(datos.get("Cupo_max"));
-    console.log(datos.get("Video"));
     console.log(datos.get("Contenido"))
     fetch("php/actualizar-curso.php", {
         method: "POST",

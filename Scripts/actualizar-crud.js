@@ -111,7 +111,7 @@ function registrar() {
           alert("Ya existe el usuario");
         } else if (data === "2") {
           alert(
-            "Usuario Actualizado Correctamente"
+            "Usuario actualizado correctamente"
           );
           window.location.href = "../crud-admin-usuario.php";
         }

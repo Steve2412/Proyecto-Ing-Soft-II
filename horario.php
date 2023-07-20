@@ -107,9 +107,6 @@ foreach ($result as $row){
       <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
       <a href="horario.php"><i class="fa-solid fa-calendar-days"></i><span>Horario</span></a>
       <?php 
-      if($Rol_usuario=="Estudiante"){
-      echo "<a href='courses.html'><i class='fas fa-graduation-cap'></i><span>Notas</span></a>";
-      } ?>      <?php 
       if($Rol_usuario=="Admin"){
       echo "<a href='administrador.php'><i class='fas fa-graduation-cap'></i><span>Administracion</span></a>";
       } ?>

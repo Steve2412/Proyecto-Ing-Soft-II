@@ -38,7 +38,7 @@ foreach ($result as $row){
     $nomb_cur = $row['nomb_cur'];
 }
 
-$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Administrador'"; 
+$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Profesor'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $cedu_profe = $row['Usuario_ID_user'];
@@ -51,14 +51,14 @@ foreach ($result as $row){
 }
 
 $editar=$_GET['editarid']; 
-$query = "SELECT * FROM usuario WHERE cedu_user = $editar"; 
+$query = "SELECT * FROM usuario WHERE cedu_user = '$editar'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Nombre_estudiante_editar = $row['nomb_user'];
     $Apellido_estudiante_editar = $row['apelli_user'];
    }
 
-$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = $editar"; 
+$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$editar'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $calificacion_user_estudiante_editar = $row['calificacion_user'];
@@ -82,7 +82,7 @@ foreach ($result as $row){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="assets/styles/css/style.css">
+   <link rel="stylesheet" href="assets/styles/css/style copy.css">
 
    <link rel="stylesheet" href="assets/styles/css/cursos.css">
    <link rel="stylesheet" href="subir.css">
@@ -128,11 +128,12 @@ foreach ($result as $row){
       <a href="profile.php" class="btn">Ver perfil</a>
    </div>
 
-   <nav class="navbar">
+   <nav class="navbar-sex">
       <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
       <a href="cursos.php"><i class="fas fa-chalkboard-teacher"></i><span>Curso</span></a>
+      <a href="foro.php"><i class="fa fa-comments"></i><span>Foro</span></a>
       <a href="estudiantes.php"><i class="fas fa-graduation-cap"></i><span>Estudiantes</span></a>
-   </nav>
+   </nav>  
 
 </div>
 

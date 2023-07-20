@@ -34,7 +34,7 @@
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Cédula</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" maxlength="10" inputMode="numeric" placeholder="Cedula" id="Cedula" name="Cedula">
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" maxlength="10" inputMode="numeric" placeholder="Cedula" id="Cedula" name="Cedula">
                 </div>
             </div>
 

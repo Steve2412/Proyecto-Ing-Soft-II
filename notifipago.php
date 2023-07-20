@@ -47,18 +47,6 @@ foreach ($result as $row){
     $nomb_cur = $row['nomb_cur'];
 }
 
-$query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Administrador'"; 
-$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
-foreach ($result as $row){
-    $cedu_profe = $row['Usuario_ID_user'];
-}
-
-$query = "SELECT * FROM usuario WHERE cedu_user = '$cedu_profe'"; 
-$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
-foreach ($result as $row){
-    $Profesor = $row['nomb_user'];
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -84,7 +72,7 @@ foreach ($result as $row){
    
    <section class="flex">
 
-      <a href="home.html" class="logo">Corblaserca.</a>
+      <a class="logo">Corblaserca.</a>
 
       <div class="icons">
          <div id="menu-btn" class="fas fa-bars"></div>
@@ -95,7 +83,6 @@ foreach ($result as $row){
          <img src="images/pic-1.jpg" class="image" alt="">
          <?php echo "<h3 class='name'>$Nombre</h3>" ?>
          <?php echo "<p class='role'>$Rol_usuario</p>" ?>
-         <a href="profile.php" class="btn">Ver perfil</a>
          <div class="flex-btn">
             <a href="php/salir.php" class="option-btn">Cerrar sesión</a>
          </div>
@@ -115,12 +102,10 @@ foreach ($result as $row){
       <img src="images/pic-1.jpg" class="image" alt="">
       <?php echo "<h3 class='name'>$Nombre</h3>" ?>
       <?php echo "<p class='role'>$Rol_usuario</p>" ?>
-      <a href="profile.php" class="btn">Ver perfil</a>
    </div>
 
    <nav class="navbar">
-      <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
-      <a href="horario.php"><i class="fa fa-dollar"></i><span>Reporte de pagos</span></a>
+      <a href="notifipago.php"><i class="fa fa-dollar"></i><span>Reporte de pagos</span></a>
       <a href="courses.html"><i class="fa fa-file-text-o"></i><span>Historial reporte</span></a>
       <?php 
       if($Rol_usuario=="Admin"){
