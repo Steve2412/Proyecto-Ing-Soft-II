@@ -52,7 +52,7 @@ foreach ($result as $row){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Horario</title>
+   <title>Administración</title>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
 
@@ -127,7 +127,7 @@ foreach ($result as $row){
 
 <section class="courses">
 
-<h1 style="font-size:20px">Menú del Administrador</h1>
+<h1 style="font-size:20px; text-align:center;">Menú del Administrador</h1>
 <br><br>
 <div style="font-size:20px">Usuarios del sistema</div>
 <a class='btn btn-primary btn-sm' href='crud-admin-usuario.php'>Usuarios del sistema</a>
@@ -142,10 +142,10 @@ foreach ($result as $row){
 <a class='btn btn-primary btn-sm' href='crud-admin-usuario-tiene-cursos.php'>Usuarios inscritos en los cursos</a>
 <br>
 <div style="font-size:20px">Copia de seguridad</div>
-<a class='btn btn-primary btn-sm' href='copia/backup.php'>Copia de seguridad</a>
+<a class='btn btn-primary btn-sm' href='composer/backup.php'>Copia de seguridad</a>
 <br>
 <div style="font-size:20px">Restaurar copia de seguridad</div>
-<a class='btn btn-primary btn-sm' href='copia/backup.php'>Restaurar copia de seguridad</a>
+<a class='btn btn-primary btn-sm' href='db_restore/restore.php'>Restaurar copia de seguridad</a>
 <br>
 
 

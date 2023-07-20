@@ -59,7 +59,7 @@ foreach ($result as $row){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Precio</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" maxlength="10" inputMode="numeric" placeholder="Precio" id="Precio" name="Precio" value=<?php echo $prec_cur;?>> 
+                        <input type="text" class="form-control" maxlength="10" inputMode="numeric" onkeyup="agregarDecimal()" placeholder="Precio" id="Precio" name="Precio" value=<?php echo $prec_cur;?>> 
                 </div>
             </div>
 

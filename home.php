@@ -153,6 +153,12 @@ foreach ($result as $row){
          echo "<a href='horario.php'><i class='fa-solid fa-calendar-days'></i><span>Horario</span></a>"; 
       }
       ?>      
+         <?php 
+         if($Rol_usuario=="Estudiante"){
+         
+         echo "<a href='historial.php'><i class='fas fa-home'></i><span>Historial Pago</span></a>"; 
+      }
+      ?>  
       <?php 
       if($Rol_usuario=="Administrador"){
       echo "<a href='administrador.php'><i class='fas fa-graduation-cap'></i><span>Administracion</span></a>";
