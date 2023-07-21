@@ -40,13 +40,6 @@ if(!$result){
    session_destroy(); 
 }
 
-if ($Estado=="Inactivo"){
-   echo '<script language="javascript">alert("No estas solvente en el sistema, reporta el pago o comunicate con el administrador");</script>';
-   echo '<script language="javascript">
-   window.location = "notifipago.php"
-   </script>';
-}
-
 if($Rol_usuario=="Administrador"){
    echo "<script> location.href='administrador.php' </script>";
 
@@ -100,6 +93,7 @@ foreach ($result as $row){
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
    <!-- custom css file link  -->
       <link rel="stylesheet" href="assets/styles/css/style (2).css">
@@ -121,9 +115,14 @@ foreach ($result as $row){
 
       <div class="profile">
          <img src="images/pic-1.jpg" class="image" alt="">
-         <h3 class='name'>$Nombre</h3>
-         <p class='role'>$Rol_usuario</p>
-         <a href="profile.php" class="btn">Ver perfil</a>
+         <h3 class='name'> <?php echo $Nombre ?></h3>
+         <p class='role'><?php echo $Rol_usuario ?></p>
+         <?php
+         if($Estado=="Activo"){
+            echo "<a href='profile.php' class='btn'>Ver perfil</a>";
+
+         }
+         ?>
          <div class="flex-btn">
             <a href="php/salir.php" class="option-btn">Cerrar sesión</a>
          </div>
@@ -141,19 +140,42 @@ foreach ($result as $row){
 
    <div class="profile">
       <img src="images/pic-1.jpg" class="image" alt="">
-      <h3 class='name'>$Nombre</h3>
-      <p class='role'>$Rol_usuario</p>
-      <a href="profile.php" class="btn">Ver perfil</a>
+      <h3 class='name'><?php echo $Nombre?></h3>
+      <p class='role'><?php echo $Rol_usuario?></p>
+      <?php
+         if($Estado=="Activo"){
+            echo "<a href='profile.php' class='btn'>Ver perfil</a>
+            ";
+
+         }
+         ?>
    </div>
 
    <nav class="navbar">
-         
-         <a href='home.php'><i class='fas fa-home'></i><span>Inicio</span></a>
-         <a href='horario.php'><i class='fa-solid fa-calendar-days'></i><span>Horario</span></a>
-      }
-      <a href='courses.html'><i class='fas fa-graduation-cap'></i><span>Notas</span></a>
 
-      <a href='historial.html'><i class='fas fa-graduation-cap'></i><span>Historial de pagos</span></a>
+   <?php
+
+   if($Estado=="Activo"){
+      echo "<a href='home.php'><i class='fas fa-home'></i><span>Inicio</span></a>";
+      echo "<a href='horario.php'><i class='fa-solid fa-calendar-days'></i><span>Horario</span></a>";
+   }
+
+   ?>
+
+<?php
+
+if($Estado=="Inactivo"){
+   echo "<a href='notifipago.php'><i class='fa fa-dollar'></i><span>Reporte de pagos</span></a>
+   ";}
+
+?>
+      <?php 
+         if($Rol_usuario=="Estudiante"){
+         
+         echo "<a href='historial.php'><i class='fa fa-file-text-o'></i><span>Historial reporte</span></a>
+         "; 
+      }
+      ?>
 
       <!--<a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>-->
    </nav>
@@ -191,7 +213,7 @@ foreach ($result as $row){
 
    <h3 class='Referencia-pago'>Nro. Referencia $referencia_notifipago</h3>
 
-   <h3 class='monto-pago'>$monto_notifipago</h3>
+   <h3 class='monto-pago'>$monto_notifipago Bs.D</h3>
 
    <form action='php/recibo.php?exportarid=$id_notifipago' method='post' class='mb-2'>
       <input type='submit' name='submit' class='boton-detalles' value='Exportar PDF'>

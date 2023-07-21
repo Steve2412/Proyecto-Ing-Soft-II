@@ -46,9 +46,11 @@ Insertar_Rol.addEventListener("click", (e) => {
                 alert("El usuario no existe en el sistema");
               }else if(data === "2"){
                 alert("El usuario ya esta en este curso");
+              }else if(data === "4"){
+                alert("El usuario tiene que finalizar el curso para poder entrar a otro");
               }else if (data === "3") {
                 alert(
-                  "Te has registrado correctamente en el sistema, procede a iniciar sesion"
+                  "El usuario fue inscrito al curso"
                 );
                 window.location.href = "../crud-admin-usuario-tiene-cursos.php";
               }});

@@ -117,7 +117,7 @@ if($Rol_usuario=="Profesor"){
 }
 
 ?>
-
+<br><br><br>
 <?php echo $conte_text ?>
 
  <!--<section id="wrap" class="playlist-videos">

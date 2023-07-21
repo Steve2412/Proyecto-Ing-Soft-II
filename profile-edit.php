@@ -52,6 +52,8 @@ foreach ($result as $row){
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="assets/styles/css/style copy.css">
@@ -109,6 +111,13 @@ foreach ($result as $row){
          echo "<a href='horario.php'><i class='fa-solid fa-calendar-days'></i><span>Horario</span></a>"; 
       }
       ?>
+
+<?php 
+         if($Rol_usuario=="Estudiante"){
+         
+         echo "<a href='historial.php'><i class='fa fa-file-text-o'></i><span>Historial reporte</span></a>"; 
+      }
+      ?>
    </nav>
 
 </div>
@@ -153,21 +162,21 @@ foreach ($result as $row){
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label"style="font-size:20px">Direccion</label>
+                <label class="col-sm-3 col-form-label"style="font-size:20px">Dirección</label>
                 <div class="col-sm-6">
                         <input type="text" class="form-control"style="font-size:20px" placeholder="Direccion" id="Direccion" name="Direccion" maxlength="15" value=<?php echo $Direccion;?>>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label"style="font-size:20px">Telefono</label>
+                <label class="col-sm-3 col-form-label"style="font-size:20px">Teléfono</label>
                 <div class="col-sm-6">
                         <input type="text" class="form-control"style="font-size:20px" inputMode="numeric" placeholder="+58 xxxx-xxxxxxx" id="Telefono" name="Telefono" value=<?php echo $Numero;?>>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label"style="font-size:20px">Fecha Nacimiento</label>
+                <label class="col-sm-3 col-form-label"style="font-size:20px">Fecha de Nacimiento</label>
                 <div class="col-sm-6">
                         <input type="date" id="Fecha-Insertar"style="font-size:20px" name="Fecha" class="input-group date" value=<?php echo $Fecha;?>>
                 </div>

@@ -8,6 +8,8 @@ foreach ($result as $row){
     $Nombre = $row['nomb_peri'];
     $Fecha_Inic = $row['fech_ini_peri'];
     $Fecha_Fin = $row['fech_fin_peri'];
+    $estado_peri = $row['estado_peri'];
+
 }
 
 ?>
@@ -49,6 +51,17 @@ foreach ($result as $row){
                 <label class="col-sm-3 col-form-label">Fecha Nacimiento</label>
                 <div class="col-sm-6">
                         <input type="date" id="Fecha-Fin" name="Fecha-Fin" max="2030-12-31" class="input-group date" value=<?php echo $Fecha_Fin;?>>
+                </div>
+            </div>
+
+            
+            <div class="row mb-3" id="Rol">
+                <label class="col-sm-3 col-form-label">Estado</label>
+                <div class="col-sm-6">
+                    <input type="radio" class="form-check-input" name="Estado" id="option-a" value="Activo" <?php echo ($estado_peri=='Activo')?'checked':'' ?> >
+                    <label class="form-check-label" for="option-1">Activo</label>
+                    <input type="radio" class="form-check-input" name="Estado" id="option-b" value="Finalizado" <?php echo ($estado_peri=='Finalizado')?'checked':'' ?>  >
+                    <label class="form-check-label" for="option-2">Finalizado</label>  
                 </div>
             </div>
 

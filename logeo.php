@@ -40,7 +40,7 @@ if(isset( $_SESSION["locked"]))
           <li class="element"><a href="index.html" class="a-menu">Home</a></li>
           <li class="element"><a href="cursoslanding.html" class="a-menu">Cursos</a></li>
           <li class="element"><a href="logeo.php" class="a-menu">Iniciar sesión</a></li>
-          <li class="element"><a href="payment.html" class="a-menu">Inscribir</a></li>
+          <li class="element"><a href="metodosPago.html" class="a-menu">Inscribir</a></li>
           <li class="element"><a href="acercaDe.html" class="a-menu">Acerca de nosotros</a></li>
           <li class="element"><a href="faq.html" class="a-menu">FAQ</a></li>
         </ul>

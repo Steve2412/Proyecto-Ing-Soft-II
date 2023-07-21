@@ -59,7 +59,7 @@
 					    <div class="form-group row">
 					      	<label for="dbname" class="col-sm-3 col-form-label">Base de Datos</label>
 					      	<div class="col-sm-9">
-					        	<input type="text" class="form-control" id="dbname" name="dbname" placeholder="Nombre de la base de datos" required>
+					        	<input type="text" class="form-control" id="dbname" name="dbname" readonly="readonly" value="prueba" placeholder="prueba" required>
 					      	</div>
 					    </div>
 					    <div class="form-group row">

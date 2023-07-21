@@ -77,6 +77,8 @@ $query = "SELECT * FROM usuario WHERE cedu_user = '$cedu_profe'";
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Profesor = $row['nomb_user'];
+    $Profesor_B = $row['apelli_user'];
+
 }
 
 $query = "SELECT * FROM periodo WHERE ID_peri = '$ID_Periodo'"; 
@@ -99,6 +101,8 @@ foreach ($result as $row){
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
    <!-- custom css file link  -->
       <link rel="stylesheet" href="assets/styles/css/style.css">
@@ -156,7 +160,7 @@ foreach ($result as $row){
          <?php 
          if($Rol_usuario=="Estudiante"){
          
-         echo "<a href='historial.php'><i class='fas fa-home'></i><span>Historial Pago</span></a>"; 
+         echo "<a href='historial.php'><i class='fa fa-file-text-o'></i><span>Historial reporte</span></a>"; 
       }
       ?>  
       <?php 
@@ -180,7 +184,7 @@ foreach ($result as $row){
          <div class="tutor">
             <img src="images/pic-3.jpg" alt="">
             <div class="info">
-            <?php echo "<h3>$Profesor</h3>" ?>
+            <?php echo "<h3>$Profesor $Profesor_B</h3>" ?>
                <span><?php echo $fech_ini_peri?> - <?php echo $fech_fin_peri?></span>
             </div>
          </div>

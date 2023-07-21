@@ -54,10 +54,13 @@ foreach ($result as $row){
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Horario</title>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+   
 
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="assets/styles/css/style copy.css">
@@ -107,9 +110,11 @@ foreach ($result as $row){
       <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
       <a href="horario.php"><i class="fa-solid fa-calendar-days"></i><span>Horario</span></a>
       <?php 
-      if($Rol_usuario=="Admin"){
-      echo "<a href='administrador.php'><i class='fas fa-graduation-cap'></i><span>Administracion</span></a>";
-      } ?>
+         if($Rol_usuario=="Estudiante"){
+         
+         echo "<a href='historial.php'><i class='fa fa-file-text-o'></i><span>Historial reporte</span></a>"; 
+      }
+      ?>
 
       <!--<a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>-->
    </nav>

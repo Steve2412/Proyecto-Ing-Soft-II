@@ -309,7 +309,7 @@ a {
                             <table width="100%" cellpadding="0" cellspacing="0">
                                 <tbody><tr>
                                     <td class="content-block">
-                                        <h2 align="center">Detalles de la notificacion del pago</h2>
+                                        <h2 align="center">Detalles de la notificación del pago</h2>
                                         <div align="center">Reporte del dia '.$currentDate.' a las '.$currentHour.'</div>
                                     </td>
                                 </tr>
@@ -331,7 +331,7 @@ a {
                                                             <td class="alignright">'.$banco_notifipago.'</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Cédula Titutal de la cuenta</td>
+                                                            <td>Cédula Titutar de la cuenta</td>
                                                             <td class="alignright">'.$cedu_titular_notifipago.'</td>
                                                         </tr>
                                                         <tr>

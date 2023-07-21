@@ -51,7 +51,7 @@ Insertar_Rol.addEventListener("click", (e) => {
                 alert("El usuario ya esta en este curso");
               }else if (data === "3") {
                 alert(
-                  "Te has registrado correctamente en el sistema, procede a iniciar sesion"
+                  "Se ha actualizado correctamente"
                 );
                 window.location.href = "../crud-admin-usuario-tiene-cursos.php";
               }});

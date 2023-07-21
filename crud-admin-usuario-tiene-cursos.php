@@ -25,6 +25,7 @@
                     <th>ID Periodo</th>
                     <th>Calificación</th>
                     <th>Rol</th>
+                    <th>Estado</th>
                 </tr>
             </thead>
 
@@ -37,7 +38,7 @@
                 
 
                 $filtervalues=$_GET['search'];
-                $query = "SELECT * FROM usuario_has_cursos WHERE CONCAT(Usuario_ID_user ,Cursos_ID_cur) LIKE '%$filtervalues%' AND Usuario_rol!='Administrador'";
+                $query = "SELECT * FROM usuario_has_cursos WHERE CONCAT(Usuario_ID_user ,Cursos_ID_cur,estado_usuario_has_cursos) LIKE '%$filtervalues%' AND Usuario_rol!='Administrador'";
                 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
             
                     foreach ($result as $row){
@@ -48,6 +49,7 @@
                         <td>$row[Periodo_ID_peri]</td>
                         <td>$row[calificacion_user]</td>
                         <td>$row[Usuario_rol]</td>
+                        <td>$row[estado_usuario_has_cursos]</td>
                         <td>
                             <a class='btn btn-primary btn-sm' href='crud-admin-usuario-tiene-cursos-editar.php?editarid=$row[Usuario_ID_user]'>Editar</a>
                             <a class='btn btn-danger btn-sm' href='php/eliminar-usuario-curso.php?deleteid=$row[Usuario_ID_user]' onclick='return checkdelete();'>Eliminar</a>
@@ -56,7 +58,7 @@
                     ";}
             }
             else{
-            $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_rol!='Administrador'";
+            $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_rol!='Administrador' AND estado_usuario_has_cursos!='Finalizado'";
             $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 
             foreach ($result as $row){
@@ -67,10 +69,10 @@
                         <td>$row[Periodo_ID_peri]</td>
                         <td>$row[calificacion_user]</td>
                         <td>$row[Usuario_rol]</td>
+                        <td>$row[estado_usuario_has_cursos]</td>
                         <td>
                             <a class='btn btn-primary btn-sm' href='crud-admin-usuario-tiene-cursos-editar.php?editarid=$row[Usuario_ID_user]'
                             >Editar</a>
-                            <a class='btn btn-danger btn-sm' href='php/eliminar-usuario-curso.php?deleteid=$row[Usuario_ID_user]' onclick='return checkdelete();'>Eliminar</a>
                         </td>
                     </tr>
                 ";

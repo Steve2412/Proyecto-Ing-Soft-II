@@ -10,7 +10,7 @@
     <div class="container my-9" id="Exportar">
 
         <form method="GET   ">
-            <input type="text" class="form-control me-2" id="getData" placeholder="Buscar usuario" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search'];}?>">
+            <input type="text" class="form-control me-2" id="getData" placeholder="Buscar periodo" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search'];}?>">
             <button class="btn btn-dark btn-sm"> Buscar</button>
         </form>
         <h2>Lista periodos</h2>  
@@ -24,6 +24,7 @@
                     <th>Nombre del periodo</th>
                     <th>Fecha inicio del periodo</th>
                     <th>Fecha fin del periodo</th>
+                    <th>Estado</th>
                 </tr>
             </thead>
 
@@ -33,7 +34,7 @@
 
             if (isset($_GET['search'])){    
                 $filtervalues=$_GET['search'];
-                $query = "SELECT * FROM periodo WHERE CONCAT(ID_peri,nomb_peri) LIKE '%$filtervalues%'";
+                $query = "SELECT * FROM periodo WHERE CONCAT(ID_peri,nomb_peri,estado_peri) LIKE '%$filtervalues%'";
                 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
             
                     foreach ($result as $row){
@@ -43,16 +44,18 @@
                         <td>$row[nomb_peri]</td>
                         <td>$row[fech_ini_peri]</td>
                         <td>$row[fech_fin_peri]</td>
+                        <td>$row[estado_peri]</td>
                         <td>
-                            <a class='btn btn-primary btn-sm' href='crud-admin-usuario-editar.php?editarid=$row[ID_peri]'>Editar</a>
-                            <a class='btn btn-danger btn-sm' href='php/eliminar.php?deleteid=$row[ID_peri]' onclick='return checkdelete();'>Eliminar</a>
+                        <a class='btn btn-primary btn-sm' href='crud-admin-periodo-editar.php?editarid=$row[ID_peri]'
+                        >Editar</a>
+                        <a class='btn btn-danger btn-sm' href='php/eliminar-periodo.php?deleteid=$row[ID_peri]' onclick='return checkdelete();'>Finalizado</a>
                         </td>
                     </tr>
                     ";}
             }
             else{
 
-            $query = "SELECT * FROM periodo";
+            $query = "SELECT * FROM periodo WHERE estado_peri!='Finalizado'";
             $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 
             foreach ($result as $row){
@@ -62,10 +65,11 @@
                         <td>$row[nomb_peri]</td>
                         <td>$row[fech_ini_peri]</td>
                         <td>$row[fech_fin_peri]</td>
+                        <td>$row[estado_peri]</td>
                         <td>
                             <a class='btn btn-primary btn-sm' href='crud-admin-periodo-editar.php?editarid=$row[ID_peri]'
                             >Editar</a>
-                            <a class='btn btn-danger btn-sm' href='php/eliminar-periodo.php?deleteid=$row[ID_peri]' onclick='return checkdelete();'>Eliminar</a>
+                            <a class='btn btn-danger btn-sm' href='php/eliminar-periodo.php?deleteid=$row[ID_peri]' onclick='return checkdelete();'>Finalizado</a>
                         </td>
                     </tr>
                 ";
@@ -84,7 +88,7 @@
 
     <script>
     function checkdelete(){
-        return confirm('¿Estas seguro deseas borrar este usuario?');
+        return confirm('¿Estas seguro deseas borrar este periodo?');
     }
     </script>
 </html>
