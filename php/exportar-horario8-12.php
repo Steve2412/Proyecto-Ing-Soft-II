@@ -174,28 +174,6 @@ if(isset($submit)){
             <span class=>'.$nomb_cur.'</span>
         </td>
         </tr>
-
-        <tr>
-        <td style="border:1px solid #ddd; padding:8px; text-align:center;" class="align-middle">01:00pm-02:00pm</td>
-        <td style="border:1px solid #ddd; padding:8px; text-align:center;">
-           <span class=></span>
-        </td>
-        <td style="border:1px solid #ddd; padding:8px; text-align:center;">
-           <span class=></span>
-        </td>
-        <td style="border:1px solid #ddd; padding:8px; text-align:center;">
-           <span class=></span>
-        </td>
-        <td style="border:1px solid #ddd; padding:8px; text-align:center;">
-           <span class=></span>
-        </td>
-        <td style="border:1px solid #ddd; padding:8px; text-align:center;">
-           <span class=></span>
-        </td>
-        <td style="border:1px solid #ddd; padding:8px; text-align:center;">
-           <span class=></span>
-        </td>
-     </tr>
      </tbody>
            
         '; 

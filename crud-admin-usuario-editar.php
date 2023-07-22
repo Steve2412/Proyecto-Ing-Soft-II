@@ -103,6 +103,8 @@ foreach ($result as $row){
                     <label class="form-check-label" for="option-1">Activo</label> 
                     <input type="radio" class="form-check-input" name="Estado" id="option-B" value="Inactivo" <?php echo ($Estado=='Inactivo')?'checked':'' ?>>
                     <label class="form-check-label" for="option-2">Inactivo</label> 
+                    <input type="radio" class="form-check-input" name="Estado" id="option-C" value="Inactivo" <?php echo ($Estado=='Eliminado')?'checked':'' ?>>
+                    <label class="form-check-label" for="option-2">Eliminado</label> 
                 </div>
             </div>
         </form>

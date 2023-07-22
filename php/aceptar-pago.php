@@ -10,8 +10,9 @@ foreach ($result as $row){
     $Cedu = $row['usuario_notifipago'];
 }
 
+
 $query_2 = "SELECT * FROM notifipago WHERE usuario_notifipago  = '$Cedu' AND (estado_notifipago='Rechazado' OR estado_notifipago='Pendiente' );"; 
-$result_2 = $conectar->query($query_2)->fetchAll(PDO::FETCH_BOTH);
+$result_2 = $conectar->query($query_2)->fetchColumn(PDO::FETCH_BOTH);
 
 if($result_2>0){
     echo '<script language="javascript">alert("Reporte aceptado correctamente");</script>';

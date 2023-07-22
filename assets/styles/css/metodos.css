@@ -2,14 +2,14 @@
 
 .contenedor{
     display: grid;
+    justify-items: center;
+    align-items: center;
     grid-template-rows: 90px 600px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
-    "h1 . ."
-    "movil bdv zelle"
-    "movil bdv zelle";
-    justify-items: center;
-    align-items: center;
+    "h1 ."
+    "movil bdv"
+    "movil bdv";
     color: #000000;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;

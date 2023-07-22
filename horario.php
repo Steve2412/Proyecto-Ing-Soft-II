@@ -564,7 +564,7 @@ foreach ($result as $row){
                         <input type='submit' name='submit' class='btn btn-outline-danger' value='Exportar PDF'>
             
                     </form>";
-                            } else if($horar_cur=="Sabado de 08:00am a 12:00pm"){
+                            } else if($horar_cur=="Sabado de 08:00am a 01:00pm"){
                               echo "
                               <tbody style='font-size:20px'>
                               <tr>
