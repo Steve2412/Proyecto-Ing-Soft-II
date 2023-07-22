@@ -34,7 +34,7 @@
                         <option value="Lunes a Viernes 08:00am a 10:00am">Lunes a Viernes 08:00am a 10:00am</option>
                         <option value="Lunes a Viernes 10:00am a 12:00pm">Lunes a Viernes 10:00am a 12:00pm</option>
                         <option value="Lunes a Viernes 12:00pm a 02:00pm">Lunes a Viernes 12:00pm a 02:00pm</option>
-                        <option value="Sabado de 08:00am a 12:00pm">Sabado de 08:00am a 12:00pm</option>
+                        <option value="Sabado de 08:00am a 01:00pm">Sabado de 08:00am a 01:00pm</option>
                     </select>
                 </div>
             </div>

@@ -106,12 +106,7 @@ foreach ($result as $row){
 
    <nav class="navbar">
       <a href="notifipago.php"><i class="fa fa-dollar"></i><span>Reporte de pagos</span></a>
-      <a href="courses.html"><i class="fa fa-file-text-o"></i><span>Historial reporte</span></a>
-      <?php 
-      if($Rol_usuario=="Admin"){
-      echo "<a href='administrador.php'><i class='fas fa-graduation-cap'></i><span>Administracion</span></a>";
-      } ?>
-
+      <a href="historial.php"><i class="fa fa-file-text-o"></i><span>Historial reporte</span></a>
       <!--<a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>-->
    </nav>   
 

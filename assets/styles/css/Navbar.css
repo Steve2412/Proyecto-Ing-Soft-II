@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+
 * {
   padding: 0;
   margin: 0;
@@ -20,7 +23,7 @@
 li,
 a,
 button {
-  font-family: "Monserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 16px;
   color: #edf0f1;
@@ -60,8 +63,8 @@ button {
 .brand {
   position: absolute;
   left: 15%;
-  font-family: "Monserrat", sans-serif;
-  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
   font-size: 24px;
   color: #edf0f1;
   text-decoration: none;
@@ -73,9 +76,14 @@ nav {
   width: 100%;
 }
 .logo {
-  width: 45px;
+  width: 97px;
   cursor: pointer;
 }
+.color-change {
+  font-family: 'Roboto', sans-serif;
+  color: #0088a9;
+}
+
 .checkbtn {
   font-size: 30px;
   color: #fff;
@@ -91,7 +99,8 @@ nav {
 }
 .enlace {
   position: absolute;
-  padding: 20px 50px;
+  top: 2px;
+  padding-left: 18px;
 }
 .brand {
   float: left;
@@ -126,7 +135,6 @@ nav .elements li {
 #check {
   display: none;
 }
-
 @media (max-width: 952px) {
   nav .elements {
     float: right;
@@ -173,7 +181,17 @@ nav .elements li {
     display: block;
     margin: 0 auto;
   }
-
+  .logo {
+    width: 90px;
+  }
+  .enlace {
+    position: absolute;
+    top: 2px;
+    padding-left: 10px;
+  }
+  .brand {
+    padding-left: 2%;
+  }
   .elements {
     z-index: 999;
     position: fixed;
@@ -207,24 +225,48 @@ nav .elements li {
   .brand {
     margin-left: 6%;
   }
-}
-
-@media (max-width: 670px){
-  .menu-cont {
-    width: 100%;
+  .logo {
+    width: 95px;
+  }
+  .enlace {
+    position: absolute;
+    top: 2px;
+    padding-left: 40px;
   }
 }
 
-@media (max-width: 400px) {
+
+@media (max-width: 600px) {
   .brand {
     margin-left: 12%;
   }
-  .menu-cont {
-    width: 100%;
+  .logo {
+    width: 90px;
+  }
+  .enlace {
+    position: absolute;
+    top: 2px;
+    padding-left: 10px;
   }
   .elements {
     width: 100vw;
     height: 100vh;
   }
-  
+}
+@media (max-width: 400px) {
+  .brand {
+    margin-left: 12%;
+  }
+  .logo {
+    width: 90px;
+  }
+  .enlace {
+    position: absolute;
+    top: 2px;
+    padding-left: 10px;
+  }
+  .elements {
+    width: 100vw;
+    height: 100vh;
+  }
 }

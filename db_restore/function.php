@@ -2,7 +2,19 @@
 
 function restore($server, $username, $password, $dbname, $location){
     //connection
-    $conn = new mysqli($server, $username, $password, $dbname);
+    $conn = new mysqli($server, $username, $password);
+
+    if (!$conn) {
+        $output['error'] = true;
+        $output['message'] = $conn->error;
+
+    }
+
+    if (!$db_selected = mysqli_select_db($conn,$dbname)) {
+        $output['message'] = 'Soy gay';
+
+    }
+
     $conn->query('SET foreign_key_checks = 0'); 
 
     if ($result = $conn->query("SHOW TABLES"))
@@ -11,8 +23,8 @@ function restore($server, $username, $password, $dbname, $location){
     {
         $conn->query('DROP TABLE IF EXISTS '.$row[0]);
     }
-}
 
+}
     //variable use to store queries from our sql file
     $sql = '';
     

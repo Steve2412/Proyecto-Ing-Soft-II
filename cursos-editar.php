@@ -141,7 +141,7 @@ if($Rol_usuario=="Profesor"){
 
 <form id="Formulario">
 <div class="col-sm-6">
-   <textarea type="text" id="Contenido" style="width:1200px;height:600px;" name="Contenido" cols="40" class="form-control" ><?php echo $conte_text;?></textarea>
+   <textarea type="text" id="Contenido" style="width:1000px;height:600px;" name="Contenido" cols="40" class="form-control" ><?php echo $conte_text;?></textarea>
 </div>
 </form>
 

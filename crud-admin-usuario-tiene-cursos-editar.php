@@ -9,6 +9,8 @@ foreach ($result as $row){
     $Periodo_ID_peri  = $row['Periodo_ID_peri'];
     $calificacion_user = $row['calificacion_user'];
     $Usuario_rol = $row['Usuario_rol'];
+    $estado_usuario_has_cursos = $row['estado_usuario_has_cursos'];
+
 }
 
 ?>
@@ -25,6 +27,7 @@ foreach ($result as $row){
     <div class="container my-9">
         <h2>Editar usuario en curso</h2>
         <form id="Formulario">
+        <textarea id="id_o" name="id_o" hidden value=<?php echo $Cedula;?>><?php echo $Cedula;?></textarea> 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Cedula del estudiante</label>
                 <div class="col-sm-6">
@@ -88,6 +91,16 @@ foreach ($result as $row){
                 <label class="col-sm-3 col-form-label">Nota del estudiante</label>
                 <div class="col-sm-6">
                         <input type="text" class="form-control" placeholder="Nota" id="Nota" name="Nota" value=<?php echo $calificacion_user;?>>
+                </div>
+            </div>
+
+            <div class="row mb-3" id="Rol">
+                <label class="col-sm-3 col-form-label">Estado</label>
+                <div class="col-sm-6">
+                    <input type="radio" class="form-check-input" name="Estado" id="option-a" value="Activo" <?php echo ($estado_usuario_has_cursos=='Activo')?'checked':'' ?> >
+                    <label class="form-check-label" for="option-1">Activo</label>
+                    <input type="radio" class="form-check-input" name="Estado" id="option-b" value="Finalizado" <?php echo ($estado_usuario_has_cursos=='Finalizado')?'checked':'' ?>  >
+                    <label class="form-check-label" for="option-2">Finalizado</label>  
                 </div>
             </div>
                 

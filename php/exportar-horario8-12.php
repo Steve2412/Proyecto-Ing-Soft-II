@@ -10,7 +10,7 @@ if(!isset($_SESSION['usuario'])){
 }
 
 $usuario = $_SESSION['usuario'];
-$query = "SELECT * FROM usuario WHERE cedu_user = $usuario"; 
+$query = "SELECT * FROM usuario WHERE cedu_user = '$usuario'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Nombre = $row['nomb_user'];
@@ -23,7 +23,7 @@ foreach ($result as $row){
     $Fecha = $row['fech_naci_user'];
    }
 
-   $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = $usuario"; 
+   $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$usuario'"; 
    $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
    foreach ($result as $row){
        $Cursos_ID_cur = $row['Cursos_ID_cur'];
@@ -174,28 +174,6 @@ if(isset($submit)){
             <span class=>'.$nomb_cur.'</span>
         </td>
         </tr>
-
-        <tr>
-        <td style="border:1px solid #ddd; padding:8px; text-align:center;" class="align-middle">01:00pm-02:00pm</td>
-        <td style="border:1px solid #ddd; padding:8px; text-align:center;">
-           <span class=></span>
-        </td>
-        <td style="border:1px solid #ddd; padding:8px; text-align:center;">
-           <span class=></span>
-        </td>
-        <td style="border:1px solid #ddd; padding:8px; text-align:center;">
-           <span class=></span>
-        </td>
-        <td style="border:1px solid #ddd; padding:8px; text-align:center;">
-           <span class=></span>
-        </td>
-        <td style="border:1px solid #ddd; padding:8px; text-align:center;">
-           <span class=></span>
-        </td>
-        <td style="border:1px solid #ddd; padding:8px; text-align:center;">
-           <span class=></span>
-        </td>
-     </tr>
      </tbody>
            
         '; 

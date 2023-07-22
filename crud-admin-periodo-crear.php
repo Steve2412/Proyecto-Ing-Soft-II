@@ -39,6 +39,17 @@
                 </div>
                 
             </div>
+
+            
+            <div class="row mb-3" id="Estado">
+                <label class="col-sm-3 col-form-label">Estado</label>
+                <div class="col-sm-6">
+                    <input type="radio" class="form-check-input" name="Estado" id="option-a" value="Activo" checked>
+                    <label class="form-check-label" for="option-1">Activo</label> 
+                    <input type="radio" class="form-check-input" name="Estado" id="option-b" value="Finalizado">
+                    <label class="form-check-label" for="option-2">Finalizado</label>
+                </div>
+            </div>
             
         </form>
         <button type="submit" class="btn btn-primary" onclick="registrar()">Registrar</button>

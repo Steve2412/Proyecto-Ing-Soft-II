@@ -22,7 +22,6 @@ if(isset($submit)){
                 <th style="border:1px solid #ddd; padding:8px; text-align:center;">Correo</th>
                 <th style="border:1px solid #ddd; padding:8px; text-align:center;">Direccion</th>
                 <th style="border:1px solid #ddd; padding:8px; text-align:center;">Telefono</th>
-                <th style="border:1px solid #ddd; padding:8px; text-align:center;">Contraseña</th>
                 <th style="border:1px solid #ddd; padding:8px; text-align:center;">Fecha Nacimiento</th>
                 <th style="border:1px solid #ddd; padding:8px; text-align:center;">Genero</th>
             </tr>   
@@ -36,7 +35,6 @@ if(isset($submit)){
             <td style="border:1px solid #ddd; padding:8px; text-align:center;">'.$row["correo_user"].'</td>
             <td style="border:1px solid #ddd; padding:8px; text-align:center;">'.$row["dirre_user"].'</td>
             <td style="border:1px solid #ddd; padding:8px; text-align:center;">'.$row["numer_user"].'</td>
-            <td style="border:1px solid #ddd; padding:8px; text-align:center;">'.$row["contra_user"].'</td>
             <td style="border:1px solid #ddd; padding:8px; text-align:center;">'.$row["fech_naci_user"].'</td>
             <td style="border:1px solid #ddd; padding:8px; text-align:center;">'.$row["sexo_user"].'</td>
         </tr>

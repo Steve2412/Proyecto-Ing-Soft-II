@@ -140,6 +140,11 @@ foreach ($result as $row){
 <br>
 <div style="font-size:20px">Usuarios inscritos en los cursos</div>
 <a class='btn btn-primary btn-sm' href='crud-admin-usuario-tiene-cursos.php'>Usuarios inscritos en los cursos</a>
+<br><div style="font-size:20px">Historial de Pagos</div>
+<a class='btn btn-primary btn-sm' href='crud-admin-historial-pagos.php'>Historial pagos</a>
+<br>
+<br><div style="font-size:20px">Pagos pendientes</div>
+<a class='btn btn-primary btn-sm' href='crud-admin-pendientes-pagos.php'>Pagos pendientes</a>
 <br>
 <div style="font-size:20px">Copia de seguridad</div>
 <a class='btn btn-primary btn-sm' href='composer/backup.php'>Copia de seguridad</a>

@@ -51,6 +51,8 @@ foreach ($result as $row){
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="assets/styles/css/style copy.css">
@@ -109,6 +111,12 @@ foreach ($result as $row){
       }
       ?>
       <?php 
+         if($Rol_usuario=="Estudiante"){
+         
+         echo "<a href='historial.php'><i class='fa fa-file-text-o'></i><span>Historial reporte</span></a>"; 
+      }
+      ?>
+      <?php 
       if($Rol_usuario=="Administrador"){
       echo "<a href='administrador.php'><i class='fas fa-graduation-cap'></i><span>Administracion</span></a>";
       } ?>
@@ -155,7 +163,7 @@ foreach ($result as $row){
             <hr>
             <div class="row">
               <div class="col-xl-3">
-              <h2 class="mb-0">Cedula</h2>
+              <h2 class="mb-0">Cédula</h2>
               </div>
               <div class="col-xl-9">
               <h2 class="text-muted mb-0"><?php echo $usuario ?></h2>
@@ -164,7 +172,7 @@ foreach ($result as $row){
             <hr>
             <div class="row">
               <div class="col-xl-3">
-              <h2 class="mb-0">Direccion</h2>
+              <h2 class="mb-0">Dirección</h2>
               </div>
               <div class="col-xl-9">
               <h2 class="text-muted mb-0"><?php echo $Direccion ?></h2>
@@ -173,7 +181,7 @@ foreach ($result as $row){
             <hr>
             <div class="row">
               <div class="col-xl-3">
-              <h2 class="mb-0">Telefono</h2>
+              <h2 class="mb-0">Teléfono</h2>
               </div>
               <div class="col-xl-9">
               <h2 class="text-muted mb-0"><?php echo $Numero ?></h2>
@@ -191,7 +199,7 @@ foreach ($result as $row){
             <hr>
             <div class="row">
               <div class="col-xl-3">
-              <h2 class="mb-0">Fecha nacimiento</h2>
+              <h2 class="mb-0">Fecha de nacimiento</h2>
               </div>
               <div class="col-xl-9">
               <h2 class="text-muted mb-0"><?php echo $Fecha ?></h2>
