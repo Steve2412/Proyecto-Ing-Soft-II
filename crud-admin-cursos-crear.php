@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.tiny.cloud/1/xurkgk7dheajm6100pg345w6ydt7ivrvh7n8c2ce7v3qkapn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>  
+    <script src="https://cdn.tiny.cloud/1/j2mhmpoyrt6wygu0k1vrfxap9m9j5zwto1gemng6nbuypahn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>  
 
     <title>Crear Curso</title>
 </head>
@@ -137,6 +137,8 @@ function registrar(){
           console.log(data);
           if (data === "1") {
             alert("Ya existe el curso");
+          }else if(data==="8"){
+            alert("Hubo un error");
           } else if (data === "2") {
             alert(
               "Has registrado un nuevo curso"

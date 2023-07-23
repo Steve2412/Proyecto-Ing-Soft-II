@@ -94,7 +94,7 @@ foreach ($result as $row){
          </div>
 
       <div class="profile">
-         <img src="images/pic-1.jpg" class="image" alt="">
+         <img src="Images/pic-1.jpg" class="image" alt="">
          <?php echo "<h3 class='name'>$Nombre</h3>" ?>
          <?php echo "<p class='role'>$Rol_usuario</p>" ?>
          <a href="profile.php" class="btn">Ver perfil</a>
@@ -114,7 +114,7 @@ foreach ($result as $row){
    </div>
 
    <div class="profile">
-      <img src="images/pic-1.jpg" class="image" alt="">
+      <img src="Images/pic-1.jpg" class="image" alt="">
       <?php echo "<h3 class='name'>$Nombre</h3>" ?>
       <?php echo "<p class='role'>$Rol_usuario</p>" ?>
       <a href="profile.php" class="btn">Ver perfil</a>
@@ -177,7 +177,7 @@ if($Rol_usuario=="Profesor"){
 
 <!-- custom js file link  -->
 <script src="Scripts/home.js"></script>
-<script src="https://cdn.tiny.cloud/1/xurkgk7dheajm6100pg345w6ydt7ivrvh7n8c2ce7v3qkapn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/j2mhmpoyrt6wygu0k1vrfxap9m9j5zwto1gemng6nbuypahn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     tinymce.init({
       selector: '#Contenido',
@@ -211,7 +211,9 @@ function registrar(){
           console.log(data);
           if (data === "1") {
             alert("Ya existe el curso");
-          } else if (data === "2") {
+          }else if(data === "8"){
+          alert("Hubo un error")
+        } else if (data === "2") {
             alert(
               "Contenido actualizado"
             );

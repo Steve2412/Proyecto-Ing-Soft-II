@@ -90,7 +90,7 @@ foreach ($result as $row){
         <button type="submit" class="btn btn-secondary" onclick="regresar()">Regresar</button>
     </div>
 </body>
-<script src="https://cdn.tiny.cloud/1/xurkgk7dheajm6100pg345w6ydt7ivrvh7n8c2ce7v3qkapn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/j2mhmpoyrt6wygu0k1vrfxap9m9j5zwto1gemng6nbuypahn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
 var id = document.querySelector("#ID");
 var id_o = document.querySelector("#id_o");
@@ -150,7 +150,9 @@ function registrar(){
           console.log(data);
           if (data === "1") {
             alert("Ya existe el curso");
-          } else if (data === "2") {
+          }else if(data === "8"){
+          alert("Hubo un error")
+        } else if (data === "2") {
             alert(
               "Curso Actualizado"
             );

@@ -106,7 +106,7 @@ if($Rol_usuario=="Administrador"){
       </div>
 
       <div class="profile">
-         <img src="images/pic-1.jpg" class="image" alt="">
+         <img src="Images/pic-1.jpg" class="image" alt="">
          <?php echo "<h3 class='name'>$Nombre</h3>" ?>
          <?php echo "<p class='role'>$Rol_usuario</p>" ?>
          <a href="profile.php" class="btn">Ver perfil</a>
@@ -126,7 +126,7 @@ if($Rol_usuario=="Administrador"){
    </div>
 
    <div class="profile">
-      <img src="images/pic-1.jpg" class="image" alt="">
+      <img src="Images/pic-1.jpg" class="image" alt="">
       <?php echo "<h3 class='name'>$Nombre</h3>" ?>
       <?php echo "<p class='role'>$Rol_usuario</p>" ?>
       <a href="profile.php" class="btn">Ver perfil</a>
@@ -183,7 +183,7 @@ if($Rol_usuario=="Administrador"){
                               <li class='list-group-item'>
                                   <div class='pull-left hidden-xs'>
                                       <div>
-                                       <img class='img-circle' width='40' height='40' title=$Nombre_Estudiante src='images/pic-1.jpg'>                    
+                                       <img class='img-circle' width='40' height='40' title=$Nombre_Estudiante src='Images/pic-1.jpg'>                    
                                       </div>
                                   </div>
                                   <small class='pull-right text-muted'>$fecha_mensaje_foro</small>

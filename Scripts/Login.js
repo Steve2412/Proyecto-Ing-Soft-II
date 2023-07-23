@@ -41,6 +41,8 @@ function Iniciar_Sesion() {
 
 
           }
+        }else if(data === "8"){
+          alert("Hubo un error")
         } else if (data == "1") {
           alert("Procede a iniciar sesion");
           window.location.href = "home.php";

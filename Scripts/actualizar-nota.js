@@ -27,6 +27,8 @@ function registrar(){
           console.log(data);
           if (data === "1") {
             alert("Ya existe el usuario");
+          }else if(data === "8"){
+            alert("Hubo un error")
           } else if (data === "2") {
             alert(
               "Se ha actualizado la nota correctamente"

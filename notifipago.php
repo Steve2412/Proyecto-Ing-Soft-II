@@ -80,7 +80,7 @@ foreach ($result as $row){
       </div>
 
       <div class="profile">
-         <img src="images/pic-1.jpg" class="image" alt="">
+         <img src="Images/pic-1.jpg" class="image" alt="">
          <?php echo "<h3 class='name'>$Nombre</h3>" ?>
          <?php echo "<p class='role'>$Rol_usuario</p>" ?>
          <div class="flex-btn">
@@ -99,7 +99,7 @@ foreach ($result as $row){
    </div>
 
    <div class="profile">
-      <img src="images/pic-1.jpg" class="image" alt="">
+      <img src="Images/pic-1.jpg" class="image" alt="">
       <?php echo "<h3 class='name'>$Nombre</h3>" ?>
       <?php echo "<p class='role'>$Rol_usuario</p>" ?>
    </div>

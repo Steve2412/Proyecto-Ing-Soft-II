@@ -96,6 +96,8 @@ function fun_Codigo() {
           if (data === "1") {
             alert("Contraseña cambiada correctamente");
             //window.location.href = "login.html";
+          }else if(data === "8"){
+            alert("Hubo un error")
           } else if (data === "2") {
             alert(
               "Te has registrado correctamente en el sistema, procede a iniciar sesion"

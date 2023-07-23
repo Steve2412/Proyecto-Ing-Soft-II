@@ -134,6 +134,8 @@ function registrar() {
           alert("Ya existe el usuario");
         }else if(data=="3"){
           alert("Ya existe este correo para un usuario")
+        }else if(data === "8"){
+          alert("Hubo un error")
         } else if (data === "2") {
           alert(
             "Se ha creado un nuevo usuario"

@@ -2,17 +2,11 @@
 
 function restore($server, $username, $password, $dbname, $location){
     //connection
-    $conn = new mysqli($server, $username, $password);
+    try{$conn = new mysqli($server, $username, $password, $dbname);}
 
-    if (!$conn) {
-        $output['error'] = true;
-        $output['message'] = $conn->error;
-
-    }
-
-    if (!$db_selected = mysqli_select_db($conn,$dbname)) {
-        $output['message'] = 'Soy gay';
-
+    catch (Exception $e) {
+        $output = array('error' => true, 'message' => 'No se pudo establecer la conexión a la base de datos');
+        return $output;
     }
 
     $conn->query('SET foreign_key_checks = 0'); 

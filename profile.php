@@ -76,7 +76,7 @@ foreach ($result as $row){
          </div>
 
       <div class="profile">
-         <img src="images/pic-1.jpg" class="image" alt="">
+         <img src="Images/pic-1.jpg" class="image" alt="">
          <?php echo "<h3 class='name'>$Nombre</h3>" ?>
          <?php echo "<p class='role'>$Rol_usuario</p>" ?>
          <a href="profile.php" class="btn">Ver perfil</a>
@@ -96,7 +96,7 @@ foreach ($result as $row){
    </div>
 
    <div class="profile">
-      <img src="images/pic-1.jpg" class="image" alt="">
+      <img src="Images/pic-1.jpg" class="image" alt="">
       <?php echo "<h3 class='name'>$Nombre</h3>" ?>
       <?php echo "<p class='role'>$Rol_usuario</p>" ?>
       <a href="profile.php" class="btn">Ver perfil</a>
@@ -185,15 +185,6 @@ foreach ($result as $row){
               </div>
               <div class="col-xl-9">
               <h2 class="text-muted mb-0"><?php echo $Numero ?></h2>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-xl-3">
-              <h2 class="mb-0">Contraseña</h2>
-              </div>
-              <div class="col-xl-9">
-              <h2 class="text-muted mb-0"><?php echo $Contra ?></h2>
               </div>
             </div>
             <hr>

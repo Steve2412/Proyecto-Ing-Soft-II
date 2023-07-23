@@ -123,7 +123,7 @@ foreach ($result as $row){
       </div>
 
       <div class="profile">
-         <img src="images/pic-1.jpg" class="image" alt="">
+         <img src="Images/pic-1.jpg" class="image" alt="">
          <?php echo "<h3 class='name'>$Nombre</h3>" ?>
          <?php echo "<p class='role'>$Rol_usuario</p>" ?>
          <a href="profile.php" class="btn">Ver perfil</a>
@@ -143,7 +143,7 @@ foreach ($result as $row){
    </div>
 
    <div class="profile">
-      <img src="images/pic-1.jpg" class="image" alt="">
+      <img src="Images/pic-1.jpg" class="image" alt="">
       <?php echo "<h3 class='name'>$Nombre</h3>" ?>
       <?php echo "<p class='role'>$Rol_usuario</p>" ?>
       <a href="profile.php" class="btn">Ver perfil</a>
@@ -182,14 +182,14 @@ foreach ($result as $row){
 
       <div class="box">
          <div class="tutor">
-            <img src="images/pic-3.jpg" alt="">
+            <img src="Images/pic-3.jpg" alt="">
             <div class="info">
             <?php echo "<h3>$Profesor $Profesor_B</h3>" ?>
                <span><?php echo $fech_ini_peri?> - <?php echo $fech_fin_peri?></span>
             </div>
          </div>
          <div class="thumb">
-            <img src="images/curso.jpg" alt="">
+            <img src="Images/curso.jpg" alt="">
          </div>
          <?php echo "<h3 class='title'>$nomb_cur</h3>" ?>
          <a href="cursos.php" class="inline-btn">Ver curso</a>

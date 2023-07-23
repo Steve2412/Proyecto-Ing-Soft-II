@@ -114,7 +114,7 @@ foreach ($result as $row){
       </div>
 
       <div class="profile">
-         <img src="images/pic-1.jpg" class="image" alt="">
+         <img src="Images/pic-1.jpg" class="image" alt="">
          <h3 class='name'> <?php echo $Nombre ?></h3>
          <p class='role'><?php echo $Rol_usuario ?></p>
          <?php
@@ -139,7 +139,7 @@ foreach ($result as $row){
    </div>
 
    <div class="profile">
-      <img src="images/pic-1.jpg" class="image" alt="">
+      <img src="Images/pic-1.jpg" class="image" alt="">
       <h3 class='name'><?php echo $Nombre?></h3>
       <p class='role'><?php echo $Rol_usuario?></p>
       <?php

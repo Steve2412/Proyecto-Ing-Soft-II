@@ -8,6 +8,7 @@ $cupo_min = isset($_POST['Cupo_min']) ? $_POST["Cupo_min"] : "";
 $cupo_max = isset($_POST['Cupo_max']) ? $_POST["Cupo_max"] : "";
 $contenido = isset($_POST['Contenido']) ? $_POST["Contenido"] : "";
 
+try {
 
     $pdo = $conectar->prepare("SELECT ID_cur FROM cursos WHERE ID_cur = ?");
     $pdo->execute([$id]);
@@ -28,6 +29,11 @@ $contenido = isset($_POST['Contenido']) ? $_POST["Contenido"] : "";
         $pdo->bindParam(7,$contenido);
         $pdo->execute();
         echo json_encode("2");
-        
+    }
+} 
+
+catch (Exception $e) {
+    echo json_encode("8");
+       
         
     }

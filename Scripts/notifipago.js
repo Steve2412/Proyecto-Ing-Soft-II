@@ -51,7 +51,7 @@ function agregarDecimal() {
           .then(res => res.json())
           .then(data => {
             console.log(data);
-            if (data == "5") {
+            if (data === "8") {
               alert("Hub un error");
             } else if (data === "2") {
               alert(

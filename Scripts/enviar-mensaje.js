@@ -16,6 +16,8 @@ function enviar(){
               console.log(data);
               if (data === "1") {
                 alert("Ya existe el curso");
+              }else if(data === "8"){
+                alert("Hubo un error")
               } else if (data === "2") {
                 alert(
                   "Mensaje enviado"

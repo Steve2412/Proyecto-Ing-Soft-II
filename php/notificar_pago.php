@@ -11,6 +11,7 @@ $fecha_trans = isset($_POST['Fecha_Trans']) ? $_POST["Fecha_Trans"] : "";
 $num_trans = isset($_POST['Num_Trans']) ? $_POST["Num_Trans"] : "";
 $motivo = isset($_POST['Motivo']) ? $_POST["Motivo"] : "";
 
+try {
 $pdo= $conectar->prepare ("INSERT INTO notifipago (monto_notifipago,banco_notifipago,cedu_titular_notifipago,fecha_notifipago,referencia_notifipago,motivo_notifipago,usuario_notifipago)
 VALUES (?,?,?,?,?,?,?   )");
 $pdo->bindParam(1,$monto);
@@ -23,5 +24,12 @@ $pdo->bindParam(7,$usuario);
 $pdo->execute();
 
 echo json_encode("2");
+} 
+
+catch (Exception $e) {
+    echo json_encode("8");
+       
+        
+    }
 
 

@@ -6,6 +6,7 @@ $fecha_1 = isset($_POST['Fecha-Inicio']) ? $_POST["Fecha-Inicio"] : "";
 $fecha_2 = isset($_POST['Fecha-Fin']) ? $_POST["Fecha-Fin"] : "";
 $estado = isset($_POST['Estado']) ? $_POST["Estado"] : "";
 
+try {
 $pdo = $conectar->prepare("SELECT ID_peri  FROM periodo WHERE ID_peri  = ?");
 $pdo->execute([$id]);
 $result = $pdo->fetchColumn();
@@ -23,3 +24,10 @@ if($result>0){
     $pdo->execute();
     echo json_encode("2");
 }
+} 
+
+catch (Exception $e) {
+    echo json_encode("8");
+       
+        
+    }
