@@ -83,13 +83,6 @@ foreach ($result as $row){
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Contraseña</label>
-                <div class="col-sm-6">
-                        <input type="password" class="form-control" placeholder="Contraseña" maxlength="16" id="Contra" name="Contra" value=<?php echo $Contra;?>>
-                </div>
-            </div>
-
-            <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Fecha Nacimiento</label>
                 <div class="col-sm-6">
                         <input type="date" id="Fecha-Insertar" name="Fecha" max="2023-12-31" class="input-group date" value=<?php echo $Fecha;?>>

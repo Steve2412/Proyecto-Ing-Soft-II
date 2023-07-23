@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container my-9">
-        <h2>Crear Usuario</h2>
+        <h2>Crear Periodo</h2>
         <form id="Formulario">
         <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">ID</label>

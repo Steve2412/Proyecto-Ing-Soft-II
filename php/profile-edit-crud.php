@@ -8,7 +8,7 @@ if(!isset($_SESSION['usuario'])){
   die();
   session_destroy(); 
 }
-
+try {
 $usuario = $_SESSION['usuario'];
 $nombre = isset($_POST['Nombre']) ? $_POST["Nombre"] : "";
 $apellido = isset($_POST['Apellido']) ? $_POST["Apellido"] : "";
@@ -22,3 +22,10 @@ $pdo= $conectar->prepare ("UPDATE usuario SET nomb_user = '$nombre',apelli_user 
 dirre_user = '$direccion',numer_user = '$telefono',fech_naci_user = '$fecha',sexo_user = '$gen' WHERE cedu_user = '$usuario'");
 $pdo->execute();
 echo json_encode("2");
+} 
+
+catch (Exception $e) {
+    echo json_encode("8");
+       
+        
+    }

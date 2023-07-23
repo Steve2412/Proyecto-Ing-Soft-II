@@ -2,14 +2,14 @@
 
 .contenedor{
     display: grid;
+    grid-template-rows: 90px 600px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "h1 . ."
+    "movil bdv zelle"
+    "movil bdv zelle";
     justify-items: center;
     align-items: center;
-    grid-template-rows: 90px 600px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas:
-    "h1 ."
-    "movil bdv"
-    "movil bdv";
     color: #000000;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
@@ -31,6 +31,8 @@
 }
 
 .pagomovil {
+    justify-content: center;
+    align-items: center;
     width: 400px;
     height: 500px;
     background: rgb(155, 155, 170);
@@ -42,6 +44,8 @@
 }
 
 .banco {
+    justify-content: center;
+    align-items: center;
     width: 400px;
     height: 500px;
     background: rgb(155, 155, 170);
@@ -50,17 +54,6 @@
     border-radius: 10px;
     gap: 25px;
     grid-area: bdv;
-}
-
-.zelle {
-    width: 400px;
-    height: 500px;
-    background: rgb(155, 155, 170);
-    text-align: center;
-    border: rgb(0, 0, 0) 5px solid;
-    border-radius: 10px;
-    gap: 25px;
-    grid-area: zelle;
 }
 
 .img {

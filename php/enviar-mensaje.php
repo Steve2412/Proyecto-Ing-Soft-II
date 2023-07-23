@@ -3,7 +3,7 @@ require "conexion.php";
 session_start();
 
 $usuario = $_SESSION['usuario'];
-
+try {
 $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$usuario'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
@@ -23,3 +23,10 @@ $pdo= $conectar->prepare ("INSERT INTO foro (usuario_id_foro ,curso_id_foro ,men
         $pdo->bindParam(4,$fecha);
         $pdo->execute();
         echo json_encode("2");
+} 
+
+catch (Exception $e) {
+    echo json_encode("8");
+       
+        
+    }

@@ -1,6 +1,8 @@
 <?php
 require "conexion.php";
 $id=$_GET['editarid'];
+
+try {
 $pdo= $conectar->prepare("UPDATE notifipago SET estado_notifipago='Procesado' WHERE id_notifipago=?");
 $pdo->execute([$id]);
 
@@ -20,7 +22,13 @@ if($result_2>0){
 }else{
     $pdo_2= $conectar->prepare("UPDATE usuario SET estado_user='Activo' WHERE cedu_user=?");
     $pdo_2->execute([$Cedu]);
-    echo '<script language="javascript">alert("Pene");</script>';
+    echo '<script language="javascript">alert("Reporte aceptado correctamente");</script>';
     echo "<script> location.href='../crud-admin-pendientes-pagos.php' </script>"; 
 }
+} 
 
+catch (Exception $e) {
+    echo json_encode("8");
+       
+        
+    }

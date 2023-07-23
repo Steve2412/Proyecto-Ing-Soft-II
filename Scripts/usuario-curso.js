@@ -50,6 +50,8 @@ Insertar_Rol.addEventListener("click", (e) => {
                 alert("El usuario tiene que finalizar el curso para poder entrar a otro");
               }else if(data === "5"){
                 alert("El curso ya esta lleno");
+              }else if(data === "8"){
+                alert("Hubo un error")
               }else if (data === "3") {
                 alert(
                   "El usuario fue inscrito al curso"

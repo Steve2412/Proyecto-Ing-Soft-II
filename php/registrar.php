@@ -11,6 +11,8 @@ $contra = isset($_POST['Contra']) ? $_POST["Contra"] : "";
 $fecha = isset($_POST['Fecha']) ? $_POST["Fecha"] : "";
 $gen = isset($_POST['Genero']) ? $_POST["Genero"] : "";
 
+
+try {
     $pdo = $conectar->prepare("SELECT cedu_user FROM usuario WHERE cedu_user = ?");
     $pdo->execute([$cedula]);
     $result = $pdo->fetchColumn();
@@ -41,6 +43,14 @@ $gen = isset($_POST['Genero']) ? $_POST["Genero"] : "";
         $pdo->execute();
         echo json_encode("2");
         
+        
+    }
+
+} 
+
+catch (Exception $e) {
+    echo json_encode("8");
+       
         
     }
     

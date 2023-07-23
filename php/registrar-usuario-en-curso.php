@@ -7,6 +7,7 @@ $periodo = isset($_POST['Periodo']) ? $_POST["Periodo"] : "";
 $rol = isset($_POST['Rol']) ? $_POST["Rol"] : "";
 $estado = isset($_POST['Estado']) ? $_POST["Estado"] : "";
 
+try {
 
 $pdo = $conectar->prepare("SELECT * FROM usuario WHERE cedu_user ='$cedula'");
 $pdo->execute();
@@ -59,4 +60,11 @@ if($result>0){
     }else{
         echo json_encode("1");
 
+    }
+} 
+
+catch (Exception $e) {
+    echo json_encode("8");
+       
+        
     }

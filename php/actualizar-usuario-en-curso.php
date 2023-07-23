@@ -8,6 +8,7 @@ $notas = isset($_POST['Nota']) ? $_POST["Nota"] : "";
 $rol = isset($_POST['Rol']) ? $_POST["Rol"] : "";
 $estado = isset($_POST['Estado']) ? $_POST["Estado"] : "";
 
+try {
 $query = "SELECT * FROM cursos"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
@@ -30,6 +31,12 @@ if($cupos_cur_max>'$cupos_cur_max'){
 
   
 }
+} 
+catch (Exception $e) {
+   echo json_encode("8");
+      
+       
+   }
 
 
 
