@@ -55,7 +55,7 @@ function agregarDecimal() {
               alert("Hub un error");
             } else if (data === "2") {
               alert(
-                "Se ha hecho la notificacion, espere unos dias para validar correctamente el pago"
+                "Se ha hecho la notificación, espere unos dias para validar correctamente el pago"
               );
               window.location.href = "../notifipago.php";
             }
