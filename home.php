@@ -47,12 +47,7 @@ if ($Estado=="Inactivo"){
    </script>';
 }
 
-if($Rol_usuario=="Administrador"){
-   echo "<script> location.href='administrador.php' </script>";
-
-}  
-
-if(!$result){
+if ($Estado=="Eliminado"){
    echo '<script language="javascript">
    window.location = "index.html"
    </script>';
@@ -60,6 +55,10 @@ if(!$result){
    session_destroy(); 
 }
 
+if($Rol_usuario=="Administrador"){
+   echo "<script> location.href='administrador.php' </script>";
+
+}  
 
 $query = "SELECT * FROM cursos WHERE ID_cur = '$Cursos_ID_cur'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);

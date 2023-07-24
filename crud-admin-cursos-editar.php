@@ -1,5 +1,26 @@
 <?php
 require "php/conexion.php";
+session_start();
+if(!isset($_SESSION['usuario'])){
+  echo '<script language="javascript">
+  window.location = "index.html"
+  </script>';
+  die();
+  session_destroy(); 
+}
+$usuario = $_SESSION['usuario'];
+$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$usuario'"; 
+$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
+foreach ($result as $row){
+    $Rol_usuario = $row['Usuario_rol'];
+
+}
+if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
+  echo "<script> location.href='home.php' </script>";
+
+} 
+
+
 $id=$_GET['editarid']; 
 $query = "SELECT * FROM cursos WHERE ID_cur = '$id'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
@@ -21,7 +42,7 @@ foreach ($result as $row){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <title>Editar curso</title>
+    <title>Editar <?php echo $nomb_cur ?></title>
 </head>
 <body>
     <div class="container my-9">

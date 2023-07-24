@@ -31,7 +31,23 @@ foreach ($result as $row){
     $Rol_usuario = $row['Usuario_rol'];
 }
 
+
 if(!$result){
+   echo '<script language="javascript">
+   window.location = "index.html"
+   </script>';
+   die();
+   session_destroy(); 
+}
+
+if ($Estado=="Inactivo"){
+   echo '<script language="javascript">alert("No estas solvente en el sistema, reporta el pago o comunicate con el administrador");</script>';
+   echo '<script language="javascript">
+   window.location = "notifipago.php"
+   </script>';
+}
+
+if ($Estado=="Eliminado"){
    echo '<script language="javascript">
    window.location = "index.html"
    </script>';

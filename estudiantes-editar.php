@@ -64,6 +64,21 @@ foreach ($result as $row){
     $calificacion_user_estudiante_editar = $row['calificacion_user'];
 }
 
+if ($Estado=="Inactivo"){
+   echo '<script language="javascript">alert("No estas solvente en el sistema, reporta el pago o comunicate con el administrador");</script>';
+   echo '<script language="javascript">
+   window.location = "notifipago.php"
+   </script>';
+}
+
+if ($Estado=="Eliminado"){
+   echo '<script language="javascript">
+   window.location = "index.html"
+   </script>';
+   die();
+   session_destroy(); 
+}
+
 
 
 ?>

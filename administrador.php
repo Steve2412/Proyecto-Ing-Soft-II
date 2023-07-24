@@ -21,6 +21,7 @@ foreach ($result as $row){
     $Numero = $row['numer_user'];
     $Contra = $row['contra_user'];
     $Fecha = $row['fech_naci_user'];
+    $Estado = $row['estado_user'];
    }
 
 $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$usuario'"; 
@@ -39,11 +40,24 @@ foreach ($result as $row){
     $horar_cur = $row['horar_cur'];
 }
 
+if ($Estado=="Eliminado"){
+   echo '<script language="javascript">
+   window.location = "index.html"
+   </script>';
+   die();
+   session_destroy(); 
+}
+
 $query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Profesor'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Rol_profe = $row['Usuario_rol'];
 }
+
+if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
+   echo "<script> location.href='home.php' </script>";
+
+}  
 
 ?>
 <!DOCTYPE html>

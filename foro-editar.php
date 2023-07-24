@@ -46,6 +46,21 @@ if(!$result){
    session_destroy(); 
 }
 
+if ($Estado=="Inactivo"){
+   echo '<script language="javascript">alert("No estas solvente en el sistema, reporta el pago o comunicate con el administrador");</script>';
+   echo '<script language="javascript">
+   window.location = "notifipago.php"
+   </script>';
+}
+
+if ($Estado=="Eliminado"){
+   echo '<script language="javascript">
+   window.location = "index.html"
+   </script>';
+   die();
+   session_destroy(); 
+}
+
 
 $query = "SELECT * FROM cursos WHERE ID_cur = '$Cursos_ID_cur'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
@@ -77,7 +92,7 @@ if($Rol_usuario=="Administrador"){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Corblaserca - Inicio</title>
+   <title>Enviar mensaje</title>
 
    <!-- font awesome cdn link  -->
    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
