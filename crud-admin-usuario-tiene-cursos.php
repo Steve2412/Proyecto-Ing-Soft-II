@@ -38,7 +38,7 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
             <button class="btn btn-dark btn-sm"> Buscar</button>
         </form>
         <h2>Lista Estudiantes en cursos</h2>  
-        <a class="btn btn-primary" role="button" href="crud-admin-usuario-tiene-cursos-crear.php" name="sumbit">Nuevo Estudiante</a>
+        <a class="btn btn-primary" role="button" href="crud-admin-usuario-tiene-cursos-crear.php" name="sumbit">Nuevo usuario en el curso</a>
         <a class="btn btn-info" role="button" href="administrador.php" name="sumbit">Regresar</a>
 
         <br>

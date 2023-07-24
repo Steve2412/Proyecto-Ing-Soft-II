@@ -21,7 +21,7 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
 
 } 
 
-?>
+
 $id=$_GET['editarid']; 
 $query = "SELECT * FROM periodo WHERE ID_peri = '$id'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);

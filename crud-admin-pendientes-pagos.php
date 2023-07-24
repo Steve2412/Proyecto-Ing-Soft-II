@@ -37,7 +37,6 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
             <button class="btn btn-dark btn-sm"> Buscar</button>
         </form>
         <h2>Lista Pagos pendientes</h2>  
-        <a class="btn btn-primary" role="button" href="crud-admin-usuario-crear.php" name="sumbit">Nuevo usuario</a>
         <a class="btn btn-info" role="button" href="administrador.php" name="sumbit">Regresar</a> 
         <br>    <br>     
         <form action="php/exportar-usuarios.php" method="post" class="mb-2">
