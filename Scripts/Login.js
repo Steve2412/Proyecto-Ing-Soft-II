@@ -51,11 +51,3 @@ function Iniciar_Sesion() {
       });
   }
 }
-
-/*} else if (Entrada_Cedula.value !== "Sexo" && Entrada_Contraseña !== "Sexo") {
-  if (Contador_Sesion === 0) {
-    alert("No podes entrar");
-  } else {
-    Contador_Sesion = Contador_Sesion - 1;
-    alert("Tienes " + Contador_Sesion + " intentos");
-  }*/

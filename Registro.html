@@ -47,6 +47,7 @@
                         <input type="text" placeholder="Apellido" onkeydown="return /[a-z]/i.test(event.key)" class="Insertar-Primero" id="Apellido" name="Apellido"></input>
                         <input type="email" placeholder="Correo" class="Insertar-Primero" id="Correo" name="Correo"></input>
                         <input type="number" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="10" inputMode="numeric" placeholder="Cédula" class="Insertar-Primero" id="Cedula" name="Cedula"></input>
+                        <label id="Texto-Genero">Seleccionar Genero</label>
                         <div class="Genero">
                             <input type="radio" name="Genero" id="option-1" value="M" checked>
                             <input type="radio" name="Genero" id="option-2" value="F">
@@ -65,9 +66,10 @@
                         <div class="Entrada-Datos-2">
                             
                             <input type="text" placeholder="Dirección" class="Insertar-Segundo" id="Direccion" name="Direccion" maxlength="15"></input>
-                            <input type="tel" inputMode="numeric" placeholder="xxxx-xxxxxxx" class="Insertar-Segundo" id="Telefono" name="Telefono"></input>
+                            <input type="tel" inputMode="numeric" placeholder="Teléfono xxxx-xxxxxxx" class="Insertar-Segundo" id="Telefono" name="Telefono"></input>
                             <input type="password" placeholder="Contraseña" maxlength="16" class="Insertar-Segundo" id="Contra_1" name="Contra"></input>
                             <input type="password" placeholder="Repetir Contraseña" maxlength="16" class="Insertar-Segundo" id="Contra_2"></input>    
+                            <label id="Texto-Fecha">Fecha de nacimiento</label>
                             <input type="date" class="Fecha-Insertar" max="2023-12-31" name="Fecha"></input>
                        
                           </div>

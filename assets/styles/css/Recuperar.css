@@ -60,6 +60,7 @@ body {
   width: 250px;
   margin-top: 20px;
 }
+
 .Insertar-Segundo{
 
   position: relative;
@@ -141,7 +142,6 @@ body {
   left: 35em;
   bottom: 2.5em;
   }
-
 .Boton-Codigo{
 
   display: inline-block;
@@ -160,7 +160,30 @@ body {
   transition: box-shadow 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   position: relative;
   left: 34em;
-  bottom: 2.5em;
+  bottom: 4.5em;
+
+
+}
+
+.Boton-Regresar{
+
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border: none;
+  padding: 0 56px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 7px;
+  background-color: #0070f3;
+  color: white;
+  font-weight: 400;
+  font-size: 16px;
+  box-shadow: 0 4px 14px 0 rgb(0 118 255 / 39%);
+  transition: box-shadow 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  left: 34em;
+  top: 3.5em;
 
 
 }
@@ -250,6 +273,13 @@ left: 27em;
 
 }
 
+.Boton-Regresar{
+
+  left: 26.2em;
+
+}
+
+
 .Boton-Cambiar {
 
 left: 25em;
@@ -303,6 +333,12 @@ left: 6em;
     left: 21.5em;
     
     }
+    .Boton-Regresar{
+
+      left: 24.0em;
+    
+    }
+    
   
   .Registro_Imagen {
   
@@ -345,6 +381,11 @@ left: 6em;
     .Boton-Codigo{
 
       left: 18.4em;
+    }
+
+    .Boton-Regresar{
+
+      left: 19.4em;
     }
 
     .Boton-Cambiar {
@@ -401,6 +442,12 @@ left: 6em;
   top: 14em;
 }
 
+.Boton-Regresar{
+
+  left: 7.3em;
+  top: 21em;
+}
+
 .Boton-Cambiar {
 
   top: 14em;
@@ -455,6 +502,12 @@ left: 6em;
 
     left: 3em;
     top: 14em;
+  }
+
+  .Boton-Regresar{
+
+    left: 4.5em;
+    top: 22em;
   }
 
   .Boton-Cambiar {

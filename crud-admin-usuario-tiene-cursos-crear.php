@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container my-9">
-        <h2>Agregar estudiante a curso</h2>
+        <h2>Agregar usuario a curso</h2>
         <form id="Formulario">
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Cedula del estudiante</label>

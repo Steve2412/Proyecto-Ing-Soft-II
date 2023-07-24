@@ -18,6 +18,13 @@ var el_third = document.querySelector(".Entrada-Datos-3");
 var boton_siguiente = document.querySelector(".Boton-Siguiente");
 var boton_codigo = document.querySelector(".Boton-Codigo");
 var boton_cambiar = document.querySelector(".Boton-Cambiar");
+var boton_regresar = document.querySelector(".Boton-Regresar");
+
+function fun_regresar(){
+  window.location.href = "../recuperar.html";
+
+}
+
 
 function fun_siguiente() {
   var datos = new FormData(Formulario);
@@ -100,8 +107,9 @@ function fun_Codigo() {
             alert("Hubo un error")
           } else if (data === "2") {
             alert(
-              "Te has registrado correctamente en el sistema, procede a iniciar sesion"
+              "Se ha cambiado la contraseña de forma correcta, procede a iniciar sesión"
             );
+            window.location.href = "../logeo.php";
           }
         });
     }

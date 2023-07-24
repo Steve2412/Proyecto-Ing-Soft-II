@@ -123,6 +123,7 @@ foreach ($result as $row){
    <nav class="navbar">
       <a href="home.php"><i class="fas fa-home"></i><span>Inicio</span></a>
       <a href="cursos.php"><i class="fas fa-chalkboard-teacher"></i><span>Curso</span></a>
+      <a href="foro.php"><i class="fa fa-comments"></i><span>Foro</span></a>
       <a href="estudiantes.php"><i class="fas fa-graduation-cap"></i><span>Estudiantes</span></a>
    </nav>
 

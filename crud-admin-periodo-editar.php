@@ -41,14 +41,14 @@ foreach ($result as $row){
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Fecha Nacimiento</label>
+                <label class="col-sm-3 col-form-label">Fecha inicio del periodo</label>
                 <div class="col-sm-6">
                         <input type="date" id="Fecha-Inicio" name="Fecha-Inicio" max="2030-12-31" class="input-group date" value=<?php echo $Fecha_Inic;?>>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Fecha Nacimiento</label>
+                <label class="col-sm-3 col-form-label">Fecha fin del periodo</label>
                 <div class="col-sm-6">
                         <input type="date" id="Fecha-Fin" name="Fecha-Fin" max="2030-12-31" class="input-group date" value=<?php echo $Fecha_Fin;?>>
                 </div>
