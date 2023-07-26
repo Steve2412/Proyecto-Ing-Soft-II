@@ -22,21 +22,7 @@ if($result>0){
     $pdo_3->execute();
     $result_3 = $pdo_3->fetchColumn();
 
-    $query_5 = "SELECT * FROM cursos"; 
-    $result_5 = $conectar->query($query_5)->fetchAll(PDO::FETCH_BOTH);
-    foreach ($result as $row){
-    $cupos_cur_max = $row['cupos_cur_max'];
-}
-
-    $query_4 = "SELECT * FROM cursos WHERE ID_cur= '$cursos'"; 
-    $result_4 = $conectar->query($query_4)->fetchColumn(PDO::FETCH_BOTH);
-
-    if($cupos_cur_max>'$cupos_cur_max'){
-    echo json_encode("5");
-
-    }
-
-    else if($result_2>0) {
+    if($result_2>0) {
         echo json_encode("2");
     }else if($result_3>0){
         echo json_encode("4");
@@ -61,7 +47,7 @@ if($result>0){
         echo json_encode("1");
 
     }
-} 
+}
 
 catch (Exception $e) {
     echo json_encode("8");

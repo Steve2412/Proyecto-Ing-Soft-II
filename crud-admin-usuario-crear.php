@@ -58,7 +58,7 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Cédula</label>
                 <div class="col-sm-6">
-                        <input type="text" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" maxlength="10" inputMode="numeric" placeholder="Cedula" id="Cedula" name="Cedula">
+                        <input type="number" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" maxlength="10" inputMode="numeric" placeholder="Cedula" id="Cedula" name="Cedula">
                 </div>
             </div>
 
@@ -75,14 +75,14 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Dirección</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Direccion" id="Direccion" name="Direccion" maxlength="15">
+                        <input type="text" class="form-control" placeholder="Direccion" id="Direccion" name="Direccion">
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Teléfono</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" inputMode="numeric" placeholder="xxxx-xxxxxxx" id="Telefono" name="Telefono">
+                        <input type="text" maxlength="12" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" inputMode="numeric" placeholder="Teléfono xxxx-xxxxxxx" id="Telefono" name="Telefono">
                 </div>
             </div>
 

@@ -92,7 +92,7 @@ foreach ($result as $row){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Direccion</label>
                 <div class="col-sm-6">
-                        <textarea type="text" class="form-control" placeholder="Direccion" id="Direccion" name="Direccion" maxlength="15"><?php echo $Direccion;?></textarea>
+                        <textarea type="text" class="form-control" placeholder="Direccion" id="Direccion" name="Direccion"><?php echo $Direccion;?></textarea>
                 </div>
             </div>
 

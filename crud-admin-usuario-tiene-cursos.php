@@ -45,7 +45,7 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
         <table class="table">
             <thead>
                 <tr>
-                    <th>Cedula Usuario</th>
+                    <th>Cédula usuario</th>
                     <th>ID Curso</th>
                     <th>ID Periodo</th>
                     <th>Calificación</th>

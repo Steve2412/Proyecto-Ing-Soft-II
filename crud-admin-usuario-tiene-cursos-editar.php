@@ -101,7 +101,7 @@ foreach ($result as $row){
                     <input type="radio" class="form-check-input" name="Rol" id="option-1" value="Estudiante" <?php echo ($Usuario_rol=='Estudiante')?'checked':'' ?> >
                     <label class="form-check-label" for="option-1">Estudiante</label>
                     <input type="radio" class="form-check-input" name="Rol" id="option-2" value="Profesor" <?php echo ($Usuario_rol=='Profesor')?'checked':'' ?>  >
-                    <label class="form-check-label" for="option-2">Administrador</label>  
+                    <label class="form-check-label" for="option-2">Profesor</label>  
                     <input type="radio" class="form-check-input" name="Rol" id="option-3" value="Administrador" <?php echo ($Usuario_rol=='Administrador')?'checked':'' ?>  >
                     <label class="form-check-label" for="option-3">Administrador</label> 
                 </div>

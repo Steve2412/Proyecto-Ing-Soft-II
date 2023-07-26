@@ -23,6 +23,11 @@ Insertar_Telefono.addEventListener("keyup", function (e) {
   }
 });
 
+Insertar_Cedula.addEventListener('input',function(){
+  if (this.value.length > 10) 
+     this.value = this.value.slice(0,10); 
+})
+
 var Fecha_Actual = new Date();
 var Mes_Actual = new Date().getMonth();
 var Dia_Actual = Fecha_Actual.getDate;

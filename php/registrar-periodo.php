@@ -15,7 +15,7 @@ if($result>0){
     echo json_encode("1");
 
 }else{
-    $pdo= $conectar->prepare ("INSERT INTO periodo (ID_peri,nomb_peri,fech_ini_peri,fech_fin_peri) VALUES (?,?,?,?,?)");
+    $pdo= $conectar->prepare ("INSERT INTO periodo (ID_peri,nomb_peri,fech_ini_peri,fech_fin_peri,estado_peri) VALUES (?,?,?,?,?)");
     $pdo->bindParam(1,$id);
     $pdo->bindParam(2,$nombre);
     $pdo->bindParam(3,$fecha_1);

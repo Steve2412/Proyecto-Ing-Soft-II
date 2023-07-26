@@ -12,7 +12,7 @@ if(isset($submit)){
     $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
     $html = '';
     $html .= '
-        <h2 align="center">Datos Alumnos de Corserca</h2>
+        <h2 align="center">Datos usuarios de Corblaserca</h2>
         <div align="center">Reporte del dia '.$currentDate.' a las '.$currentHour.'</div>
         <table style="width:100%; border-collapse:collapse;">
             <tr>

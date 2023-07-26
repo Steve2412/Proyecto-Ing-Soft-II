@@ -112,7 +112,7 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
 
     <script>
     function checkdelete(){
-        return confirm('¿Estas seguro deseas borrar este periodo?');
+        return confirm('¿Estas seguro deseas finalizar este periodo?');
     }
     </script>
 </html>

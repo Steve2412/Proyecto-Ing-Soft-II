@@ -61,6 +61,8 @@ $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $nomb_cur = $row['nomb_cur'];
     $conte_text= $row['conte_text'];
+    $estado_cur = $row['estado_cur'];
+
 }
 
 $query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Profesor'"; 
@@ -73,6 +75,12 @@ $query = "SELECT * FROM usuario WHERE cedu_user = '$cedu_profe'";
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $Profesor = $row['nomb_user'];
+}
+
+if ($estado_cur=="Eliminado"){
+   echo '<script language="javascript">
+   window.location = "home.php"
+   </script>';
 }
 
 ?>

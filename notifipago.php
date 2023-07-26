@@ -131,18 +131,24 @@ foreach ($result as $row){
     <p>Ingresa cada uno de los campos</p>
 
       <div class="input-group">
-      <label for="monto" >Monto en bs</label>
+      <label for="monto" >Monto en Bs. D</label>
         <input type="text" onkeyup="agregarDecimal()" placeholder="2500.00" id="Monto" name="Monto">
 
         <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Seleccione Banco</label><br><br>
-                <div class="col-sm-6">
-                    <select class="form-select" name="Banco" id="Banco">
+                <div class="selectWrapper">
+                    <select class="selectBox" name="Banco" id="Banco">
                         <option value="Banco de Venezuela">Banco de Venezuela</option>
                         <option value="Banesco">Banesco</option>
                         <option value="Banco Provincial">Banco Provincial</option>
-                        <option value="Banco Nacional de crédito">Banco Nacional de crédito</option>
+                        <option value="Banco Nacional de Crédito">Banco Nacional de Crédito</option>
                         <option value="Bancrecer">Bancrecer</option>
+                        <option value="Banco Mercantil">Banco Mercantil</option>
+                        <option value="Banco del Tesoro">Banco del Tesoro</option>
+                        <option value="Banco Exterior">Banco Exterior</option>
+                        <option value="Banco Bicentenario">Banco Bicentenario</option>
+                        <option value="Banco Venezolano de Crédito">Banco Venezolano de Crédito</option>
+
                     </select>
                 </div>
             </div><br><br>
@@ -180,7 +186,7 @@ foreach ($result as $row){
         <input type="date" name="Fecha_Trans" placeholder="2023/02/04" max="2023-12-31" id="Fecha_Trans">
 
         <label for="cedula">Número de referencia</label>
-        <input type="number" name="Num_Trans" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="58435348" id="Num_Trans">
+        <input type="number" name="Num_Trans" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="ej. 58435348" id="Num_Trans">
 
         <label for="motivo">Motivo de pago</label>
         <input type="text" id="Motivo" name="Motivo">

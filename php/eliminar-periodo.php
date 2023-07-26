@@ -8,7 +8,7 @@ if(isset($_GET['deleteid'])){
     $pdo->execute([$id]);
     $pdo_2= $conectar->prepare("UPDATE usuario_has_cursos SET estado_usuario_has_cursos='Finalizado' WHERE Periodo_ID_peri =?");
     $pdo_2->execute([$id]);
-    echo '<script language="javascript">alert("Usuario Eliminado Exitosamente");</script>';
+    echo '<script language="javascript">alert("Este periodo ha finalizado.");</script>';
     echo "<script> location.href='../crud-admin-periodo.php' </script>";
 } 
 catch (Exception $e) {

@@ -32,6 +32,7 @@ foreach ($result as $row){
     $cupos_cur_min = $row['cupos_cur_min'];
     $cupos_cur_max = $row['cupos_cur_max'];
     $conte_text = $row['conte_text'];
+    $estado_cur = $row['estado_cur'];
 
 }
 ?>
@@ -39,6 +40,13 @@ foreach ($result as $row){
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style> 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -78,7 +86,7 @@ foreach ($result as $row){
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Precio</label>
+                <label class="col-sm-3 col-form-label">Precio (Bs. D)</label>
                 <div class="col-sm-6">
                         <input type="text" class="form-control" maxlength="10" inputMode="numeric" onkeyup="agregarDecimal()" placeholder="Precio" id="Precio" name="Precio" value=<?php echo $prec_cur;?>> 
                 </div>
@@ -87,7 +95,7 @@ foreach ($result as $row){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Cupo Minimo</label>
                 <div class="col-sm-6">
-                        <input type="text" oninput="this.value = this.value.replace(/[^0-9-.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9-.]/g, '').replace(/(\..*?)\..*/g, '$1');" 
                         class="form-control" placeholder="Cupo_min" id="Cupo_min" name="Cupo_min" maxlength="15" value=<?php echo $cupos_cur_min;?>>
                 </div>
             </div>
@@ -104,6 +112,16 @@ foreach ($result as $row){
                 <label class="col-sm-3 col-form-label">Contenido del curso</label>
                 <div class="col-sm-6">
                         <textarea type="text" id="Contenido" style="width:550px;height:100px;" name="Contenido" cols="40" class="form-control" ><?php echo $conte_text;?></textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3" id="Estado">
+                <label class="col-sm-3 col-form-label">Estado</label>
+                <div class="col-sm-6">
+                    <input type="radio" class="form-check-input" name="Estado" id="option-1" value="Activo"  <?php echo ($estado_cur=='Activo')?'checked':'' ?>>
+                    <label class="form-check-label" for="option-1">Activo</label> 
+                    <input type="radio" class="form-check-input" name="Estado" id="option-2" value="Eliminado" <?php echo ($estado_cur=='Eliminado')?'checked':'' ?>>
+                    <label class="form-check-label" for="option-2">Eliminado</label> 
                 </div>
             </div>
         </form>
@@ -162,6 +180,7 @@ function registrar(){
     console.log(datos.get("Cupo_min"));
     console.log(datos.get("Cupo_max"));
     console.log(datos.get("Contenido"))
+    console.log(datos.get("Estado"))
     fetch("php/actualizar-curso.php", {
         method: "POST",
         body: datos,

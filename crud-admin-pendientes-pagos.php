@@ -100,8 +100,7 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
                         <td>$row[motivo_notifipago]</td>
                         <td>$row[estado_notifipago]</td>
                         <td>
-                            <a class='btn btn-primary btn-sm' href='php/aceptar-pago.php?editarid=$row[id_notifipago]'
-                            >Aceptar</a>
+                            <a class='btn btn-primary btn-sm' href='php/aceptar-pago.php?editarid=$row[id_notifipago]' onclick='return aceptar();'>Aceptar</a>
                             <a class='btn btn-danger btn-sm' href='php/rechazar-pago.php?deleteid=$row[id_notifipago]' onclick='return checkdelete();'>Rechazar</a>
                         </td>
                     </tr>
@@ -121,7 +120,11 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
 
     <script>
     function checkdelete(){
-        return confirm('¿Estas seguro deseas borrar este usuario?');
+        return confirm('¿Estas seguro deseas rechazar este pago?');
+    }
+
+    function aceptar(){
+        return confirm('¿Estas seguro deseas aceptar este pago?');
     }
     </script>
 </html>

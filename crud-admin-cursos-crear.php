@@ -26,6 +26,13 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style> 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
@@ -41,7 +48,7 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">ID</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="ID" id="ID" name="ID">
+                        <input type="text" class="form-control" placeholder="ID" id="ID" name="ID"></input>
                 </div>
             </div>
 
@@ -65,23 +72,23 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
             </div>
 
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Precio</label>
+                <label class="col-sm-3 col-form-label">Precio (Bs. D)</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control" onkeyup="agregarDecimal()" inputMode="numeric" placeholder="Precio" id="Precio" name="Precio"> 
+                        <input type="text" class="form-control" onkeyup="agregarDecimal()" inputMode="numeric" placeholder="Precio" id="Precio" name="Precio"></input> 
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Cupo mínimo</label>
                 <div class="col-sm-6">
-                        <input type="text" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" placeholder="Cupo_min" id="Cupo_min" name="Cupo_min" maxlength="15">
+                        <input type="number" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" placeholder="Cupo_min" id="Cupo_min" name="Cupo_min" maxlength="15"></input>
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Cupo máximo</label>
                 <div class="col-sm-6">
-                        <input type="text" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" inputMode="numeric" placeholder="Cupo_max" id="Cupo_max" name="Cupo_max">
+                        <input type="number" oninput="this.value = this.value.replace(/[^0-9-]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" inputMode="numeric" placeholder="Cupo_max" id="Cupo_max" name="Cupo_max"></input>
                 </div>
             </div>
             <form>

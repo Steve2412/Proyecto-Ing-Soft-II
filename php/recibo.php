@@ -317,13 +317,13 @@ a {
                                     <td class="content-block">
                                         <table class="invoice">
                                             <tbody><tr>
-                                                <td>'.$Nombre.' '.$Apellido.'<br>'.$usuario_notifipago.'<br>'.$fecha_notifipago.'</td>
+                                                <td>'.$Nombre.' '.$Apellido.'<br>'.$usuario_notifipago.'<br>Fecha del pago: '.$fecha_notifipago.'</td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <table class="invoice-items" cellpadding="0" cellspacing="0">
                                                         <tbody><tr>
-                                                            <td>Monto pago</td>
+                                                            <td>Mónto del pago</td>
                                                             <td class="alignright">'.$monto_notifipago.' Bs.D</td>
                                                         </tr>
                                                         <tr>
@@ -331,7 +331,7 @@ a {
                                                             <td class="alignright">'.$banco_notifipago.'</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Cédula Titutar de la cuenta</td>
+                                                            <td>Cédula titutar de la cuenta</td>
                                                             <td class="alignright">'.$cedu_titular_notifipago.'</td>
                                                         </tr>
                                                         <tr>

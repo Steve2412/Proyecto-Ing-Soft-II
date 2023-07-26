@@ -24,6 +24,11 @@ Insertar_Telefono.addEventListener("keyup", function (e) {
   }
 });
 
+Insertar_Cedula.addEventListener('input',function(){
+  if (this.value.length > 10) 
+     this.value = this.value.slice(0,10); 
+})
+
 
 var el_first = document.querySelector(".Entrada-Datos-1");
 var el_second = document.querySelector(".Entrada-Datos-2");
@@ -45,8 +50,8 @@ function fun_siguiente() {
     alert("Falta campos por rellenar");
   } else if (!Insertar_Correo.value.match(validRegex)) {
     alert("Correo Invalido!");
-  } else if (Insertar_Cedula.value.length > 11) {
-    alert("La cedula no puede ser mayor de 11 digitos");
+  } else if (Insertar_Cedula.value.length > 9) {
+    alert("La cedula no puede ser mayor de 9 digitos");
   } else {
     el_first.style.display = "none";
     el_second.style.display = "block";

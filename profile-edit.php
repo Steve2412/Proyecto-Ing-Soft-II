@@ -149,14 +149,14 @@ if ($Estado=="Inactivo"){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label" style="font-size:20px" >Nombre</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control"style="font-size:20px" placeholder="Nombre" id="Nombre" name="Nombre" value=<?php echo $Nombre;?>>
+                        <input type="text" class="form-control"style="font-size:20px" onkeydown="return /[a-z]/i.test(event.key)" placeholder="Nombre" id="Nombre" name="Nombre" value=<?php echo $Nombre;?>>
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label"style="font-size:20px">Apellido</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control"style="font-size:20px" placeholder="Apellido" id="Apellido" name="Apellido" value=<?php echo $Apellido;?>>
+                        <input type="text" class="form-control"style="font-size:20px" onkeydown="return /[a-z]/i.test(event.key)" placeholder="Apellido" id="Apellido" name="Apellido" value=<?php echo $Apellido;?>>
                 </div>
             </div>
 

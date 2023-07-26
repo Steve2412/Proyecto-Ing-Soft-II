@@ -40,6 +40,15 @@ if(!$result){
    session_destroy(); 
 }
 
+if ($Estado=="Inactivo" AND ($Rol_usuario=="Profesor" || $Rol_usuario=="Administrador")){
+   echo '<script language="javascript">alert("No tiene acceso al sistema actualmente");</script>';
+   echo '<script language="javascript">
+   window.location = "index.html"
+   </script>';
+   die();
+   session_destroy();   
+}
+
 if ($Estado=="Inactivo"){
    echo '<script language="javascript">alert("No estas solvente en el sistema, reporta el pago o comunicate con el administrador");</script>';
    echo '<script language="javascript">
@@ -64,6 +73,7 @@ $query = "SELECT * FROM cursos WHERE ID_cur = '$Cursos_ID_cur'";
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $nomb_cur = $row['nomb_cur'];
+    $estado_cur = $row['estado_cur'];
 }
 
 $query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Profesor'"; 
@@ -177,108 +187,34 @@ foreach ($result as $row){
 
    <h1 class="heading">Idiomas que estas cursando en este momento </h1>
 
-   <div class="box-container">
+   <?php
+   
+   if($estado_cur=="Eliminado"){
+      
+   }else{
+      ?>
+         <div class="box-container">
 
-      <div class="box">
-         <div class="tutor">
-            <img src="Images/pic-3.jpg" alt="">
-            <div class="info">
-            <?php echo "<h3>$Profesor $Profesor_B</h3>" ?>
-               <span><?php echo $fech_ini_peri?> - <?php echo $fech_fin_peri?></span>
-            </div>
-         </div>
-         <div class="thumb">
-            <img src="Images/curso.jpg" alt="">
-         </div>
-         <?php echo "<h3 class='title'>$nomb_cur</h3>" ?>
+            <div class="box">
+               <div class="tutor">
+                  <img src="Images/pic-3.jpg" alt="">
+                     <div class="info">
+                        <?php echo "<h3>$Profesor $Profesor_B</h3>" ?>
+                        <span><?php echo $fech_ini_peri?> - <?php echo $fech_fin_peri?></span>
+                     </div>
+                  </div>
+                  <div class="thumb">
+                     <img src="Images/curso.jpg" alt="">
+                  </div>
+                  <?php echo "<h3 class='title'>$nomb_cur</h3>" ?>
          <a href="cursos.php" class="inline-btn">Ver curso</a>
-      </div>
+      </div>     
+   <?php } ?>
+   
+   
+   
+   
 
-      <!--<div class="box">
-         <div class="tutor">
-            <img src="images/pic-3.jpg" alt="">
-            <div class="info">
-               <h3>john deo</h3>
-               <span>21-10-2022</span>
-            </div>
-         </div>
-         <div class="thumb">
-            <img src="images/thumb-2.png" alt="">
-            <span>10 videos</span>
-         </div>
-         <h3 class="title">complete CSS tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
-      </div>
-
-      <div class="box">
-         <div class="tutor">
-            <img src="images/pic-4.jpg" alt="">
-            <div class="info">
-               <h3>john deo</h3>
-               <span>21-10-2022</span>
-            </div>
-         </div>
-         <div class="thumb">
-            <img src="images/thumb-3.png" alt="">
-            <span>10 videos</span>
-         </div>
-         <h3 class="title">complete JS tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
-      </div>
-
-      <div class="box">
-         <div class="tutor">
-            <img src="images/pic-5.jpg" alt="">
-            <div class="info">
-               <h3>john deo</h3>
-               <span>21-10-2022</span>
-            </div>
-         </div>
-         <div class="thumb">
-            <img src="images/thumb-4.png" alt="">
-            <span>10 videos</span>
-         </div>
-         <h3 class="title">complete Boostrap tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
-      </div>
-
-      <div class="box">
-         <div class="tutor">
-            <img src="images/pic-6.jpg" alt="">
-            <div class="info">
-               <h3>john deo</h3>
-               <span>21-10-2022</span>
-            </div>
-         </div>
-         <div class="thumb">
-            <img src="images/thumb-5.png" alt="">
-            <span>10 videos</span>
-         </div>
-         <h3 class="title">complete JQuery tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
-      </div>
-
-      <div class="box">
-         <div class="tutor">
-            <img src="images/pic-7.jpg" alt="">
-            <div class="info">
-               <h3>john deo</h3>
-               <span>21-10-2022</span>
-            </div>
-         </div>
-         <div class="thumb">
-            <img src="images/thumb-6.png" alt="">
-            <span>10 videos</span>
-         </div>
-         <h3 class="title">complete SASS tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
-      </div>
-
-   </div>-->
-
-   <!--<div class="more-btn">
-      <a href="courses.html" class="inline-option-btn">view all courses</a>
-   </div>-->
 
 </section>
 

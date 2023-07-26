@@ -1,6 +1,11 @@
 var formulario = document.querySelector("#Formulario");
 var mensaje = document.querySelector("#Mensaje");
 
+
+function regresar(){
+  window.location.href = "../foro.php";
+}
+
 function enviar(){
     if(mensaje.value==""|| mensaje.value==null){
         alert("Inserta un mensaje")

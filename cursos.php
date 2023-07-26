@@ -37,6 +37,8 @@ $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $nomb_cur = $row['nomb_cur'];
     $conte_text= $row['conte_text'];
+    $estado_cur = $row['estado_cur'];
+
 }
 
 if ($Estado=="Inactivo"){
@@ -52,6 +54,12 @@ if ($Estado=="Eliminado"){
    </script>';
    die();
    session_destroy(); 
+}
+
+if ($estado_cur=="Eliminado"){
+   echo '<script language="javascript">
+   window.location = "home.php"
+   </script>';
 }
 
 ?>

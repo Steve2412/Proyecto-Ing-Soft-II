@@ -3,7 +3,7 @@ require "conexion.php";
 if(isset($_GET['deleteid'])){
     $id = $_GET['deleteid'];
     try {
-    $pdo= $conectar->prepare("DELETE FROM cursos WHERE ID_cur =?");
+    $pdo= $conectar->prepare("UPDATE cursos SET estado_cur='Eliminado' WHERE ID_cur =?");
     $pdo->execute([$id]);
     echo '<script language="javascript">alert("Curso Eliminado Exitosamente");</script>';
     echo "<script> location.href='../crud-admin-cursos.php' </script>";

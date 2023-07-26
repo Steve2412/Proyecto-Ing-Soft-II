@@ -60,7 +60,7 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
                 
 
                 $filtervalues=$_GET['search'];
-                $query = "SELECT * FROM cursos WHERE CONCAT(ID_cur,nomb_cur) LIKE '%$filtervalues%'";
+                $query = "SELECT * FROM cursos WHERE CONCAT(ID_cur,nomb_cur,estado_cur) LIKE '%$filtervalues%'";
                 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
             
                     foreach ($result as $row){
@@ -73,17 +73,16 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
                         <td>$row[cupos_cur_min]</td>
                         <td>$row[cupos_cur_max]</td>
                         <td>
-                            <a class='btn btn-primary btn-sm' href='crud-admin-cursos-editar.php?editarid=$row[ID_cur]'>Editar</a>
-                            <form action='php/exportar-usuarios.php' method='post' class='mb-2'>
-                            <input type='submit' name='submit' class='btn btn-outline-danger' value='Lista estudiates'>
-                        </form>
+                        <a class='btn btn-primary btn-sm' href='crud-admin-cursos-editar.php?editarid=$row[ID_cur]'>Editar</a><br>
                         <a class='btn btn-danger btn-sm' href='php/eliminar-curso.php?deleteid=$row[ID_cur]' onclick='return checkdelete();'>Eliminar</a>
+                        <form action='php/exportar-crud-alumnos.php?exportarid=$row[ID_cur]' method='post' class='mb-2'>
+                        <input type='submit' name='submit' class='btn btn-outline-danger' value='Lista usuarios'>
                         </td>
                     </tr>
                     ";}
             }
             else{
-            $query = "SELECT * FROM cursos";
+            $query = "SELECT * FROM cursos WHERE estado_cur='Activo'";
             $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 
             foreach ($result as $row){
@@ -99,7 +98,7 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
                             <a class='btn btn-primary btn-sm' href='crud-admin-cursos-editar.php?editarid=$row[ID_cur]'>Editar</a><br>
                             <a class='btn btn-danger btn-sm' href='php/eliminar-curso.php?deleteid=$row[ID_cur]' onclick='return checkdelete();'>Eliminar</a>
                             <form action='php/exportar-crud-alumnos.php?exportarid=$row[ID_cur]' method='post' class='mb-2'>
-                            <input type='submit' name='submit' class='btn btn-outline-danger' value='Lista estudiates'>
+                            <input type='submit' name='submit' class='btn btn-outline-danger' value='Lista usuarios'>
                         </form>
                         </td>
                     </tr>
