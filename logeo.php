@@ -75,7 +75,7 @@ if(isset( $_SESSION["locked"]))
    
   <footer class="footer">
     <div class="container-foo">
-      <div class="row">
+      <div class="row"> 
         <div class="footer-col">
           <h4>Company</h4>
           <ul class="ul-foo">

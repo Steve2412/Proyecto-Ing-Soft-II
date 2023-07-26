@@ -1,8 +1,31 @@
+<?php
+require "php/conexion.php";
+session_start();
+if(!isset($_SESSION['usuario'])){
+  echo '<script language="javascript">
+  window.location = "index.html"
+  </script>';
+  die();
+  session_destroy(); 
+}
+$usuario = $_SESSION['usuario'];
+$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$usuario'"; 
+$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
+foreach ($result as $row){
+    $Rol_usuario = $row['Usuario_rol'];
+
+}
+if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
+  echo "<script> location.href='home.php' </script>";
+
+} 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Pagos</title>
+    <title>Pagos Pendientes</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script type="text/javascript" src="Scripts/code.jquery.com_jquery-3.7.0.min.js"></script>
 </head>
@@ -14,7 +37,6 @@
             <button class="btn btn-dark btn-sm"> Buscar</button>
         </form>
         <h2>Lista Pagos pendientes</h2>  
-        <a class="btn btn-primary" role="button" href="crud-admin-usuario-crear.php" name="sumbit">Nuevo usuario</a>
         <a class="btn btn-info" role="button" href="administrador.php" name="sumbit">Regresar</a> 
         <br>    <br>     
         <form action="php/exportar-usuarios.php" method="post" class="mb-2">
@@ -78,8 +100,7 @@
                         <td>$row[motivo_notifipago]</td>
                         <td>$row[estado_notifipago]</td>
                         <td>
-                            <a class='btn btn-primary btn-sm' href='php/aceptar-pago.php?editarid=$row[id_notifipago]'
-                            >Aceptar</a>
+                            <a class='btn btn-primary btn-sm' href='php/aceptar-pago.php?editarid=$row[id_notifipago]' onclick='return aceptar();'>Aceptar</a>
                             <a class='btn btn-danger btn-sm' href='php/rechazar-pago.php?deleteid=$row[id_notifipago]' onclick='return checkdelete();'>Rechazar</a>
                         </td>
                     </tr>
@@ -99,7 +120,11 @@
 
     <script>
     function checkdelete(){
-        return confirm('¿Estas seguro deseas borrar este usuario?');
+        return confirm('¿Estas seguro deseas rechazar este pago?');
+    }
+
+    function aceptar(){
+        return confirm('¿Estas seguro deseas aceptar este pago?');
     }
     </script>
 </html>

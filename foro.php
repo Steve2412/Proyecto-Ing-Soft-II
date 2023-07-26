@@ -30,6 +30,13 @@ foreach ($result as $row){
       window.location = "notifipago.php"
       </script>';
    }
+   if ($Estado=="Eliminado"){
+      echo '<script language="javascript">
+      window.location = "index.html"
+      </script>';
+      die();
+      session_destroy(); 
+   }   
 
 $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$usuario'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
@@ -51,6 +58,7 @@ $query = "SELECT * FROM cursos WHERE ID_cur = '$Cursos_ID_cur'";
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $nomb_cur = $row['nomb_cur'];
+    $estado_cur = $row['estado_cur'];
 }
 
 $query = "SELECT * FROM usuario_has_cursos WHERE Cursos_ID_cur = '$Cursos_ID_cur' AND Usuario_rol='Profesor'"; 
@@ -70,6 +78,12 @@ if($Rol_usuario=="Administrador"){
 
 }
 
+if ($estado_cur=="Eliminado"){
+   echo '<script language="javascript">
+   window.location = "home.php"
+   </script>';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +91,7 @@ if($Rol_usuario=="Administrador"){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Corblaserca - Inicio</title>
+   <title>Foro</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">

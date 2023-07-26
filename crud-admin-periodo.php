@@ -1,8 +1,32 @@
+<?php
+require "php/conexion.php";
+
+session_start();
+if(!isset($_SESSION['usuario'])){
+  echo '<script language="javascript">
+  window.location = "index.html"
+  </script>';
+  die();
+  session_destroy(); 
+}
+$usuario = $_SESSION['usuario'];
+$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$usuario'"; 
+$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
+foreach ($result as $row){
+    $Rol_usuario = $row['Usuario_rol'];
+
+}
+if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
+  echo "<script> location.href='home.php' </script>";
+
+} 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Usuarios</title>
+    <title>Lista Periodo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script type="text/javascript" src="Scripts/code.jquery.com_jquery-3.7.0.min.js"></script>
 </head>
@@ -88,7 +112,7 @@
 
     <script>
     function checkdelete(){
-        return confirm('¿Estas seguro deseas borrar este periodo?');
+        return confirm('¿Estas seguro deseas finalizar este periodo?');
     }
     </script>
 </html>

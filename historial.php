@@ -43,9 +43,9 @@ if(!$result){
 if($Rol_usuario=="Administrador"){
    echo "<script> location.href='administrador.php' </script>";
 
-}  
+}
 
-if(!$result){
+if ($Estado=="Eliminado"){
    echo '<script language="javascript">
    window.location = "index.html"
    </script>';
@@ -89,7 +89,7 @@ foreach ($result as $row){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Corblaserca - Inicio</title>
+   <title>Historial Pago</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
@@ -165,8 +165,8 @@ foreach ($result as $row){
 <?php
 
 if($Estado=="Inactivo"){
-   echo "<a href='notifipago.php'><i class='fa fa-dollar'></i><span>Reporte de pagos</span></a>
-   ";}
+   echo "<a href='notifipago.php'><i class='fa fa-dollar'></i><span>Reporte de pagos</span></a>";
+}
 
 ?>
       <?php 
@@ -207,6 +207,39 @@ if($Estado=="Inactivo"){
 
    <?php
 
+   if($estado_notifipago=="Rechazado"){
+      echo "<h3 class='estatus-rechazo'>$estado_notifipago</h3>
+      <h3 class='fecha-pago'>$fecha_notifipago</h3>
+
+      <h3 class='Referencia-pago'>Nro. Referencia $referencia_notifipago</h3>
+   
+      <h3 class='monto-pago'>$monto_notifipago Bs.D</h3>
+   
+      <form action='php/recibo.php?exportarid=$id_notifipago' method='post' class='mb-2'>
+         <input type='submit' name='submit' class='boton-detalles' value='Exportar PDF'>
+      </form>
+       
+    </div>
+      ";
+      
+   }else if($estado_notifipago=="Pendiente"){
+      echo "<h3 class='estatus-Pendiente'>$estado_notifipago</h3>
+
+      <h3 class='fecha-pago'>$fecha_notifipago</h3>
+   
+      <h3 class='Referencia-pago'>Nro. Referencia $referencia_notifipago</h3>
+   
+      <h3 class='monto-pago'>$monto_notifipago Bs.D</h3>
+   
+      <form action='php/recibo.php?exportarid=$id_notifipago' method='post' class='mb-2'>
+         <input type='submit' name='submit' class='boton-detalles' value='Exportar PDF'>
+      </form>
+       
+    </div>
+    ";
+
+   }else{
+
    echo "<h3 class='estatus-pago'>$estado_notifipago</h3>
 
    <h3 class='fecha-pago'>$fecha_notifipago</h3>
@@ -223,7 +256,7 @@ if($Estado=="Inactivo"){
    
    ";
 
-   }
+   }}
    ?>
       
 

@@ -62,8 +62,6 @@ function registrar() {
     Insertar_Direccion.value === "" ||
     Insertar_Telefono.value == null ||
     Insertar_Telefono.value === "" ||
-    Insertar_Contra.value == null ||
-    Insertar_Contra.value === ""||
     Insertar_Fecha.value == null ||
     Insertar_Fecha.value === ""
   )
@@ -77,16 +75,6 @@ function registrar() {
     Insertar_Telefono.value.length > 15
   ) {
     alert("Error en el numero telefonico");
-  } else if (Insertar_Contra.value.length < 8) {
-    alert("Contraseña menor a 8 caracteres");
-  } else if (Insertar_Contra.value.length > 16) {
-    alert("Contraseña mayor a 16 caracteres");
-  } else if (Insertar_Contra.value.search(/[a-z]/) < 0) {
-    alert("Debe Incluir una letra minuscula");
-  } else if (Insertar_Contra.value.search(/[A-Z]/) < 0) {
-    alert("Debe Incluir una letra Mayuscula");
-  } else if (Insertar_Contra.value.search(/[0-9]/) < 0) {
-    alert("Debe Incluir una Numero");
   } else {
     var datos = new FormData(formulario);
     console.log(datos.get("Nombre"));

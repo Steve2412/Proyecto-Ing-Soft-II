@@ -1,5 +1,26 @@
 <?php
 require "php/conexion.php";
+
+session_start();
+if(!isset($_SESSION['usuario'])){
+  echo '<script language="javascript">
+  window.location = "index.html"
+  </script>';
+  die();
+  session_destroy(); 
+}
+$usuario = $_SESSION['usuario'];
+$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$usuario'"; 
+$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
+foreach ($result as $row){
+    $Rol_usuario = $row['Usuario_rol'];
+
+}
+if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
+  echo "<script> location.href='home.php' </script>";
+
+} 
+
 $id=$_GET['editarid']; 
 $query = "SELECT * FROM usuario WHERE cedu_user = '$id'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
@@ -71,7 +92,7 @@ foreach ($result as $row){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Direccion</label>
                 <div class="col-sm-6">
-                        <textarea type="text" class="form-control" placeholder="Direccion" id="Direccion" name="Direccion" maxlength="15"><?php echo $Direccion;?></textarea>
+                        <textarea type="text" class="form-control" placeholder="Direccion" id="Direccion" name="Direccion"><?php echo $Direccion;?></textarea>
                 </div>
             </div>
 

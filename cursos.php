@@ -21,6 +21,7 @@ foreach ($result as $row){
     $Numero = $row['numer_user'];
     $Contra = $row['contra_user'];
     $Fecha = $row['fech_naci_user'];
+    $Estado = $row['estado_user'];
 }
 
 $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$usuario'"; 
@@ -36,6 +37,29 @@ $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $nomb_cur = $row['nomb_cur'];
     $conte_text= $row['conte_text'];
+    $estado_cur = $row['estado_cur'];
+
+}
+
+if ($Estado=="Inactivo"){
+   echo '<script language="javascript">alert("No estas solvente en el sistema, reporta el pago o comunicate con el administrador");</script>';
+   echo '<script language="javascript">
+   window.location = "notifipago.php"
+   </script>';
+}
+
+if ($Estado=="Eliminado"){
+   echo '<script language="javascript">
+   window.location = "index.html"
+   </script>';
+   die();
+   session_destroy(); 
+}
+
+if ($estado_cur=="Eliminado"){
+   echo '<script language="javascript">
+   window.location = "home.php"
+   </script>';
 }
 
 ?>

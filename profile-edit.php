@@ -21,6 +21,7 @@ foreach ($result as $row){
     $Numero = $row['numer_user'];
     $Contra = $row['contra_user'];
     $Fecha = $row['fech_naci_user'];
+    $Estado = $row['estado_user'];
 }
 
 $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$usuario'"; 
@@ -37,6 +38,21 @@ $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $nomb_cur = $row['nomb_cur'];
 }
+
+if ($Estado=="Inactivo"){
+    echo '<script language="javascript">alert("No estas solvente en el sistema, reporta el pago o comunicate con el administrador");</script>';
+    echo '<script language="javascript">
+    window.location = "notifipago.php"
+    </script>';
+ }
+ 
+ if ($Estado=="Eliminado"){
+    echo '<script language="javascript">
+    window.location = "index.html"
+    </script>';
+    die();
+    session_destroy(); 
+ }
 
 ?>
 <!DOCTYPE html>
@@ -133,14 +149,14 @@ foreach ($result as $row){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label" style="font-size:20px" >Nombre</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control"style="font-size:20px" placeholder="Nombre" id="Nombre" name="Nombre" value=<?php echo $Nombre;?>>
+                        <input type="text" class="form-control"style="font-size:20px" onkeydown="return /[a-z]/i.test(event.key)" placeholder="Nombre" id="Nombre" name="Nombre" value=<?php echo $Nombre;?>>
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label"style="font-size:20px">Apellido</label>
                 <div class="col-sm-6">
-                        <input type="text" class="form-control"style="font-size:20px" placeholder="Apellido" id="Apellido" name="Apellido" value=<?php echo $Apellido;?>>
+                        <input type="text" class="form-control"style="font-size:20px" onkeydown="return /[a-z]/i.test(event.key)" placeholder="Apellido" id="Apellido" name="Apellido" value=<?php echo $Apellido;?>>
                 </div>
             </div>
 

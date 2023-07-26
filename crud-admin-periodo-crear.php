@@ -1,3 +1,26 @@
+<?php
+require "php/conexion.php";
+session_start();
+if(!isset($_SESSION['usuario'])){
+  echo '<script language="javascript">
+  window.location = "index.html"
+  </script>';
+  die();
+  session_destroy(); 
+}
+$usuario = $_SESSION['usuario'];
+$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$usuario'"; 
+$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
+foreach ($result as $row){
+    $Rol_usuario = $row['Usuario_rol'];
+
+}
+if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
+  echo "<script> location.href='home.php' </script>";
+
+} 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

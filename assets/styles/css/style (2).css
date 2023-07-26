@@ -1336,6 +1336,45 @@ border-radius: 5px;
 
 }
 
+.estatus-rechazo{
+
+   position: absolute;
+   
+   font-size: 13px;
+   
+   width: 130px;
+   
+   padding: 5px;
+   
+   margin: 5px;
+   
+   background-color: #ff1500;
+   
+   border-radius: 5px;
+   
+   
+   }
+
+   .estatus-Pendiente{
+
+      position: absolute;
+      
+      font-size: 13px;
+      
+      width: 130px;
+      
+      padding: 5px;
+      
+      margin: 5px;
+      
+      background-color: #2874A6;
+      
+      border-radius: 5px;
+      
+      
+      }
+   
+
 .fecha-pago{
 
    position: absolute;

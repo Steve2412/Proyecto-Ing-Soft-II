@@ -1,5 +1,25 @@
 <?php
 require "php/conexion.php";
+
+session_start();
+if(!isset($_SESSION['usuario'])){
+  echo '<script language="javascript">
+  window.location = "index.html"
+  </script>';
+  die();
+  session_destroy(); 
+}
+$usuario = $_SESSION['usuario'];
+$query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$usuario'"; 
+$result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
+foreach ($result as $row){
+    $Rol_usuario = $row['Usuario_rol'];
+
+}
+if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
+  echo "<script> location.href='home.php' </script>";
+
+} 
 $id=$_GET['editarid']; 
 $query = "SELECT * FROM usuario_has_cursos WHERE Usuario_ID_user = '$id'"; 
 $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
@@ -81,7 +101,7 @@ foreach ($result as $row){
                     <input type="radio" class="form-check-input" name="Rol" id="option-1" value="Estudiante" <?php echo ($Usuario_rol=='Estudiante')?'checked':'' ?> >
                     <label class="form-check-label" for="option-1">Estudiante</label>
                     <input type="radio" class="form-check-input" name="Rol" id="option-2" value="Profesor" <?php echo ($Usuario_rol=='Profesor')?'checked':'' ?>  >
-                    <label class="form-check-label" for="option-2">Administrador</label>  
+                    <label class="form-check-label" for="option-2">Profesor</label>  
                     <input type="radio" class="form-check-input" name="Rol" id="option-3" value="Administrador" <?php echo ($Usuario_rol=='Administrador')?'checked':'' ?>  >
                     <label class="form-check-label" for="option-3">Administrador</label> 
                 </div>
