@@ -105,7 +105,7 @@ if ($Estado=="Inactivo"){
 					    <div class="form-group row">
 					      	<label for="password" class="col-sm-3 col-form-label">Contraseña</label>
 					      	<div class="col-sm-9">
-					        	<input type="text" class="form-control" id="password" name="password" placeholder="Contraseña">
+					        	<input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
 					      	</div>
 					    </div>
 					    <div class="form-group row">

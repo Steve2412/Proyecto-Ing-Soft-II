@@ -166,7 +166,7 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
 <div style="font-size:20px">Restaurar copia de seguridad</div>
 <a class='btn btn-primary btn-sm' href='db_restore/restore.php'>Restaurar copia de seguridad</a>
 <br><div style="font-size:20px">Manual de analista</div>
-<a class='btn btn-primary btn-sm' href='https://publuu.com/flip-book/192924/478574'>Manual de analista</a>
+<a class='btn btn-primary btn-sm' href='https://publuu.com/flip-book/192924/478574' target="_blank">Manual de analista</a>
 <br>
 
 

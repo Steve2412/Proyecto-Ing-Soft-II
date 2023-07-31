@@ -204,7 +204,7 @@ foreach ($result as $row){
                      </div>
                   </div>
                   <div class="thumb">
-                     <img src="Images/curso.jpg" alt="">
+                     <img src="Images/Teachers-are-calling-for-the-government-to-introduce-new-measures-tackle-a-steady-decline-in-language-learning-in-English-schools..jpg">
                   </div>
                   <?php echo "<h3 class='title'>$nomb_cur</h3>" ?>
          <a href="cursos.php" class="inline-btn">Ver curso</a>

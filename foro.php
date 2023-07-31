@@ -84,6 +84,11 @@ if ($estado_cur=="Eliminado"){
    </script>';
 }
 
+if($Rol_usuario=="Administrador"){
+   echo "<script> location.href='administrador.php' </script>";
+
+}  
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

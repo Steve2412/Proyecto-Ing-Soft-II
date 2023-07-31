@@ -46,7 +46,7 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
                     <th>Nombre</th>
                     <th>Horas</th>
                     <th>Precio</th>
-                    <th>Cupo míimo</th>
+                    <th>Cupo mínimo</th>
                     <th>Cupo máximo</th>
                 </tr>
             </thead>

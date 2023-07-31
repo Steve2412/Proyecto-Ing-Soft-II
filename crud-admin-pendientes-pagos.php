@@ -39,9 +39,6 @@ if($Rol_usuario=="Profesor"||$Rol_usuario=="Estudiante"){
         <h2>Lista Pagos pendientes</h2>  
         <a class="btn btn-info" role="button" href="administrador.php" name="sumbit">Regresar</a> 
         <br>    <br>     
-        <form action="php/exportar-usuarios.php" method="post" class="mb-2">
-            <input type="submit" name="submit" class="btn btn-outline-danger" value="Exportar PDF lista completa">
-        </form>
         <table class="table">
             <thead>
                 <tr>

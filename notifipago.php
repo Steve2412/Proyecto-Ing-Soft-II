@@ -56,7 +56,10 @@ $result = $conectar->query($query)->fetchAll(PDO::FETCH_BOTH);
 foreach ($result as $row){
     $nomb_cur = $row['nomb_cur'];
 }
+if($Rol_usuario=="Administrador"){
+   echo "<script> location.href='administrador.php' </script>";
 
+}  
 ?>
 
 <!DOCTYPE html>

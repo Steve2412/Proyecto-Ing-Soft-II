@@ -53,6 +53,11 @@ if ($Estado=="Inactivo"){
     die();
     session_destroy(); 
  }
+ 
+ if($Rol_usuario=="Administrador"){
+   echo "<script> location.href='administrador.php' </script>";
+
+}  
 
 ?>
 <!DOCTYPE html>
@@ -87,7 +92,6 @@ if ($Estado=="Inactivo"){
 
       <div class="icons">
          <div id="menu-btn" class="fas fa-bars"></div>
-         <div id="search-btn" class="fas fa-search"></div>
          <div id="user-btn" class="fas fa-user"></div>
          <!--<div id="toggle-btn" class="fas fa-sun"></div>-->
          </div>
@@ -194,7 +198,7 @@ if ($Estado=="Inactivo"){
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label"style="font-size:20px">Fecha de Nacimiento</label>
                 <div class="col-sm-6">
-                        <input type="date" id="Fecha-Insertar"style="font-size:20px" name="Fecha" class="input-group date" value=<?php echo $Fecha;?>>
+                        <input type="date" id="Fecha-Insertar"style="font-size:20px" max="2023-12-31" name="Fecha" class="input-group date" value=<?php echo $Fecha;?>>
                 </div>
             </div>
             </div>

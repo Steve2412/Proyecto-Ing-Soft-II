@@ -21,11 +21,6 @@ Insertar_Telefono.addEventListener("keyup", function (e) {
   }
 });
 
-var Fecha_Actual = new Date();
-var Mes_Actual = new Date().getMonth();
-var Dia_Actual = Fecha_Actual.getDate;
-console.log(Fecha_Actual, Mes_Actual.value, Dia_Actual.value);
-
 var el_first = document.querySelector(".Entrada-Datos-1");
 var el_second = document.querySelector(".Entrada-Datos-2");
 var boton_siguiente = document.querySelector(".Boton-Siguiente");
@@ -47,6 +42,11 @@ function regresar() {
 }
 
 function registrar() {
+  var Fecha_Actual = new Date();
+  var Fecha_Comparar = new Date(Insertar_Fecha.value);
+  var Difference_In_Time = Fecha_Actual.getTime() - Fecha_Comparar.getTime();
+  Difference_In_Time = Math.round(Difference_In_Time / (1000 * 60 * 60 * 24));
+  console.log(Difference_In_Time);
   if (
     Insertar_Nombre.value == null ||
     Insertar_Nombre.value === "" ||
@@ -69,7 +69,9 @@ function registrar() {
     Insertar_Telefono.value.length > 15
   ) {
     alert("Error en el numero telefonico");
-  } else {
+  } else if(Difference_In_Time<"6574"||Insertar_Fecha.value<"1920-01-01"){
+    alert("No puedes ingresar esta fecha.")
+  }  else {
     var datos = new FormData(formulario);
     console.log(datos.get("Nombre"));
     console.log(datos.get("Apellido"));

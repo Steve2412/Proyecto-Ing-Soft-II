@@ -79,7 +79,6 @@ if ($estado_cur=="Eliminado"){
    <link rel="stylesheet" href="assets/styles/css/style.css">
 
    <link rel="stylesheet" href="assets/styles/css/cursos.css">
-   <link rel="stylesheet" href="subir.css">
 </head>
 <body>
 
@@ -91,7 +90,6 @@ if ($estado_cur=="Eliminado"){
 
       <div class="icons">
          <div id="menu-btn" class="fas fa-bars"></div>
-         <div id="search-btn" class="fas fa-search"></div>
          <div id="user-btn" class="fas fa-user"></div>
          <!--<div id="toggle-btn" class="fas fa-sun"></div>-->
          </div>
@@ -140,6 +138,11 @@ if($Rol_usuario=="Profesor"){
    echo  "<a class='btn btn-primary btn-sm' href='cursos-editar.php'>Editar</a>";
 }
 
+if($Rol_usuario=="Administrador"){
+   echo "<script> location.href='administrador.php' </script>";
+
+}  
+
 ?>
 <br><br><br>
 <?php echo $conte_text ?>
@@ -169,7 +172,7 @@ if($Rol_usuario=="Profesor"){
 
 <footer class="footer">
 
-   &copy; copyright @ 2022 by <span>mr. web designer</span> | all rights reserved!
+   &copy; Todos los derechos reservado por <span>Corblaserca</span> | 2023 all rights reserved!
 
 </footer>
 
