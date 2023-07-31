@@ -59,6 +59,11 @@ if ($Estado=="Eliminado"){
    die();
    session_destroy(); 
 }
+
+if($Rol_usuario=="Administrador"){
+   echo "<script> location.href='administrador.php' </script>";
+
+}  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -249,7 +254,7 @@ if ($Estado=="Eliminado"){
                         </tr>
 
                            <tr>
-                           <td class='align-middle'>12:00pm-01:00am</td>
+                           <td class='align-middle'>12:00pm-01:00pm</td>
                            <td>
                                  <span class=></span>
                            </td>
@@ -390,7 +395,7 @@ if ($Estado=="Eliminado"){
                         </tr>
 
                            <tr>
-                           <td class='align-middle'>12:00pm-01:00am</td>
+                           <td class='align-middle'>12:00pm-01:00pm</td>
                            <td>
                                  <span class=></span>
                            </td>
@@ -531,7 +536,7 @@ if ($Estado=="Eliminado"){
                         </tr>
 
                            <tr>
-                           <td class='align-middle'>12:00pm-01:00am</td>
+                           <td class='align-middle'>12:00pm-01:00pm</td>
                            <td>
                                  <span class=>$nomb_cur</span>
                            </td>
@@ -671,7 +676,7 @@ if ($Estado=="Eliminado"){
                         </tr>
 
                            <tr>
-                           <td class='align-middle'>12:00pm-01:00am</td>
+                           <td class='align-middle'>12:00pm-01:00pm</td>
                            <td>
                                  <span class=></span>
                            </td>

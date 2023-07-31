@@ -154,7 +154,7 @@ if(isset($submit)){
     </tr>
 
         <tr>
-        <td  style="border:1px solid #ddd; padding:8px; text-align:center;" class="align-middle">12:00pm-01:00am</td>
+        <td  style="border:1px solid #ddd; padding:8px; text-align:center;" class="align-middle">12:00pm-01:00pm</td>
         <td style="border:1px solid #ddd; padding:8px; text-align:center;">
             <span class=></span>
         </td>

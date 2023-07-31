@@ -114,8 +114,8 @@ function registrar() {
     alert("Debe Incluir una Numero");
   } else if (Insertar_Contra_1.value !== Insertar_Contra_2.value) {
     alert("Las contraseñas no concuerdan");
-  } else if(Difference_In_Time<"6574"){
-    alert("Eres menor de edad, no puedes registrarte via online")
+  } else if(Difference_In_Time<"6574"||Insertar_Fecha.value<"1920-01-01"){
+    alert("No puedes utilizar esa fecha como tu fecha de nacimiento")
   } else {
     var datos = new FormData(formulario);
     console.log(datos.get("Nombre"));

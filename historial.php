@@ -79,7 +79,10 @@ foreach ($result as $row){
     $fech_fin_peri = $row['fech_fin_peri'];
 }
 
+if($Rol_usuario=="Administrador"){
+   echo "<script> location.href='administrador.php' </script>";
 
+}  
 
 ?>
 

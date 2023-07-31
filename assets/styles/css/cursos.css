@@ -10,17 +10,18 @@ html{
     font-size: 62.5%;
  }
 .footer{
-    background-color: var(--white);
-    border-top: var(--border);
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    text-align: center;
-    font-size: 2rem;
-    padding:2.5rem 2rem;
-    color:var(--black);
-    margin-top: 1rem;
-    z-index: 1000;   /* padding-bottom: 9.5rem; */
- }
+   background-color: var(--white);
+   border-top: var(--border);
+   position: relative;
+   bottom: 0; left: 0; right: 0;
+   text-align: center;
+   font-size: 2rem;
+   padding:2.5rem 2rem;
+   color:var(--black);
+   margin-top: 1rem;
+   z-index: 1000;   /* padding-bottom: 9.5rem; */
+   
+}
  
  .footer span{
     color:var(--main-color);
